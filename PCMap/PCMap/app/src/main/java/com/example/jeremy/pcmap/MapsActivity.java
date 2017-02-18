@@ -9,6 +9,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
+
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -29,7 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(32.879524, -117.236522);
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromPath(images/pclevel1.png))
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclevel1))
                 .position(sydney, 800f, 800f);
 
         mMap.addGroundOverlay(PCOverlay);
