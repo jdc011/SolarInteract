@@ -29,7 +29,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(32.879524, -117.236522);
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromPath)
+                .image(BitmapDescriptorFactory.fromPath(images/pclevel1.png))
+                .position(sydney, 800f, 800f);
+
+        mMap.addGroundOverlay(PCOverlay);
 
         // Add a marker in Sydney, Australia, and move the camera.
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in PC"));
