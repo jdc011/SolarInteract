@@ -34,7 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(32.879524, -117.236522);
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.pclevel1))
-                .position(sydney, 800f, 800f);
+                .position(new LatLngBounds(new LatLng(32.879102, -117237510), new LatLng(32.880476, -117.235493)));
 
         mMap.addGroundOverlay(PCOverlay);
 
