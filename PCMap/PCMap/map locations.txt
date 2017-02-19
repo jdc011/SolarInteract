@@ -4,6 +4,11 @@ FORMAT: [String locationName], [String locationType], [double latitude], [double
 USAGES:
 	locationName: name of location
 	locationType: lets programmer know if location is landmark or business
+	latitude: latitude of location
+	longitude: longitude of location
+	level: which floor the location is on
+	open: opening times, REGEX KEY = "-"
+	close: closing times, REGEX KEY = "-"
 CODE SNIPPETS THAT MAY BE USEFUL:
 	enum Locations {BUSINESS, LANDMARK}; 
 	Location [nameLoc] = new Location(latitude, longitude);
