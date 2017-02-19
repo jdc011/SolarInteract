@@ -1,0 +1,36 @@
+FORMAT: [String locationName], [double latitude], [double longitude], [int level], [int open], [int close]
+REGEX KEY: ","
+
+FOOD, 91, 181
+Panda Express, 32.879718, -117.236567, 1
+Lemongrass, 32.879782, -117.236474, 1
+Rubio's, 32.879835, -117.236529, 1
+Subway, 32.879921, -117.236530, 1
+Bombay Coast, 32.879901, -117.236197, 1
+Tapioca Express, 32.879642, -117.235672, 1
+Santorini's, 32.879756, -117.235678, 1
+Burger King, 32.879863, -117.235643, 1
+Round Table Pizza, 32.879998, -117.236733, 1
+Starbuck's, 32.880090, -117.236423, 1
+Shogun, 32.880030, -117.236922, 2
+Sun God Lounge, 32.880094, -117.237103, 2
+Zanzibar Cafe at the Loft, 32.879595, -117.235964, 2
+Perk's, 32.879353, -117.237305, 1
+Jamba Juice, 32.880007, -117.236713, 1
+
+
+
+BUSINESS, 92, 182
+Sustainability Resource Center, 32.879850, -117.237168, 1
+UCSD Bookstore level 1, 32.879476, -117.236945, 1
+UCSD Bookstore level 2, 32.879476, -117.236945, 2
+Sunshine Market, 32.879698, -117.235860, 1
+Price Center Theater, 32.879933, -117.237075, 1
+Chase Bank, 32.879761, -117.235947, 1
+UCSD Postal Center, 32.879986, -117.235716, 1
+Outback Adventures: Surf Shops, 32.880051, -117.237369, 2
+
+
+
+MISC, 93, 183
+Triton Fountain Statue, 32.879285, -117.236137, 1
