@@ -1,45 +1,47 @@
 CURRENTLY ROUGH OUTLINE
 
-FORMAT: [String locationName], [String locationType], [double latitude], [double longitude], [int level], [String open], [String close]
+FORMAT: [String locationName], [enum locationType], [double latitude], [double longitude], [int level], [String open], [String close]
 USAGES:
 	locationName: name of location
-	locationType: lets programmer know if location is landmark or business
+	locationType: lets programmer know if location is LANDMARK or BUSINESS
 	latitude: latitude of location
 	longitude: longitude of location
 	level: which floor the location is on
-	open: opening times, REGEX KEY = "-"
-	close: closing times, REGEX KEY = "-"
+	open: opening times SMTWTFS, REGEX KEY = "-"
+	close: closing times SMTWTFS, REGEX KEY = "-"
 CODE SNIPPETS THAT MAY BE USEFUL:
-	enum Locations {BUSINESS, LANDMARK}; 
+	enum LocationTypes {BUSINESS, LANDMARK}; 
 	Location [nameLoc] = new Location(latitude, longitude);
 	LatLng [name] = new LatLng([nameLoc].getLatitude(), [nameLoc].getLongitude());
 	mMap.addMarker(new MarkerOptions().position([name]).title(locationName).snippet(description));
-	// to do: usage of level, open, close
+	// to do: level, open, close
 REGEX KEY: ","
 
 OFFICIAL DATA BELOW THIS LINE:
 
-Panda Express, BUSINESS, 32.879718, -117.236567, 1
-Lemongrass, BUSINESS, 32.879782, -117.236474, 1
-Rubio's, BUSINESS, 32.879835, -117.236529, 1
-Subway, BUSINESS, 32.879921, -117.236530, 1
-Bombay Coast, BUSINESS, 32.879901, -117.236197, 1
-Tapioca Express, BUSINESS, 32.879642, -117.235672, 1
-Santorini's, BUSINESS, 32.879756, -117.235678, 1
-Burger King, BUSINESS, 32.879863, -117.235643, 1
-Round Table Pizza, BUSINESS, 32.879998, -117.236733, 1
-Starbuck's, BUSINESS, 32.880090, -117.236423, 1
-Shogun, BUSINESS, 32.880030, -117.236922, 2
-Zanzibar Cafe at the Loft, BUSINESS, 32.879595, -117.235964, 2
-Perk's Coffee Shop, BUSINESS, 32.879353, -117.237305, 1
-Jamba Juice, BUSINESS, 32.880007, -117.236713, 1
+Panda Express, BUSINESS, 32.879718, -117.236567, 1, 11AM-9AM-9AM-9AM-9AM-9AM-11AM, 7PM-9PM-9PM-9PM-9PM-7PM-5PM
+Lemongrass, BUSINESS, 32.879782, -117.236474, 1, 11AM-9:30AM-9:30AM-9:30AM-9:30AM-9:30AM-10AM, 7PM-9PM-9PM-9PM-9PM-6PM-6PM
+Rubio's Fresh Mexican Grill, BUSINESS, 32.879835, -117.236529, 1, 10:30AM-9AM-9AM-9AM-9AM-9AM-10:30AM, 5PM-9PM-9PM-9PM-9PM-8PM-6PM
+Subway, BUSINESS, 32.879921, -117.236530, 1, 9:30AM-7AM-7AM-7AM-7AM-7AM-8AM, 11PM-11PM-11PM-11PM-11PM-11PM-11PM
+Bombay Coast, BUSINESS, 32.879901, -117.236197, 1, closed-10AM-10AM-10AM-10AM-10AM-10AM, closed-9PM-9PM-9PM-9PM-9PM-7PM
+Tapioca Express, BUSINESS, 32.879642, -117.235672, 1, 10:30AM-9:30AM-9:30AM-9:30AM-9:30AM-9:30AM-10:30AM, 12AM-12AM-12AM-12AM-12AM-12AM-12AM
+Santorini's, BUSINESS, 32.879756, -117.235678, 1, 11AM-7:30AM-7:30AM-7:30AM-7:30AM-7:30AM-10AM, 12AM-12AM-12AM-12AM-12AM-9PM-7PM
+Burger King, BUSINESS, 32.879863, -117.235643, 1, 9:30AM-24 hours-24 hours-24 hours-24 hours-closes at 12AM-8AM, 12AM-24 hours-24 hours-24 hours-24 hours-closes at 12AM-12AM
+Round Table Pizza, BUSINESS, 32.879998, -117.236733, 1, 11AM-10AM-10AM-10AM-10AM-10AM-11AM, 4PM-9PM-9PM-9PM-9PM-9PM-2PM
+Starbucks, BUSINESS, 32.880090, -117.236423, 1, 9:30AM-7AM-7AM-7AM-7AM-7AM-8AM, 11PM-11PM-11PM-11PM-11PM-11PM-11PM
+Shogun Sushi & Teriyaki, BUSINESS, 32.880030, -117.236922, 2, 11:30AM-10AM-10AM-10AM-10AM-10AM-11:30AM, 8PM-9PM-9PM-9PM-9PM-8PM-8PM
+Zanzibar Cafe at the Loft, BUSINESS, 32.879595, -117.235964, 2, closed-9AM-9AM-9AM-9AM-9AM-closed, closed-6PM-6PM-6PM-6PM-6PM-closed
+Perk's Coffee Shop, BUSINESS, 32.879353, -117.237305, 1, 11AM-7AM-7AM-7AM-7AM-7AM-11AM, 4PM-7PM-7PM-7PM-7PM-6PM-4PM
+Jamba Juice, BUSINESS, 32.880007, -117.236713, 1, 9:30AM-7AM-7AM-7AM-7AM-7AM-9:30AM, 4PM-10PM-10PM-10PM-10PM-10PM-4PM
 Sustainability Resource Center, BUSINESS, 32.879850, -117.237168, 1, no hours, no hours
-UCSD Bookstore level 1, BUSINESS, 32.879476, -117.236945, 1, 
-UCSD Bookstore level 2, BUSINESS, 32.879476, -117.236945, 2
-Sunshine Market, BUSINESS, 32.879698, -117.235860, 1
-Price Center Theater, landmark, 32.879933, -117.237075, 1, no hours, no hours
-Chase Bank, BUSINESS, 32.879761, -117.235947, 1
-UCSD Postal Center, BUSINESS, 32.879986, -117.235716, 1
+UCSD Bookstore level 1, BUSINESS, 32.879476, -117.236945, 1, closed-8AM-8AM-8AM-8AM-8AM-11AM, closed-6PM-6PM-6PM-6PM-6PM-4PM
+UCSD Bookstore level 2, BUSINESS, 32.879476, -117.236945, 2, closed-8AM-8AM-8AM-8AM-8AM-11AM, closed-6PM-6PM-6PM-6PM-6PM-4PM
+Sunshine Market, BUSINESS, 32.879698, -117.235860, 1, 11AM-7AM-7AM-7AM-7AM-7AM-11AM, 5PM-9PM-9PM-9PM-9PM-6PM-5PM
+Price Center Theater, LANDMARK, 32.879933, -117.237075, 1, no hours, no hours
+Chase Bank, BUSINESS, 32.879761, -117.235947, 1, closed-9AM-9AM-9AM-9AM-9AM-10AM, closed-6PM-6PM-6PM-6PM-6PM-2PM
+UCSD Postal Center, BUSINESS, 32.879986, -117.235716, 1, closed-8:30AM-8:30AM-8:30AM-8:30AM-8:30AM-closed, closed-3:30AM-3:30AM-3:30AM-3:30AM-3:30AM-closed
 Outback Adventures: Surf Shops, BUSINESS, 32.880051, -117.237369, 2, 10AM, 6PM
-Sun God Lounge, landmark, 32.880094, -117.237103, 2, no hours, no hours
-Triton Fountain Statue, landmark, 32.879285, -117.236137, 1, no hours, no hours
+Sun God Lounge, LANDMARK, 32.880094, -117.237103, 2, no hours, no hours
+Triton Fountain Statue, LANDMARK, 32.879285, -117.236137, 1, no hours, no hours
+
+Croutons, BUSINESS, 32.878549, -117.235763, 1, closed-10AM-10AM-10AM-10AM-10AM-closed, closed-3PM-3PM-3PM-3PM-3PM-closed
