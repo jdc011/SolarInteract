@@ -33,7 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         // Add a marker in PC and move the camera
-        LatLng PC = new LatLng(32.879524, -117.236522);
+        LatLng SRC = new LatLng(32.879795, -117.237141);
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.pclevel1))
                 .positionFromBounds(new LatLngBounds(new LatLng(32.879133, -117.237381), new LatLng(32.880180, -117.235593)));
@@ -42,7 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addGroundOverlay(PCOverlay);
 
         // Add a marker in PC, UCSD, and move the camera.
-        mMap.addMarker(new MarkerOptions().position(PC).title("Marker in PC"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PC, 21.0f));
+        mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, 21.0f));
     }
 }
