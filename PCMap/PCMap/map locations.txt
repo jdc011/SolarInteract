@@ -1,5 +1,7 @@
 CURRENTLY ROUGH OUTLINE
 
+Price center layout: http://universitycenters.ucsd.edu/documents/UCen_PCFloorPlanColor.pdf
+
 FORMAT: [String locationName], [enum locationType], [double latitude], [double longitude], [int level], [String open], [String close]
 USAGES:
 	locationName: name of location
@@ -43,5 +45,3 @@ UCSD Postal Center, BUSINESS, 32.879986, -117.235716, 1, closed-8:30AM-8:30AM-8:
 Outback Adventures: Surf Shops, BUSINESS, 32.880051, -117.237369, 2, 10AM, 6PM
 Sun God Lounge, LANDMARK, 32.880094, -117.237103, 2, no hours, no hours
 Triton Fountain Statue, LANDMARK, 32.879285, -117.236137, 1, no hours, no hours
-
-Croutons, BUSINESS, 32.878549, -117.235763, 1, closed-10AM-10AM-10AM-10AM-10AM-closed, closed-3PM-3PM-3PM-3PM-3PM-closed
