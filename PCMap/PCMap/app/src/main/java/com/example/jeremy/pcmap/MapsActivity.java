@@ -36,7 +36,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng SRC = new LatLng(32.879795, -117.237141);
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.pclevel1))
-                .positionFromBounds(new LatLngBounds(new LatLng(32.879133, -117.237381), new LatLng(32.880180, -117.235593)));
+                .positionFromBounds(new LatLngBounds(new LatLng(32.878983, -117.237631), new LatLng(32.880461, -117.235343)));
 
         // Add PC floor plan to map
         mMap.addGroundOverlay(PCOverlay);
