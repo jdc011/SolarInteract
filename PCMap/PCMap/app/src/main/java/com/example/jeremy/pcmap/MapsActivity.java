@@ -11,14 +11,14 @@ package com.example.jeremy.pcmap;
         import com.google.android.gms.maps.model.BitmapDescriptorFactory;
         import com.google.android.gms.maps.model.GroundOverlayOptions;
         import com.google.android.gms.maps.model.LatLngBounds;
+        import android.view.View;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    // google map API
+    // Google map API
     private GoogleMap mMap;
 
     @Override
-    // display the app page
+    // Display the app page
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maps_activity);
@@ -28,28 +28,86 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    // display components in map
+    // Display components in map
     public void onMapReady(GoogleMap googleMap) {
-
-        // initialize google map API
+        // Initialize google map API
         mMap = googleMap;
 
+        // Create constants object
         Constants con = new Constants();
 
         // Zoom buttons
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
-        // Add a marker in PC and move the camera
+        // Form SRC marker
         LatLng SRC = new LatLng(con.X_SRC, con.Y_SRC);
+
+        // Add a marker in SRC, UCSD, and move the camera.
+        mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
+    }
+
+    // Show floor 1
+    public void clickFloor1(View view) {
+        // TODO: remove components from map not included in floor 1 if present
+
+        // Create constants object
+        Constants con = new Constants();
+
+        // Form PC floor plan
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl1))
                 .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
 
         // Add PC floor plan to map
         mMap.addGroundOverlay(PCOverlay);
+    }
 
-        // Add a marker in PC, UCSD, and move the camera.
-        mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
+    // Show floor 2
+    public void clickFloor2(View view) {
+        // TODO: remove components from map not included in floor 2 if present
+
+        // Create constants object
+        Constants con = new Constants();
+
+        // Form PC floor plan
+        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl2))
+                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
+
+        // Add PC floor plan to map
+        mMap.addGroundOverlay(PCOverlay);
+    }
+
+    // Show floor 3
+    public void clickFloor3(View view) {
+        // TODO: remove components from map not included in floor 3 if present
+
+        // Create constants object
+        Constants con = new Constants();
+
+        // Form PC floor plan
+        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl3))
+                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
+
+        // Add PC floor plan to map
+        mMap.addGroundOverlay(PCOverlay);
+    }
+
+    // Show floor 4
+    public void clickFloor4(View view) {
+        // TODO: remove components from map not included in floor 4 if present
+
+        // Create constants object
+        Constants con = new Constants();
+
+        // Form PC floor plan
+        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl4))
+                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
+
+        // Add PC floor plan to map
+        mMap.addGroundOverlay(PCOverlay);
     }
 }

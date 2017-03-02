@@ -12,5 +12,5 @@ public class Constants {
     public final double X2_POS = 32.880461;     // SRC y lower corner
     public final double Y1_POS = -117.237631;   // SRC x upper corner
     public final double Y2_POS = -117.235343;   // SRC Y upper corner
-    public final float DEF_ZOOM = 21f;          // start zoom
+    public final float DEF_ZOOM = 21f;          // Start zoom
 }
