@@ -47,7 +47,7 @@
         android:onClick="clickFloor4"/>
 
     <AutoCompleteTextView
-        android:text="AutoCompleteTextView"
+        android:text="search PC..."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
