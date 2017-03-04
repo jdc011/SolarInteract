@@ -12,40 +12,6 @@
         android:id="@+id/button1"
         android:onClick="clickFloor1"/>
 
-    <Button
-        android:text="Floor 2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/button1"
-        android:layout_toEndOf="@+id/button1"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:id="@+id/button2"
-        android:onClick="clickFloor2"/>
-
-    <Button
-        android:text="Floor 3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:id="@+id/button3"
-        android:onClick="clickFloor3"/>
-
-    <Button
-        android:text="Floor 4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/button4"
-        android:onClick="clickFloor4"/>
-
     <AutoCompleteTextView
         android:text="search PC..."
         android:layout_width="wrap_content"
@@ -61,7 +27,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
         android:id="@+id/mapFragment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -69,5 +34,40 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/autoCompleteTextView"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        tools:layout="@layout/main" />
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:text="Floor 4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:onClick="clickFloor4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Floor 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="clickFloor2"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button1"
+        android:layout_toEndOf="@+id/button1"
+        android:layout_marginLeft="87dp"
+        android:layout_marginStart="87dp" />
+
+    <Button
+        android:text="Floor 3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:onClick="clickFloor3"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button4"
+        android:layout_toStartOf="@+id/button4"
+        android:layout_marginRight="66dp"
+        android:layout_marginEnd="66dp" />
+
 </RelativeLayout>
