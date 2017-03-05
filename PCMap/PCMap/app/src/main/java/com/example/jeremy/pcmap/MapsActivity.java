@@ -2,6 +2,8 @@ package com.example.jeremy.pcmap;
 
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
+
+        import com.google.android.gms.ads.internal.request.AutoClickProtectionConfigurationParcel;
         import com.google.android.gms.maps.CameraUpdateFactory;
         import com.google.android.gms.maps.GoogleMap;
         import com.google.android.gms.maps.OnMapReadyCallback;
@@ -12,6 +14,8 @@ package com.example.jeremy.pcmap;
         import com.google.android.gms.maps.model.GroundOverlayOptions;
         import com.google.android.gms.maps.model.LatLngBounds;
         import android.view.View;
+        import android.widget.ArrayAdapter;
+        import android.widget.AutoCompleteTextView;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
@@ -25,6 +29,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
+
+        // Autocomplete feature in search bar
+        Constants con = new Constants();
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
+        autoCompleteTextView.setAdapter(adapter);
     }
 
     @Override

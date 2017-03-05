@@ -13,4 +13,5 @@ public class Constants {
     public final double Y1_POS = -117.237631;   // SRC x upper corner
     public final double Y2_POS = -117.235343;   // SRC Y upper corner
     public final float DEF_ZOOM = 21f;          // Start zoom
+    public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks"};
 }
