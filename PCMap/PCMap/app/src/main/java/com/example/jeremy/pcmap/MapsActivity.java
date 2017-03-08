@@ -1,5 +1,6 @@
 package com.example.jeremy.pcmap;
 
+        import android.graphics.Bitmap;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
 
@@ -8,6 +9,8 @@ package com.example.jeremy.pcmap;
         import com.google.android.gms.maps.GoogleMap;
         import com.google.android.gms.maps.OnMapReadyCallback;
         import com.google.android.gms.maps.SupportMapFragment;
+        import com.google.android.gms.maps.model.BitmapDescriptor;
+        import com.google.android.gms.maps.model.GroundOverlay;
         import com.google.android.gms.maps.model.LatLng;
         import com.google.android.gms.maps.model.MarkerOptions;
         import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -20,6 +23,7 @@ package com.example.jeremy.pcmap;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
     private GoogleMap mMap;
+    private GroundOverlay theOverlay;
 
     @Override
     // Display the app page
@@ -57,67 +61,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
     }
 
-    // Show floor 1
-    public void clickFloor1(View view) {
-        // TODO: remove components from map not included in floor 1 if present
-
+    public void showFloor(int theFloor) {
         // Create constants object
         Constants con = new Constants();
 
+        BitmapDescriptor theBitmap = BitmapDescriptorFactory.fromResource(con.floorplans[theFloor]);
+
         // Form PC floor plan
         GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl1))
-                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
+                .image(theBitmap)
+                .positionFromBounds(con.XY_POS);
 
         // Add PC floor plan to map
-        mMap.addGroundOverlay(PCOverlay);
+        if (theOverlay == null) {
+            theOverlay = mMap.addGroundOverlay(PCOverlay);
+        }
+        else {
+            theOverlay.setImage(theBitmap);
+        }
+    }
+
+    // Show floor 1
+    public void clickFloor1(View view) {
+        showFloor(1);
     }
 
     // Show floor 2
     public void clickFloor2(View view) {
-        // TODO: remove components from map not included in floor 2 if present
-
-        // Create constants object
-        Constants con = new Constants();
-
-        // Form PC floor plan
-        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl2))
-                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
-
-        // Add PC floor plan to map
-        mMap.addGroundOverlay(PCOverlay);
+        showFloor(2);
     }
 
     // Show floor 3
     public void clickFloor3(View view) {
-        // TODO: remove components from map not included in floor 3 if present
-
-        // Create constants object
-        Constants con = new Constants();
-
-        // Form PC floor plan
-        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl3))
-                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
-
-        // Add PC floor plan to map
-        mMap.addGroundOverlay(PCOverlay);
+        showFloor(3);
     }
 
     // Show floor 4
     public void clickFloor4(View view) {
-        // TODO: remove components from map not included in floor 4 if present
-
-        // Create constants object
-        Constants con = new Constants();
-
-        // Form PC floor plan
-        GroundOverlayOptions PCOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.pclvl4))
-                .positionFromBounds(new LatLngBounds(new LatLng(con.X1_POS, con.Y1_POS), new LatLng(con.X2_POS, con.Y2_POS)));
-
-        // Add PC floor plan to map
-        mMap.addGroundOverlay(PCOverlay);
+        showFloor(4);
     }
 }
