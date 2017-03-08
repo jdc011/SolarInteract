@@ -1,40 +1,44 @@
 package com.example.jeremy.pcmap;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.FragmentActivity;
-        import com.google.android.gms.maps.CameraUpdateFactory;
-        import com.google.android.gms.maps.GoogleMap;
-        import com.google.android.gms.maps.OnMapReadyCallback;
-        import com.google.android.gms.maps.SupportMapFragment;
-        import com.google.android.gms.maps.model.BitmapDescriptor;
-        import com.google.android.gms.maps.model.GroundOverlay;
-        import com.google.android.gms.maps.model.LatLng;
-        import com.google.android.gms.maps.model.MarkerOptions;
-        import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-        import com.google.android.gms.maps.model.GroundOverlayOptions;
-        import com.google.android.gms.maps.model.Polyline;
-        import com.google.android.gms.maps.model.PolylineOptions;
-        import android.view.View;
-        import android.widget.ArrayAdapter;
-        import android.widget.AutoCompleteTextView;
-        import android.widget.Button;
-        import java.util.ArrayList;
-        import java.util.List;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.GroundOverlay;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
     private Polyline theLine;
+
+    // Button that changes layout
     private Button emergency;
 
+    // Get ready for other layout on click
     public void init() {
+        // Initialize button
         emergency = (Button) findViewById(R.id.emergency);
         emergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickEmergency(view);
+                clickEmergency(view); // Click listener event
             }
         });
     }
@@ -48,6 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
+        // Call to init
         this.init();
     }
 
@@ -86,6 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
+    // Draw path from SRC to landmark
     public void drawPath(List<PlaceName> landmarks) {
         Constants con = new Constants();
         if (theLine == null) {
@@ -101,6 +107,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         theLine.setPoints(pointsList);
     }
 
+    // Draw path from SRC to landmark
     public void drawPath(PlaceName[] landmarks) {
         Constants con = new Constants();
         if (theLine == null) {
@@ -116,6 +123,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         theLine.setPoints(pointsList);
     }
 
+    // Load appropriate floor plan
     public void showFloor(int theFloor) {
         // Create constants object
         Constants con = new Constants();
@@ -156,6 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         showFloor(4);
     }
 
+    // Load emergency layout
     public void clickEmergency(View view) {
         Intent emergencyActivity = new Intent(MapsActivity.this, EmergencyActivity.class);
         startActivity(emergencyActivity);

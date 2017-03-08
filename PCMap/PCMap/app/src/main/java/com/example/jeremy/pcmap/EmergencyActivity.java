@@ -13,12 +13,14 @@ import android.widget.Button;
 public class EmergencyActivity extends Activity{
     private Button back;
 
+    // Get ready for other layout on click
     public void init() {
+        // Initialize button
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickMap(view);
+                clickMap(view); // Click listener event
             }
         });
     }
@@ -29,9 +31,11 @@ public class EmergencyActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.emergency_activity);
 
+        // Call to init
         this.init();
     }
 
+    // Load map layout
     public void clickMap(View view) {
         Intent emergencyActivity = new Intent(EmergencyActivity.this, MapsActivity.class);
         startActivity(emergencyActivity);
