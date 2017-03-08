@@ -70,6 +70,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
+    public void drawPath(List<PlaceName> landmarks) {
+        Constants con = new Constants();
+        if (theLine == null) {
+            PolylineOptions plo = new PolylineOptions();
+            theLine = mMap.addPolyline(plo);
+        }
+
+        ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
+        for (PlaceName landmark : landmarks) {
+            pointsList.add(con.LOCATIONS.get(landmark));
+        }
+
+        theLine.setPoints(pointsList);
+    }
+
     public void drawPath(PlaceName[] landmarks) {
         Constants con = new Constants();
         if (theLine == null) {
