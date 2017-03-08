@@ -123,7 +123,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         theLine.setPoints(pointsList);
     }
 
-    // Load appropriate floor plan
     public void showFloor(int theFloor) {
         // Create constants object
         Constants con = new Constants();

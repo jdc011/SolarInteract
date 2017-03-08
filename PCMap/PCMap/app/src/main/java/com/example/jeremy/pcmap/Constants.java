@@ -13,6 +13,7 @@ import java.util.HashMap;
 public class Constants {
     public final double X_SRC = 32.879832;      //SRC x coordinate
     public final double Y_SRC = -117.23723;     // SRC y coordinate
+    // Keep the SRC coordinates below for testing purposes
     public final double X1_POS = 32.878933;     // SRC x lower corner
     public final double X2_POS = 32.880461;     // SRC y lower corner
     public final double Y1_POS = -117.237631;   // SRC x upper corner
