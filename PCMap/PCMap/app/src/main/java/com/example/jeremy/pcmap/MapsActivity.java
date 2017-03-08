@@ -1,10 +1,8 @@
 package com.example.jeremy.pcmap;
 
-        import android.graphics.Bitmap;
+        import android.content.Intent;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
-
-        import com.google.android.gms.ads.internal.request.AutoClickProtectionConfigurationParcel;
         import com.google.android.gms.maps.CameraUpdateFactory;
         import com.google.android.gms.maps.GoogleMap;
         import com.google.android.gms.maps.OnMapReadyCallback;
@@ -15,14 +13,12 @@ package com.example.jeremy.pcmap;
         import com.google.android.gms.maps.model.MarkerOptions;
         import com.google.android.gms.maps.model.BitmapDescriptorFactory;
         import com.google.android.gms.maps.model.GroundOverlayOptions;
-        import com.google.android.gms.maps.model.LatLngBounds;
         import com.google.android.gms.maps.model.Polyline;
         import com.google.android.gms.maps.model.PolylineOptions;
-
         import android.view.View;
         import android.widget.ArrayAdapter;
         import android.widget.AutoCompleteTextView;
-
+        import android.widget.Button;
         import java.util.ArrayList;
         import java.util.List;
 
@@ -31,6 +27,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
     private Polyline theLine;
+    private Button emergency;
+
+    public void init() {
+        emergency = (Button) findViewById(R.id.emergency);
+        emergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickEmergency(view);
+            }
+        });
+    }
 
     @Override
     // Display the app page
@@ -41,11 +48,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
+        this.init();
+    }
+
+    public void onMapSearch(View view) {
         // Autocomplete feature in search bar
         Constants con = new Constants();
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
+        String place = autoCompleteTextView.getText().toString();
+        PlaceName thePlace = con.toEnum(place);
+        drawPath(new PlaceName[]{PlaceName.SRC, });
+        // add function to find path using string
+        //use drawPath(src ,string typed by user)
     }
 
     @Override
@@ -68,6 +84,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
         drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
+    }
+
+    public void drawPath(List<PlaceName> landmarks) {
+        Constants con = new Constants();
+        if (theLine == null) {
+            PolylineOptions plo = new PolylineOptions();
+            theLine = mMap.addPolyline(plo);
+        }
+
+        ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
+        for (PlaceName landmark : landmarks) {
+            pointsList.add(con.LOCATIONS.get(landmark));
+        }
+
+        theLine.setPoints(pointsList);
     }
 
     public void drawPath(PlaceName[] landmarks) {
@@ -123,5 +154,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // Show floor 4
     public void clickFloor4(View view) {
         showFloor(4);
+    }
+
+    public void clickEmergency(View view) {
+        Intent emergencyActivity = new Intent(MapsActivity.this, EmergencyActivity.class);
+        startActivity(emergencyActivity);
     }
 }
