@@ -49,6 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
         String place = autoCompleteTextView.getText().toString();
+        PlaceName thePlace = con.toEnum(place);
         drawPath(new PlaceName[]{PlaceName.SRC, });
         // add function to find path using string
         //use drawPath(src ,string typed by user)
