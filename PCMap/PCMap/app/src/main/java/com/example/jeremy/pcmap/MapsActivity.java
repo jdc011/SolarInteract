@@ -48,6 +48,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         autoCompleteTextView.setAdapter(adapter);
     }
 
+    public void onMapSearch(View view) {
+        Constants con = new Constants();
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
+        autoCompleteTextView.setAdapter(adapter);
+        String place = autoCompleteTextView.getText().toString();
+        // add function to find path using string
+        //use drawPath(src ,string typed by user)
+    }
+
     @Override
     // Display components in map
     public void onMapReady(GoogleMap googleMap) {
