@@ -3,6 +3,8 @@ package com.example.jeremy.pcmap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
+import java.util.HashMap;
+
 /**
  * Created by jeremy on 3/2/17.
  * Contains all constant values.
@@ -19,4 +21,13 @@ public class Constants {
     public final int[] floorplans = {0, R.drawable.pclvl1, R.drawable.pclvl2, R.drawable.pclvl3, R.drawable.pclvl4};
     public final float DEF_ZOOM = 21f;          // Start zoom
     public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks"};
+
+    public final HashMap<PlaceName, LatLng> LOCATIONS = new HashMap<PlaceName, LatLng>();
+
+    {
+        LOCATIONS.put(PlaceName.SRC, new LatLng(32.879899, -117.237257));
+        LOCATIONS.put(PlaceName.Santorini, new LatLng(32.879766, -117.235777));
+        LOCATIONS.put(PlaceName.SunshineMarket, new LatLng(32.879535, -117.236054));
+    }
 }
+

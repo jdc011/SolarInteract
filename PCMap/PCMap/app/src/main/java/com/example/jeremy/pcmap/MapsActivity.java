@@ -16,14 +16,21 @@ package com.example.jeremy.pcmap;
         import com.google.android.gms.maps.model.BitmapDescriptorFactory;
         import com.google.android.gms.maps.model.GroundOverlayOptions;
         import com.google.android.gms.maps.model.LatLngBounds;
+        import com.google.android.gms.maps.model.Polyline;
+        import com.google.android.gms.maps.model.PolylineOptions;
+
         import android.view.View;
         import android.widget.ArrayAdapter;
         import android.widget.AutoCompleteTextView;
+
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
+    private Polyline theLine;
 
     @Override
     // Display the app page
@@ -59,6 +66,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in SRC, UCSD, and move the camera.
         mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
+
+        drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
+    }
+
+    public void drawPath(PlaceName[] landmarks) {
+        Constants con = new Constants();
+        if (theLine == null) {
+            PolylineOptions plo = new PolylineOptions();
+            theLine = mMap.addPolyline(plo);
+        }
+
+        ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
+        for (PlaceName landmark : landmarks) {
+            pointsList.add(con.LOCATIONS.get(landmark));
+        }
+
+        theLine.setPoints(pointsList);
     }
 
     public void showFloor(int theFloor) {
