@@ -19,6 +19,8 @@ CODE SNIPPETS THAT MAY BE USEFUL:
 	// to do: level, open, close
 REGEX KEY: ","
 
+Landmarks such as trash cans and water fountains: represent using the presence of an icon
+
 OFFICIAL DATA BELOW THIS LINE:
 
 Panda Express, BUSINESS, 32.879718, -117.236567, 1, 11AM-9AM-9AM-9AM-9AM-9AM-11AM, 7PM-9PM-9PM-9PM-9PM-7PM-5PM
