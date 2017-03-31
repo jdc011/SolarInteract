@@ -63,9 +63,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
         String place = autoCompleteTextView.getText().toString();
-        PlaceName thePlace = con.toEnum(place);
-        drawPath(new PlaceName[]{PlaceName.SRC, });
-        // add function to find path using string
+        PlaceName thePlace = con.toEnum(place.toLowerCase());
+        //need pop up message if user input place that does not exists
+        drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
+        /* need to differentiate places by floor and message to point user to
+           press the right floor button*/
         //use drawPath(src ,string typed by user)
     }
 
@@ -88,7 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
-        drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
+        //drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
     // Draw path from SRC to landmark
