@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:text="Floor 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/floor1"
+        android:onClick="clickFloor1"/>
+
+    <AutoCompleteTextView
+        android:text="search PC..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/autoCompleteTextView"
+        android:layout_toStartOf="@+id/search_button"
+        android:layout_toLeftOf="@+id/search_button" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mapFragment"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/autoCompleteTextView"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:text="Floor 4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floor4"
+        android:onClick="clickFloor4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Floor 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floor2"
+        android:onClick="clickFloor2"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/floor1"
+        android:layout_toEndOf="@+id/floor1"
+        android:layout_marginLeft="87dp"
+        android:layout_marginStart="87dp" />
+
+    <Button
+        android:text="Floor 3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floor3"
+        android:onClick="clickFloor3"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/floor4"
+        android:layout_toStartOf="@+id/floor4"
+        android:layout_marginRight="66dp"
+        android:layout_marginEnd="66dp" />
+
+    <Button
+
+        android:text="Emergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/autoCompleteTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/emergency" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:text="Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onMapSearch"
+        android:layout_weight="0.5"
+        android:layout_alignBaseline="@+id/autoCompleteTextView"
+        android:layout_alignBottom="@+id/autoCompleteTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
