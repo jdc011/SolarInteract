@@ -26,7 +26,10 @@ public class Constants {
     public final float DEF_ZOOM = 21f;          // Start zoom
 
     // Text items for autocomplete
-    public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks", "SRC"};
+    //public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks", "SRC"};
+    //Edit by Connie: change strings to lowercase
+    public final String[] LANDMARKS = new String[]{"subway", "santorini", "sunshine market", "shogun",
+                                                    "starbucks", "SRC"};
 
     // Map of coordinates for each place in PC
     public final HashMap<PlaceName, LatLng> LOCATIONS = new HashMap<PlaceName, LatLng>();
@@ -43,6 +46,12 @@ public class Constants {
         enumHash.put("Santorini", PlaceName.Santorini);
         enumHash.put("SRC", PlaceName.SRC);
         enumHash.put("Sunshine Market", PlaceName.SunshineMarket);
+    //Edit by Connie: change strings to lowercase
+    private final HashMap<String, PlaceName> enumHash = new HashMap<String, PlaceName>();
+    {
+        enumHash.put("santorini", PlaceName.Santorini);
+        enumHash.put("SRC", PlaceName.SRC);
+        enumHash.put("sunshine market", PlaceName.SunshineMarket);
     }
 
     // Return enumumerated result
