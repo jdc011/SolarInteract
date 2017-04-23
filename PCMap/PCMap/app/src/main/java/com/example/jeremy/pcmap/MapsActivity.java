@@ -3,6 +3,7 @@ package com.example.jeremy.pcmap;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,7 +22,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
@@ -66,12 +66,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         autoCompleteTextView.setAdapter(adapter);
 
         //get string from search bar
-        String place = autoCompleteTextView.getText().toString();
+        String place = autoCompleteTextView.getText().toString().toLowerCase();
 
-        //turn string into enum to be used
-        PlaceName thePlace = con.toEnum(place.toLowerCase());
-        //need pop up message if user input place that does not exists
-        drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
+        if(con.toEnum(place) != null) {
+            //turn string into enum to be used
+            PlaceName thePlace = con.toEnum(place);
+            //need pop up message if user input place that does not exists
+            drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
+        }
+        else
+        {
+            return;
+        }
         /* need to differentiate places by floor and message to point user to
            press the right floor button*/
         //use drawPath(src ,string typed by user)
