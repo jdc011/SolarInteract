@@ -64,7 +64,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
+
+        //get string from search bar
         String place = autoCompleteTextView.getText().toString();
+
+        //turn string into enum to be used
         PlaceName thePlace = con.toEnum(place.toLowerCase());
         //need pop up message if user input place that does not exists
         drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
@@ -97,7 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
-    // Draw path from SRC to landmark
+   /* // Draw path from SRC to landmark
     public void drawPath(List<PlaceName> landmarks) {
         Constants con = new Constants();
         if (theLine == null) {
@@ -111,7 +115,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         theLine.setPoints(pointsList);
-    }
+    }*/
 
     // Draw path from SRC to landmark
     public void drawPath(PlaceName[] landmarks) {

@@ -8,5 +8,8 @@ package com.example.jeremy.pcmap;
 public enum PlaceName {
     SRC,
     Santorini,
-    SunshineMarket
+    SunshineMarket,
+    Subway,
+    Starbucks,
+    Rubios,
 }

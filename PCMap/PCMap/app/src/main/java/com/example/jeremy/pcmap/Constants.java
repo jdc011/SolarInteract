@@ -28,8 +28,8 @@ public class Constants {
     // Text items for autocomplete
     //public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks", "SRC"};
     //Edit by Connie: change strings to lowercase
-    public final String[] LANDMARKS = new String[]{"subway", "santorini", "sunshine market", "shogun",
-                                                    "starbucks", "SRC"};
+    public final String[] LANDMARKS = new String[]{"subway", "santorini", "sunshine Market", "shogun",
+                                                    "starbucks", "SRC", "rubios"};
 
     // Map of coordinates for each place in PC
     public final HashMap<PlaceName, LatLng> LOCATIONS = new HashMap<PlaceName, LatLng>();
@@ -38,20 +38,21 @@ public class Constants {
         LOCATIONS.put(PlaceName.SRC, new LatLng(32.879899, -117.237257));
         LOCATIONS.put(PlaceName.Santorini, new LatLng(32.879766, -117.235767));
         LOCATIONS.put(PlaceName.SunshineMarket, new LatLng(32.879535, -117.236054));
+        LOCATIONS.put(PlaceName.Subway, new LatLng(32.879926, -117.236527));
+        LOCATIONS.put(PlaceName.Starbucks, new LatLng(32.880110, -117.236405));
+        LOCATIONS.put(PlaceName.Rubios, new LatLng(32.879849, -117.236468));
     }
 
     // Map pd names for each place in PC
-    private final HashMap<String, PlaceName> enumHash = new HashMap<String, PlaceName>();
-    {
-        enumHash.put("Santorini", PlaceName.Santorini);
-        enumHash.put("SRC", PlaceName.SRC);
-        enumHash.put("Sunshine Market", PlaceName.SunshineMarket);
     //Edit by Connie: change strings to lowercase
     private final HashMap<String, PlaceName> enumHash = new HashMap<String, PlaceName>();
     {
         enumHash.put("santorini", PlaceName.Santorini);
         enumHash.put("SRC", PlaceName.SRC);
         enumHash.put("sunshine market", PlaceName.SunshineMarket);
+        enumHash.put("subway", PlaceName.Subway);
+        enumHash.put("starbucks", PlaceName.Starbucks);
+        enumHash.put("rubios", PlaceName.Rubios);
     }
 
     // Return enumumerated result
