@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -64,6 +65,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
+
+        // have done button exit keyboard full screen
+        autoCompleteTextView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         //get string from search bar
         String place = autoCompleteTextView.getText().toString().toLowerCase();
