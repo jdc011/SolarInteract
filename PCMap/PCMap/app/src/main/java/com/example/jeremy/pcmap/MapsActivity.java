@@ -18,10 +18,12 @@ import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
@@ -42,6 +44,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 clickEmergency(view); // Click listener event
             }
         });
+
+        // TESTING LOCATION AND COORDINATE CLASS:
+        // --------------------------------------
+
+        // Note: Has multiple problems, causes program to crash without running
+
+        /*
+        Scanner LOCs = new Scanner("map_locations.txt");
+        String LOCstr = LOCs.nextLine();
+        while(LOCs.hasNext() || !LOCstr.equals("End")){
+            Location loc = new Location(LOCstr);
+            LOCstr = LOCs.nextLine();
+        }
+
+        ArrayList<Coordinate> LOCarr = Coordinate.getAllCoordinates();
+        System.out.println(LOCarr.get(2) + "; should expect \"x: 32.879901; y: -117.236197\"");
+
+        LOCs.close();
+        */
+
+        // --------------------------------------
 
     }
 
@@ -64,6 +87,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
+
+        // have done button exit keyboard full screen
+        autoCompleteTextView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         //get string from search bar
         String place = autoCompleteTextView.getText().toString().toLowerCase();

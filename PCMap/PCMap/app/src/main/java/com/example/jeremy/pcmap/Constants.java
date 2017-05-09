@@ -55,7 +55,7 @@ public class Constants {
         enumHash.put("rubios", PlaceName.Rubios);
     }
 
-    // Return enumumerated result
+    // Return enumerated result
     public PlaceName toEnum(String s) {
         return enumHash.get(s);
     }

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Solar.iml" filepath="$PROJECT_DIR$/Solar.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/SolarInteract.iml" filepath="$PROJECT_DIR$/SolarInteract.iml" />
+>>>>>>> 90fbe293f1788081561359ddac026be02cb60b8a
     </modules>
   </component>
 </project>
