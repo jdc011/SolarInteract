@@ -28,8 +28,13 @@ public class Constants {
     // Text items for autocomplete
     //public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks", "SRC"};
     //Edit by Connie: change strings to lowercase
-    public final String[] LANDMARKS = new String[]{"subway", "santorini", "sunshine Market", "shogun",
-                                                    "starbucks", "SRC", "rubios"};
+    public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun",
+                                                    "Starbucks", "SRC", "Rubios", "Price Theater",
+                                                    "Panda Express", "Bombay Coast", "Burger King",
+                                                    "Chase Bank", "Lemongrass", "Perks Coffee Shop",
+                                                    "Outback Adventures Surf Shop", "The Loft",
+                                                    "Zanzibar Cafe", "Postal Center", "Sun God Lounge",
+                                                    "Cross Cultural Center"};
 
     // Map of coordinates for each place in PC
     public final HashMap<PlaceName, LatLng> LOCATIONS = new HashMap<PlaceName, LatLng>();
@@ -41,6 +46,22 @@ public class Constants {
         LOCATIONS.put(PlaceName.Subway, new LatLng(32.879926, -117.236527));
         LOCATIONS.put(PlaceName.Starbucks, new LatLng(32.880110, -117.236405));
         LOCATIONS.put(PlaceName.Rubios, new LatLng(32.879849, -117.236468));
+        LOCATIONS.put(PlaceName.Shogun, new LatLng(32.880007, -117.236906));
+        LOCATIONS.put(PlaceName.PandaExpress, new LatLng(32.879713, -117.236563));
+        LOCATIONS.put(PlaceName.BombayCoast, new LatLng(32.879900, -117.236197));
+        LOCATIONS.put(PlaceName.BurgerKing, new LatLng(32.879869, -117.235738));
+        LOCATIONS.put(PlaceName.ChaseBank, new LatLng(32.879778, -117.235922));
+        LOCATIONS.put(PlaceName.Lemongrass, new LatLng(32.879772, -117.236474));
+        LOCATIONS.put(PlaceName.PriceTheater, new LatLng(32.879909, -117.237113));
+        LOCATIONS.put(PlaceName.Outback, new LatLng(32.880071, -117.237384));
+        LOCATIONS.put(PlaceName.SunGodLounge, new LatLng(32.880030, -117.237138));
+        LOCATIONS.put(PlaceName.PerksCoffee, new LatLng(32.879344, -117.237294));
+        LOCATIONS.put(PlaceName.PostalCenter, new LatLng(32.879992, -117.235701));
+        LOCATIONS.put(PlaceName.TapiocaExpress, new LatLng(32.879637, -117.235689));
+        LOCATIONS.put(PlaceName.TheLoft, new LatLng(32.879560, -117.235941));
+        LOCATIONS.put(PlaceName.ZanzibarCafe, new LatLng(32.879560, -117.235941));
+        LOCATIONS.put(PlaceName.CrossCulturalCenter, new LatLng(32.879679, -117.236018));
+        LOCATIONS.put(PlaceName.Bookstore, new LatLng(32.879441, -117.236938));
     }
 
     // Map pd names for each place in PC
@@ -53,6 +74,20 @@ public class Constants {
         enumHash.put("subway", PlaceName.Subway);
         enumHash.put("starbucks", PlaceName.Starbucks);
         enumHash.put("rubios", PlaceName.Rubios);
+        enumHash.put("lemongrass", PlaceName.Lemongrass);
+        enumHash.put("bombay coast", PlaceName.BombayCoast);
+        enumHash.put("the loft", PlaceName.TheLoft);
+        enumHash.put("zanzibar cafe", PlaceName.ZanzibarCafe);
+        enumHash.put("postal center", PlaceName.PostalCenter);
+        enumHash.put("burger king", PlaceName.BurgerKing);
+        enumHash.put("chase bank", PlaceName.ChaseBank);
+        enumHash.put("cross cultural center", PlaceName.CrossCulturalCenter);
+        enumHash.put("outback adventures surf shop", PlaceName.Outback);
+        enumHash.put("panda express", PlaceName.PandaExpress);
+        enumHash.put("perks coffee shop", PlaceName.PerksCoffee);
+        enumHash.put("shogun", PlaceName.Shogun);
+        enumHash.put("price theater", PlaceName.PriceTheater);
+        enumHash.put("sun god lounge", PlaceName.SunGodLounge);
     }
 
     // Return enumerated result
