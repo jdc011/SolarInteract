@@ -22,6 +22,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -100,10 +102,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //need pop up message if user input place that does not exists
             drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
         }
+
+        // error case
         else
         {
-            System.out.println("That doesn't exist.");
-            return;
+            // didn't search
+            if(place.equals("")) {
+                Toast.makeText(getApplicationContext(), "Enter a place to search.", Toast.LENGTH_SHORT).show();
+            }
+
+            // not found
+            else {
+                Toast.makeText(getApplicationContext(), autoCompleteTextView.getText().toString() + " is not found.", Toast.LENGTH_SHORT).show();
+            }
         }
         /* need to differentiate places by floor and message to point user to
            press the right floor button*/
