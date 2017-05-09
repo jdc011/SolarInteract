@@ -76,6 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         else
         {
+            System.out.println("That doesn't exist.");
             return;
         }
         /* need to differentiate places by floor and message to point user to
