@@ -100,7 +100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //turn string into enum to be used
             PlaceName thePlace = con.toEnum(place);
             //need pop up message if user input place that does not exists
-            drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
+            drawPath(con.getPath(thePlace).toArray(new PlaceName[0]));
         }
 
         // error case
