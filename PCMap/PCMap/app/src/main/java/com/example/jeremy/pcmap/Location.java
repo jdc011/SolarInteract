@@ -15,8 +15,8 @@ package com.example.jeremy.pcmap;
 public class Location {
     // Coordinate stores 4 double values:
     Coordinate coord;
-    // lat,lon are the marker locations
-    double lat, lng;
+    // OLD: lat,lon are the marker locations
+    // double lat, lng;
     // level ranges between 1 and 4
     int level;
     // name of the location
@@ -24,18 +24,32 @@ public class Location {
     // opening and closing times
     String open, close;
 
-    public Location(String locationName, String locationType,
+    // fix the parses, they may be causing the program to crash
+    public Location(String rawString){
+        String[] splitInfo = rawString.split(",");
+        if(splitInfo.length == 7)
+            makeLocation(splitInfo[0], splitInfo[1], Double.parseDouble(splitInfo[2]), Double
+                        .parseDouble(splitInfo[3]), Integer.parseInt(splitInfo[4]),
+                splitInfo[5], splitInfo[6]);
+        else
+            makeLocation("Null island", "LANDMARK", 0.0, 0.0, 1, "no hours", "no hours");
+    }
+
+    public void makeLocation(String locationName, String locationType,
                     double latitude, double longitude, int level, String open, String close){
         name = locationName;
         this.level = level;
-        lat = latitude;
-        lng = longitude;
+        coord = addCoord(latitude, longitude);
         this.open = open;
         this.close = close;
     }
 
-    public void addCoord(double x1, double x2, double y1, double y2){
-        coord = new Coordinate(x1, x2, y1, y2);
+    private Coordinate addCoord(double x, double y){
+        return new Coordinate(x, y);
+    }
+
+    public Coordinate getCoord(){
+        return coord;
     }
 
     // TODO: work on the following methods and add more similar methods
@@ -77,4 +91,9 @@ public class Location {
         return false;
     }
 
+    public String toString(){
+        return "Name of location: " + name + '\n'
+                + "Coordinates of location: " + coord + ", at level " + level + '\n'
+                + "Times of operation: open " + open + "; closed " + close;
+    }
 }
