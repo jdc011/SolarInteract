@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Google map API
@@ -107,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
-   /* // Draw path from SRC to landmark
+    // Draw path from SRC to landmark
     public void drawPath(List<PlaceName> landmarks) {
         Constants con = new Constants();
         if (theLine == null) {
@@ -121,7 +122,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         theLine.setPoints(pointsList);
-    }*/
+    }
 
     // Draw path from SRC to landmark
     public void drawPath(PlaceName[] landmarks) {
