@@ -21,6 +21,14 @@ public class HomeActivity extends Activity {
                 clickMap(view); // Click listener event
             }
         });
+
+        Game.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                clickGame(view); // Click listener event
+            }
+        });
     }
 
     // Display the app page
@@ -34,5 +42,11 @@ public class HomeActivity extends Activity {
     public void clickMap(View view) {
         Intent mapActivity = new Intent(HomeActivity.this, MapsActivity.class);
         startActivity(mapActivity);
+    }
+
+    // Click game button
+    public void clickGame(View view) {
+        Intent gameActivity = new Intent(HomeActivity.this, SolarInteract.class);
+        startActivity(gameActivity);
     }
 }

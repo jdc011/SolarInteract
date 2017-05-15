@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -38,8 +39,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // Path to destination
     private Polyline theLine;
 
-    // Button to home
+    // Buttons
     private Button Home;
+    private Button Floor1;
+    private Button Floor2;
+    private Button Floor3;
+    private Button Floor4;
 
     // Get ready for other layout on click
     //public void init() {
@@ -84,6 +89,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
+
+        // Create floor buttons
+        Floor1 = (Button) findViewById(R.id.floor1);
+        Floor2 = (Button) findViewById(R.id.floor2);
+        Floor3 = (Button) findViewById(R.id.floor3);
+        Floor4 = (Button) findViewById(R.id.floor4);
+
+        // Create home button with listener
         Home = (Button) findViewById(R.id.Home);
         Home.setOnClickListener(new View.OnClickListener() {
 
@@ -226,24 +239,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Show floor 1
     public void clickFloor1(View view) {
+        Floor1.setTextColor(Color.RED);
+        Floor2.setTextColor(Color.BLACK);
+        Floor3.setTextColor(Color.BLACK);
+        Floor4.setTextColor(Color.BLACK);
         showFloor(1);
     }
 
     // Show floor 2
     public void clickFloor2(View view) {
+        Floor1.setTextColor(Color.BLACK);
+        Floor2.setTextColor(Color.RED);
+        Floor3.setTextColor(Color.BLACK);
+        Floor4.setTextColor(Color.BLACK);
         showFloor(2);
     }
 
     // Show floor 3
     public void clickFloor3(View view) {
+        Floor1.setTextColor(Color.BLACK);
+        Floor2.setTextColor(Color.BLACK);
+        Floor3.setTextColor(Color.RED);
+        Floor4.setTextColor(Color.BLACK);
         showFloor(3);
     }
 
     // Show floor 4
     public void clickFloor4(View view) {
+        Floor1.setTextColor(Color.BLACK);
+        Floor2.setTextColor(Color.BLACK);
+        Floor3.setTextColor(Color.BLACK);
+        Floor4.setTextColor(Color.RED);
         showFloor(4);
     }
 
+    // Return home
     public void goHome(View view) {
         Intent homeActivity = new Intent(MapsActivity.this, HomeActivity.class);
         startActivity(homeActivity);
