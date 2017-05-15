@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/floor4"
         android:onClick="clickFloor4"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/floor3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Floor 2"
@@ -53,11 +53,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/floor2"
         android:onClick="clickFloor2"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/floor1"
-        android:layout_toEndOf="@+id/floor1"
-        android:layout_marginLeft="87dp"
-        android:layout_marginStart="87dp" />
+        android:layout_below="@+id/floor1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Floor 3"
@@ -65,21 +63,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/floor3"
         android:onClick="clickFloor3"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/floor4"
-        android:layout_toStartOf="@+id/floor4"
-        android:layout_marginRight="66dp"
-        android:layout_marginEnd="66dp" />
-
-    <Button
-
-        android:text="Emergency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/autoCompleteTextView"
+        android:layout_below="@+id/floor2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/emergency" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/search_button"
@@ -92,4 +78,14 @@
         android:layout_alignBottom="@+id/autoCompleteTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:onClick="goHome"
+        android:text="Home" />
 </RelativeLayout>

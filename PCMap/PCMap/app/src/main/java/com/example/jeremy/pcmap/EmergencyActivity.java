@@ -16,7 +16,7 @@ public class EmergencyActivity extends Activity{
     // Get ready for other layout on click
     public void init() {
         // Initialize button
-        back = (Button) findViewById(R.id.back);
+        //back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,8 +28,8 @@ public class EmergencyActivity extends Activity{
     @Override
     // Display the app page
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.emergency_activity);
+        //super.onCreate(savedInstanceState);
+        //setContentView(R.layout.emergency_activity);
 
         // Call to init
         this.init();

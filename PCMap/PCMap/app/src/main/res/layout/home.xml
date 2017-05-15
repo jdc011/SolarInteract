@@ -9,23 +9,38 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/Map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/space"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/space"
             android:layout_marginLeft="12dp"
             android:layout_marginStart="12dp"
-            android:text="Button" />
+            android:onClick="clickMap"
+            android:text="Price Center Directory" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/Game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/button2"
-            android:text="Button" />
+            android:layout_alignTop="@+id/Map"
+            android:layout_toEndOf="@+id/space"
+            android:layout_toRightOf="@+id/space"
+            android:text="Solar Interact" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="116dp"
+            android:id="@+id/space" />
     </RelativeLayout>
 </LinearLayout>

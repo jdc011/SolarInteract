@@ -32,20 +32,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
     private Polyline theLine;
-
-    // Button that changes layout
-    private Button emergency;
+    private Button Home;
 
     // Get ready for other layout on click
-    public void init() {
+    //public void init() {
         // Initialize button
-        emergency = (Button) findViewById(R.id.emergency);
-        emergency.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickEmergency(view); // Click listener event
-            }
-        });
+        //emergency = (Button) findViewById(R.id.emergency);
+        //emergency.setOnClickListener(new View.OnClickListener() {
+
+            //public void onClick(View view) {
+                //clickEmergency(view); // Click listener event
+            //}
+        //});
 
         // TESTING LOCATION AND COORDINATE CLASS:
         // --------------------------------------
@@ -68,19 +66,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // --------------------------------------
 
-    }
+    //}
 
     @Override
     // Display the app page
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maps_activity);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(this);
 
+        Home = (Button) findViewById(R.id.Home);
+        Home.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                goHome(view); // Click listener event
+            }
+        });
+
         // Call to init
-        this.init();
+        //this.init();
     }
 
     public void onMapSearch(View view) {
@@ -217,9 +224,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         showFloor(4);
     }
 
-    // Load emergency layout
-    public void clickEmergency(View view) {
-        Intent emergencyActivity = new Intent(MapsActivity.this, EmergencyActivity.class);
-        startActivity(emergencyActivity);
+    public void goHome(View view) {
+        Intent homeActivity = new Intent(MapsActivity.this, HomeActivity.class);
+        startActivity(homeActivity);
     }
 }
