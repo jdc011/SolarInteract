@@ -30,10 +30,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
     // Google map API
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
+
+    // Path to destination
     private Polyline theLine;
+
+    // Button to home
     private Button Home;
 
     // Get ready for other layout on click
@@ -87,9 +92,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 goHome(view); // Click listener event
             }
         });
-
-        // Call to init
-        //this.init();
     }
 
     public void onMapSearch(View view) {

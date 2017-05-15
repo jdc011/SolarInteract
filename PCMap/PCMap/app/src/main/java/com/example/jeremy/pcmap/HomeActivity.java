@@ -30,6 +30,7 @@ public class HomeActivity extends Activity {
         Init();
     }
 
+    // Click map button
     public void clickMap(View view) {
         Intent mapActivity = new Intent(HomeActivity.this, MapsActivity.class);
         startActivity(mapActivity);
