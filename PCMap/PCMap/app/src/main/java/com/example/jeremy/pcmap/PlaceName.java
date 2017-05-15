@@ -27,5 +27,8 @@ public enum PlaceName {
     TheLoft,
     ZanzibarCafe,
     CrossCulturalCenter,
-    Bookstore
+    Bookstore,
+
+    IntersectionWest,
+    IntersectionEast
 }

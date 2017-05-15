@@ -3,6 +3,7 @@ package com.example.jeremy.pcmap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -62,6 +63,41 @@ public class Constants {
         LOCATIONS.put(PlaceName.ZanzibarCafe, new LatLng(32.879560, -117.235941));
         LOCATIONS.put(PlaceName.CrossCulturalCenter, new LatLng(32.879679, -117.236018));
         LOCATIONS.put(PlaceName.Bookstore, new LatLng(32.879441, -117.236938));
+
+        LOCATIONS.put(PlaceName.IntersectionEast, new LatLng(32.879695, -117.236298));
+        LOCATIONS.put(PlaceName.IntersectionWest, new LatLng(32.879691, -117.236609));
+    }
+
+    // Map of places and previous places for purposes of making more intelligent paths
+    public final HashMap<PlaceName, PlaceName> PREVIOUS = new HashMap<PlaceName, PlaceName>();
+    {
+        PREVIOUS.put(PlaceName.Santorini, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.SunshineMarket, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.Subway, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.Starbucks, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.Rubios, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.Shogun, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.PandaExpress, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.BombayCoast, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.BurgerKing, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.ChaseBank, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.Lemongrass, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.PriceTheater, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.Outback, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.SunGodLounge, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.PerksCoffee, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.PostalCenter, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.TapiocaExpress, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.TheLoft, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.ZanzibarCafe, PlaceName.IntersectionEast);
+        PREVIOUS.put(PlaceName.CrossCulturalCenter, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.Bookstore, PlaceName.SRC);
+
+        PREVIOUS.put(PlaceName.IntersectionEast, PlaceName.IntersectionWest);
+        PREVIOUS.put(PlaceName.IntersectionWest, PlaceName.SRC);
+
+        PREVIOUS.put(PlaceName.SRC, null);
+
     }
 
     // Map pd names for each place in PC
@@ -94,5 +130,17 @@ public class Constants {
     public PlaceName toEnum(String s) {
         return enumHash.get(s);
     }
-}
 
+    // get path from src to given place
+    public ArrayList<PlaceName> getPath(PlaceName p) {
+        ArrayList<PlaceName> a;
+        if (PREVIOUS.get(p) == null) {
+            a = new ArrayList<PlaceName>();
+        }
+        else {
+            a = getPath(PREVIOUS.get(p));
+        }
+        a.add(p);
+        return a;
+    }
+}

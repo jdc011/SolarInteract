@@ -17,6 +17,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -93,12 +95,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapSearch(View view) {
         // Autocomplete feature in search bar
         Constants con = new Constants();
-        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
 
         // have done button exit keyboard full screen
         autoCompleteTextView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        //clears search bar -- DO NOT DELETE
+        /*autoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                final int RIGHT = 2;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (autoCompleteTextView.getRight() -
+                            autoCompleteTextView.getCompoundDrawables()[RIGHT].getBounds().width())) {
+                        autoCompleteTextView.setText("");
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });*/
 
         //get string from search bar
         String place = autoCompleteTextView.getText().toString().toLowerCase();
@@ -107,7 +125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //turn string into enum to be used
             PlaceName thePlace = con.toEnum(place);
             //need pop up message if user input place that does not exists
-            drawPath(new PlaceName[]{PlaceName.SRC, thePlace});
+            drawPath(con.getPath(thePlace).toArray(new PlaceName[0]));
         }
 
         // error case
