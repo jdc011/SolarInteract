@@ -68,6 +68,36 @@ public class Constants {
         LOCATIONS.put(PlaceName.IntersectionWest, new LatLng(32.879751, -117.236709));
     }
 
+    // Map of floors for each place in PC
+    public final HashMap<PlaceName, Integer> FLOORS = new HashMap<PlaceName, Integer>();
+    {
+        FLOORS.put(PlaceName.SRC, 1);
+        FLOORS.put(PlaceName.Santorini, 1);
+        FLOORS.put(PlaceName.SunshineMarket, 1);
+        FLOORS.put(PlaceName.Subway, 1);
+        FLOORS.put(PlaceName.Starbucks, 1);
+        FLOORS.put(PlaceName.Rubios, 1);
+        FLOORS.put(PlaceName.Shogun, 2);
+        FLOORS.put(PlaceName.PandaExpress, 1);
+        FLOORS.put(PlaceName.BombayCoast, 1);
+        FLOORS.put(PlaceName.BurgerKing, 1);
+        FLOORS.put(PlaceName.ChaseBank, 1);
+        FLOORS.put(PlaceName.Lemongrass, 1);
+        FLOORS.put(PlaceName.PriceTheater, 1);
+        FLOORS.put(PlaceName.Outback, 2);
+        FLOORS.put(PlaceName.SunGodLounge, 1);
+        FLOORS.put(PlaceName.PerksCoffee, 1);
+        FLOORS.put(PlaceName.PostalCenter, 1);
+        FLOORS.put(PlaceName.TapiocaExpress, 1);
+        FLOORS.put(PlaceName.TheLoft, 2);
+        FLOORS.put(PlaceName.ZanzibarCafe, 2);
+        FLOORS.put(PlaceName.CrossCulturalCenter, 2);
+        FLOORS.put(PlaceName.Bookstore, 1);
+
+        FLOORS.put(PlaceName.IntersectionEast, 1);
+        FLOORS.put(PlaceName.IntersectionWest, 1);
+    }
+
     // Map of places and previous places for purposes of making more intelligent paths
     public final HashMap<PlaceName, PlaceName> PREVIOUS = new HashMap<PlaceName, PlaceName>();
     {
