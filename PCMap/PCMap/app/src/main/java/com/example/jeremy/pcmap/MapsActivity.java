@@ -174,6 +174,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Zoom buttons
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
+        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+        showFloor(1);
+
         // Form SRC marker
         LatLng SRC = new LatLng(con.X_SRC, con.Y_SRC);
 
