@@ -64,8 +64,8 @@ public class Constants {
         LOCATIONS.put(PlaceName.CrossCulturalCenter, new LatLng(32.879679, -117.236018));
         LOCATIONS.put(PlaceName.Bookstore, new LatLng(32.879441, -117.236938));
 
-        LOCATIONS.put(PlaceName.IntersectionEast, new LatLng(32.879695, -117.236298));
-        LOCATIONS.put(PlaceName.IntersectionWest, new LatLng(32.879691, -117.236609));
+        LOCATIONS.put(PlaceName.IntersectionEast, new LatLng(32.879765, -117.236298));
+        LOCATIONS.put(PlaceName.IntersectionWest, new LatLng(32.879751, -117.236709));
     }
 
     // Map of places and previous places for purposes of making more intelligent paths
