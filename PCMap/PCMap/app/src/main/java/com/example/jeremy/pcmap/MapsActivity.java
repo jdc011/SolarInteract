@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.graphics.Color;
 
@@ -105,11 +106,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 goHome(view); // Click listener event
             }
         });
-    }
 
-    public void onMapSearch(View view) {
         // Autocomplete feature in search bar
-        Constants con = new Constants();
+        final Constants con = new Constants();
         final AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, con.LANDMARKS);
         autoCompleteTextView.setAdapter(adapter);
@@ -117,49 +116,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // have done button exit keyboard full screen
         autoCompleteTextView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-        //clears search bar -- DO NOT DELETE
-        /*autoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
+        Button Search =  (Button) findViewById(R.id.search_button);
+        Search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                final int RIGHT = 2;
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= (autoCompleteTextView.getRight() -
-                            autoCompleteTextView.getCompoundDrawables()[RIGHT].getBounds().width())) {
-                        autoCompleteTextView.setText("");
-                        return true;
+            public void onClick(View view) {
+                //get string from search bar
+                String place = autoCompleteTextView.getText().toString().toLowerCase();
+
+                if (con.toEnum(place) != null) {
+                    //turn string into enum to be used
+                    PlaceName thePlace = con.toEnum(place);
+                    //need pop up message if user input place that does not exists
+                    drawPath(con.getPath(thePlace).toArray(new PlaceName[0]));
+                    showFloor(con.FLOORS.get(thePlace));
+                }
+
+                // error case
+                else {
+                    // didn't search
+                    if (place.equals("")) {
+                        Toast.makeText(getApplicationContext(), "Enter a place to search.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    // not found
+                    else {
+                        Toast.makeText(getApplicationContext(), autoCompleteTextView.getText().toString() + " is not found.", Toast.LENGTH_SHORT).show();
                     }
                 }
-                return false;
+                /* need to differentiate places by floor and message to point user to
+                press the right floor button*/
+                                          //use drawPath(src ,string typed by user)
             }
-        });*/
+        });
 
-        //get string from search bar
-        String place = autoCompleteTextView.getText().toString().toLowerCase();
-
-        if(con.toEnum(place) != null) {
-            //turn string into enum to be used
-            PlaceName thePlace = con.toEnum(place);
-            //need pop up message if user input place that does not exists
-            drawPath(con.getPath(thePlace).toArray(new PlaceName[0]));
-            showFloor(con.FLOORS.get(thePlace));
-        }
-
-        // error case
-        else
-        {
-            // didn't search
-            if(place.equals("")) {
-                Toast.makeText(getApplicationContext(), "Enter a place to search.", Toast.LENGTH_SHORT).show();
+        //clears search bar if pressed
+        Button clear = (Button) findViewById(R.id.Clear);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                autoCompleteTextView.setText("");
             }
-
-            // not found
-            else {
-                Toast.makeText(getApplicationContext(), autoCompleteTextView.getText().toString() + " is not found.", Toast.LENGTH_SHORT).show();
-            }
-        }
-        /* need to differentiate places by floor and message to point user to
-           press the right floor button*/
-        //use drawPath(src ,string typed by user)
+        });
     }
 
     @Override
