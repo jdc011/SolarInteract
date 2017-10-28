@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/Play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:text="Play"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/Back"
+            android:layout_alignStart="@+id/Back"/>
+
+        <Button
+            android:id="@+id/Easy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Easy"
+            android:layout_alignBaseline="@+id/Medium"
+            android:layout_alignBottom="@+id/Medium"
+            android:layout_toLeftOf="@+id/Medium"
+            android:layout_toStartOf="@+id/Medium"
+            android:layout_marginRight="26dp"
+            android:layout_marginEnd="26dp"/>
+
+        <Button
+            android:id="@+id/Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/Play"
+            android:layout_alignLeft="@+id/Play"
+            android:layout_alignStart="@+id/Play"/>
+
+        <Button
+            android:id="@+id/Hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Hard"
+            android:layout_alignBaseline="@+id/Medium"
+            android:layout_alignBottom="@+id/Medium"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="goBack"
+            android:text="Back"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/Begin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Begin" />
+        <Button
+            android:id="@+id/Home"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.12"
+            android:onClick="goHome"
+            android:text="Back to Home"
+            android:layout_below="@+id/Scoreboard"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"/>
 
-    <Button
-        android:id="@+id/Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send" />
+        <Button
+            android:id="@+id/Scoreboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Play"
+            android:layout_alignBottom="@+id/Play"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="31dp"
+            android:layout_marginRight="31dp"
+            android:onClick="seeScoreboard"
+            android:text="Scoreboard"/>
 
-    <Button
-        android:id="@+id/Stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop" />
+        <Button
+            android:id="@+id/Play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="73dp"
+            android:onClick="selectDifficulty"
+            android:text="Play"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/Clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/Home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goHome"
-        android:text="Home" />
 </LinearLayout>
