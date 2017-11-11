@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Pause"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onPause"
+        android:text="@string/si_crank_pause"/>
+
+    <Button
+        android:id="@+id/REMOVETHISGoToScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="REMOVETHISgoToScore"
+        android:text="@string/si_crank_tempREMOVE"/>
+</LinearLayout>

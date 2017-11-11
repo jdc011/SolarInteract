@@ -30,55 +30,75 @@
 
         <activity
             android:name=".HomeActivity"
-            android:label="Solar Interact"
+            android:label="Solar Interact: Home"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".MapsActivity"
-            android:label="Solar Interact"
+            android:label="Solar Interact: Map"
             android:screenOrientation="landscape">
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
 
         <activity
             android:name=".SolarInteract"
-            android:label="Solar Interact"
+            android:label="Solar Interact: Game"
             android:screenOrientation="landscape">
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
 
         <activity
-            android:name=".Game.Difficulty"
+            android:name=".game.Difficulty"
             android:label="Difficulty"
             android:screenOrientation="landscape">
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
+            -->
         </activity>
 
         <activity
-            android:name=".Game.Scoreboard"
+            android:name=".game.CrankGame"
+            android:label="Crank Game"
+            android:screenOrientation="landscape">
+            <!--
+            intent filter?
+            -->
+        </activity>
+
+        <activity
+            android:name=".game.Score"
+            android:label="Score"
+            android:screenOrientation="landscape">
+            <!--
+            intent filter?
+            -->
+        </activity>
+
+        <activity
+            android:name=".game.Scoreboard"
             android:label="Scoreboard"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--
+            intent filter?
+            -->
         </activity>
     </application>
 

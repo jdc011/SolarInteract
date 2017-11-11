@@ -1,4 +1,4 @@
-package com.example.jeremy.pcmap.Game;
+package com.example.jeremy.pcmap.game;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.jeremy.pcmap.R; // temporary fix; need to research R
-import com.example.jeremy.pcmap.SolarInteract; // imported to remove error
+import com.example.jeremy.pcmap.R;
+import com.example.jeremy.pcmap.SolarInteract;
 //import com.example.jeremy.pcmap.*; // simplifies imports
 
 /**
@@ -21,46 +21,56 @@ public class Difficulty extends Activity{
     public void Init() {
         // Create back button with listener
         Back = (Button) findViewById(R.id.Back);
-        /* TODO: Refer to SolarInteract.java for fixing red button names */
         Back.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                goBack(view); // Click listener event
+                goBack(view);
             }
         });
 
-        // Create difficulty buttons
-        // TODO: Under construction
-        /*
-        Easy = (Button) findViewById(R.id.Easy);
+        // Create back button with listener
+        Play = (Button) findViewById(R.id.Play);
+        Play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                play(view);
+            }
+        });
+
+        // TODO: Create difficulty buttons
+
+        /*Easy = (Button) findViewById(R.id.Easy); /*
         Medium = (Button) findViewById(R.id.Medium);
         Hard = (Button) findViewById(R.id.Hard);
-        */
+
 
         Easy.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
-                /* Easy setting */
+                // Easy setting
             }
         });
+        */
     }
 
     // Display the difficulty selections
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.solar_interact);
+        setContentView(R.layout.difficulty);
         Init();
     }
+
     // Return to game menu
     public void goBack(View view) {
         Intent homeActivity = new Intent(Difficulty.this, SolarInteract.class);
         startActivity(homeActivity);
     }
+
     // Plays the game
     public void play(View view) {
-        Intent playGame = new Intent(Difficulty.this, /* name of class */null);
+        Intent playGame = new Intent(Difficulty.this, CrankGame.class);
         startActivity(playGame);
     }
+
+    // TODO: Implement easy/medium/hard difficulty setting
 }

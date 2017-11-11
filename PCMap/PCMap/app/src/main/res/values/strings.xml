@@ -1,4 +1,36 @@
 <resources>
     <string name="app_name">PCMap</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="home_map">Price Center Directory</string>
+    <string name="home_game">Solar Interact</string>
+
+    <string name="map_f1">Floor 1</string>
+    <string name="map_f2">Floor 2</string>
+    <string name="map_f3">Floor 3</string>
+    <string name="map_f4">Floor 4</string>
+    <string name="map_home">Home</string>
+    <string name="map_search">Search</string>
+    <string name="map_clear">Clear</string>
+    <string name="map_textSearch">search PC &#8230;</string>
+
+    <string name="si_play">Play</string>
+    <string name="si_scoreboard">Scoreboard</string>
+    <string name="si_back">Back to Home</string>
+
+    <string name="si_diff_play">Play</string>
+    <string name="si_diff_easy">Easy</string>
+    <string name="si_diff_medium">Medium</string>
+    <string name="si_diff_hard">Hard</string>
+    <string name="si_diff_back">Back to Menu</string>
+
+    <string name="si_crank_pause">Pause</string>
+    <string name="si_crank_tempREMOVE">Go to Scores</string>
+    <!-- TODO REMOVE ABOVE LINE WHEN GAME IS IMPLEMENTED -->
+
+    <string name="si_scores_scoreboard">Scoreboard</string>
+    <string name="si_scores_tempDisplay">This is the player\'s current score</string>
+
+    <string name="si_scoreboard_goBack">Back to Menu</string>
+    <string name="si_scoreboard_tempDisplay">This is a list of the top scores</string>
 </resources>

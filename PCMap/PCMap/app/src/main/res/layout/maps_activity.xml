@@ -4,7 +4,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:text="Floor 1"
+        android:text="@string/map_f1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,7 +14,7 @@
         android:onClick="clickFloor1"/>
 
     <AutoCompleteTextView
-        android:hint="search PC..."
+        android:hint="@string/map_textSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -39,7 +39,7 @@
         android:layout_alignParentTop="true" />
 
     <Button
-        android:text="Floor 4"
+        android:text="@string/map_f4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/floor4"
@@ -49,7 +49,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Floor 2"
+        android:text="@string/map_f2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/floor2"
@@ -59,7 +59,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Floor 3"
+        android:text="@string/map_f3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/floor3"
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/search_button"
-        android:text="Search"
+        android:text="@string/map_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
@@ -87,13 +87,13 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:onClick="goHome"
-        android:text="Home" />
+        android:text="@string/map_home" />
 
     <Button
         android:id="@+id/Clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear"
+        android:text="@string/map_clear"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/search_button"
         android:layout_below="@+id/mapFragment"
