@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/.android/build-cache/7c71286706b7ec5289ddc0778d1086692543e9f5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_473474b3ca929ae63d6bb0b5c7f2ddb1bea32711/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/.android/build-cache/ee1c22c148d46fbdc1b3d848427f375993b80938/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_066fb91fb4c929fa13b6b982847bfa7b2fb35420/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9ab935a1df1b1a771d5c5e8377f7834d98f69c41">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fda714e6be33aa9928ad2287c45415c08f6f8175/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_57c79b53f08cd164edc1412b57b5ec24845fc9e0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/.android/build-cache/eeaa01599294f832454685c9c6f8eccd57888978/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_aedfcf14f7af80ffe5e6453efe977efeccd57aa2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/.android/build-cache/9df1385944bc6b95fab4218ecb87a6af7eb12cba/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bd52aad9e564de83de30175a173f17419927085b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/.android/build-cache/eeaa01599294f832454685c9c6f8eccd57888978/output/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_80d5bc55276caccab328ae6eea077b0fcd0d614e/classes.dex" />
+    </item>
+
+</items>
