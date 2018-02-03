@@ -8,13 +8,15 @@ import android.widget.Button;
 
 import com.example.jeremy.pcmap.R;
 
+import java.util.HashMap;
+
 /**
  * Created by jmich_000 on 11/11/2017.
  */
 
 public class CrankGame extends Activity {
-    private Button Pause;
-    private Button REMOVETHISGoToScore;
+    // Buttons for the game
+    private Button Pause, REMOVETHISGoToScore;
 
     public void Init(){
         Pause = (Button) findViewById(R.id.Pause);

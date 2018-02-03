@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:onClick="REMOVETHISgoToScore"
         android:text="@string/si_crank_tempREMOVE"/>
+
+    <TextView
+        android:id="@+id/DiffSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/si_crank_diff1"/>
 </LinearLayout>

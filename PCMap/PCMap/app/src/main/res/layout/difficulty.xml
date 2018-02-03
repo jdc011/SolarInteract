@@ -7,53 +7,46 @@
         android:id="@+id/Play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
         android:onClick="play"
         android:text="@string/si_diff_play"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/Back"
-        android:layout_alignStart="@+id/Back"/>
-<!--
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:id="@+id/Easy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/si_diff_easy"
-        android:layout_alignBaseline="@+id/Medium"
-        android:layout_alignBottom="@+id/Medium"
-        android:layout_toLeftOf="@+id/Medium"
-        android:layout_toStartOf="@+id/Medium"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp"/>
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
     <Button
         android:id="@+id/Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/si_diff_medium"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/Play"
-        android:layout_alignLeft="@+id/Play"
-        android:layout_alignStart="@+id/Play"/>
+        android:layout_alignBaseline="@+id/Hard"
+        android:layout_alignBottom="@+id/Hard"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:id="@+id/Hard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:text="@string/si_diff_hard"
-        android:layout_alignBaseline="@+id/Medium"
-        android:layout_alignBottom="@+id/Medium"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
--->
+        android:layout_alignBaseline="@+id/Easy"
+        android:layout_alignBottom="@+id/Easy"
+        android:layout_alignLeft="@+id/Play"
+        android:layout_alignStart="@+id/Play"/>
+
     <Button
         android:id="@+id/Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="goBack"
         android:text="@string/si_diff_back"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>
