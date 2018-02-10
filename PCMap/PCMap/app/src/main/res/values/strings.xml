@@ -23,11 +23,11 @@
     <string name="si_diff_medium">Medium</string>
     <string name="si_diff_hard">Hard</string>
     <string name="si_diff_back">Back to Menu</string>
+    <string name="si_diff_text">Select a difficulty setting:</string>
 
     <string name="si_crank_pause">Pause</string>
-    <string name="si_crank_diff">TEST</string>
-    <string name="si_crank_diff1">Difficulty Setting: </string>
-    <string name="si_crank_tempREMOVE">Go to Scores</string>
+    <string name="si_crank_diff">Difficulty Setting:</string>
+    <string name="si_crank_tempREMOVE">DELETE ME Go to Scores</string>
     <!-- TODO REMOVE ABOVE LINE WHEN GAME IS IMPLEMENTED -->
 
     <string name="si_scores_scoreboard">Scoreboard</string>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.jeremy.pcmap.R;
 import com.example.jeremy.pcmap.SolarInteract;
@@ -22,17 +23,18 @@ public class Difficulty extends Activity{
     private final int EASY = 1;
     private final int MEDIUM = 2;
     private final int HARD = 4;
+    // Default setting
+    private static final String defaultDifficulty = "Medium";
     // Buttons
     private Button Back, Easy, Medium, Hard, Play; // default setting is medium
     // Difficulty setting
     private static String difficultySetting;
-    // Default setting
-    private static final String defaultDifficulty = "Medium";
     // Map that converts difficulty into a number
     private static HashMap<String, Integer> difficultyMultiplier;
 
     public void Init() {
-        setDifficultyMultiplier();
+        initDifficultyMultiplier();
+        resetTextViews("Medium");
 
         // Create back button with listener
         Back = (Button) findViewById(R.id.Back);
@@ -60,6 +62,7 @@ public class Difficulty extends Activity{
         Easy.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                resetTextViews("Easy"); // method call needs to be before reset difficultySetting
                 difficultySetting = "Easy";
                 dialog(difficultySetting);
             }
@@ -68,6 +71,7 @@ public class Difficulty extends Activity{
         Medium.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                resetTextViews("Medium");
                 difficultySetting = "Medium";
                 dialog(difficultySetting);
             }
@@ -76,6 +80,7 @@ public class Difficulty extends Activity{
         Hard.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                resetTextViews("Hard");
                 difficultySetting = "Hard";
                 dialog(difficultySetting);
             }
@@ -107,15 +112,56 @@ public class Difficulty extends Activity{
         new AlertDialog.Builder(this)
                 .setTitle("Title")
                 .setMessage("Difficulty set at " + diff + ".")
+                .setNeutralButton("Ok", null)
                 .create().show();
     }
 
     // Initializes difficultyMultiplier
-    private void setDifficultyMultiplier() {
+    private void initDifficultyMultiplier() {
         difficultyMultiplier = new HashMap<String, Integer>();
         difficultyMultiplier.put("Easy", EASY);
         difficultyMultiplier.put("Medium", MEDIUM);
         difficultyMultiplier.put("Hard", HARD);
+    }
+
+    // Resets other difficulty TextViews while setting the given one as the current diff setting
+    private void resetTextViews(String diff) {
+        TextView t = (TextView) findViewById(R.id.DiffSetting);;
+        String oldDiffSetting;
+        switch(difficultyMultiplier.get(difficultySetting)) {
+            default: // defaults to resetting easy setting
+            case 1:
+                t = (TextView) findViewById(R.id.Easy);
+                oldDiffSetting = getResources().getString(R.string.si_diff_easy);
+                break;
+            case 2:
+                t = (TextView) findViewById(R.id.Medium);
+                oldDiffSetting = getResources().getString(R.string.si_diff_medium);
+                break;
+            case 4:
+                t = (TextView) findViewById(R.id.Hard);
+                oldDiffSetting = getResources().getString(R.string.si_diff_hard);
+                break;
+        }
+        t.setText(oldDiffSetting);
+
+        String newDiffSetting;
+        switch(difficultyMultiplier.get(diff)) {
+            case 1:
+                t = (TextView) findViewById(R.id.Easy);
+                newDiffSetting = "→" + getResources().getString(R.string.si_diff_easy) + "←";
+                break;
+            default: // defaults to changing medium setting
+            case 2:
+                t = (TextView) findViewById(R.id.Medium);
+                newDiffSetting = "→" + getResources().getString(R.string.si_diff_medium) + "←";
+                break;
+            case 4:
+                t = (TextView) findViewById(R.id.Hard);
+                newDiffSetting = "→" + getResources().getString(R.string.si_diff_hard) + "←";
+                break;
+        }
+        t.setText(newDiffSetting);
     }
 
     // Sets default difficultySetting
@@ -127,4 +173,8 @@ public class Difficulty extends Activity{
     public static String getDifficultySetting() {
         return difficultySetting;
     }
+
+    // Getter for numeric value of difficulty setting (the difficulty rating)
+    protected static int getDifficultyRating() { return difficultyMultiplier.get
+            (difficultySetting); }
 }

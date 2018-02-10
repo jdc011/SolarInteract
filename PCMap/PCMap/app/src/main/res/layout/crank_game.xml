@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <Button
         android:id="@+id/Pause"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="onPause"
-        android:text="@string/si_crank_pause"/>
+        android:text="@string/si_crank_pause"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:id="@+id/REMOVETHISGoToScore"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="REMOVETHISgoToScore"
-        android:text="@string/si_crank_tempREMOVE"/>
+        android:text="@string/si_crank_tempREMOVE"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/Pause"
+        android:layout_toEndOf="@id/Pause"/>
 
     <TextView
         android:id="@+id/DiffSetting"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/si_crank_diff1"/>
+        android:text="@string/si_crank_diff"
+        android:textSize="20sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/REMOVETHISGoToScore"
+        android:layout_toEndOf="@id/REMOVETHISGoToScore"/>
+
+    <TextView
+        android:id="@+id/DiffSetting2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/si_crank_diff"
+        android:textSize="20sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/DiffSetting"
+        android:layout_toEndOf="@id/DiffSetting"/>
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
-</LinearLayout>
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

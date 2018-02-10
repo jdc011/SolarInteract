@@ -5,48 +5,66 @@
 
     <Button
         android:id="@+id/Play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="640dp"
+        android:layout_height="match_parent"
         android:onClick="play"
         android:text="@string/si_diff_play"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/Easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/si_diff_easy"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
-
-    <Button
-        android:id="@+id/Medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/si_diff_medium"
-        android:layout_alignBaseline="@+id/Hard"
-        android:layout_alignBottom="@+id/Hard"
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="640dp"
+        android:layout_height="88dp"
+        android:text="@string/si_diff_text"
+        android:textSize="52sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
     <Button
+        android:id="@+id/Easy"
+        android:layout_width="210dp"
+        android:layout_height="290dp"
+        android:text="@string/si_diff_easy"
+        android:layout_below="@+id/text"
+        android:layout_alignLeft="@+id/text"
+        android:layout_alignStart="@+id/text"/>
+
+    <Button
+        android:id="@+id/Medium"
+        android:layout_width="210dp"
+        android:layout_height="290dp"
+        android:text="@string/si_diff_medium"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_below="@+id/text"
+        android:layout_toRightOf="@+id/Easy"
+        android:layout_toEndOf="@+id/Easy"/>
+
+    <Button
         android:id="@+id/Hard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="290dp"
         android:text="@string/si_diff_hard"
-        android:layout_alignBaseline="@+id/Easy"
-        android:layout_alignBottom="@+id/Easy"
-        android:layout_alignLeft="@+id/Play"
-        android:layout_alignStart="@+id/Play"/>
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_toRightOf="@+id/Medium"
+        android:layout_toEndOf="@+id/Medium"/>
 
     <Button
         android:id="@+id/Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="640dp"
+        android:layout_height="390dp"
         android:onClick="goBack"
         android:text="@string/si_diff_back"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
 </RelativeLayout>

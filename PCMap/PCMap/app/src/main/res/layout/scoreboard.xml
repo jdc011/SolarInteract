@@ -10,14 +10,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
-        android:text="Scoreboard:"/>
+        android:text="@string/si_scoreboard_tempDisplay"/>
 
     <Button
         android:id="@+id/Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goHome"
-        android:text="Back"
+        android:onClick="goBack"
+        android:text="@string/si_scoreboard_goBack"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"/>
