@@ -36,6 +36,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int[] floors = {1,2,3,4};
     private int currentFloor = floors[0];
 
+    //destination
+    private ArrayList<PlaceName> dest;
+
     // Google map API
     private GoogleMap mMap;
     private GroundOverlay theOverlay;
@@ -134,8 +137,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (con.toEnum(place) != null) {
                     //turn string into enum to be used
                     PlaceName thePlace = con.toEnum(place);
+                    dest = con.getPath(thePlace);
                     //need pop up message if user input place that does not exists
-                    drawPath(con.getPath(thePlace).toArray(new PlaceName[0]), currentFloor);
+                    drawPath(dest.toArray(new PlaceName[0]), currentFloor);
                     showFloor(currentFloor);
                 }
 
@@ -163,6 +167,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 autoCompleteTextView.setText("");
+                dest.clear();
+                theLine.setVisible(false);
             }
         });
     }
@@ -220,7 +226,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
         for (PlaceName landmark : landmarks) {
-            pointsList.add(con.LOCATIONS.get(landmark));
+            if (con.FLOORS.get(landmark) == currentFloor)
+                pointsList.add(con.LOCATIONS.get(landmark));
         }
 
         theLine.setPoints(pointsList);
@@ -253,6 +260,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
+        if (dest != null && dest.size() != 0)
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
         showFloor(this.currentFloor);
     }
 
@@ -263,6 +272,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.RED);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
+        if (dest != null && dest.size() != 0)
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
         showFloor(this.currentFloor);
     }
 
@@ -273,6 +284,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.RED);
         Floor4.setTextColor(Color.BLACK);
+        if (dest != null && dest.size() != 0)
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
         showFloor(this.currentFloor);
     }
 
@@ -283,6 +296,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.RED);
+        if (dest != null && dest.size() != 0)
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
         showFloor(this.currentFloor);
     }
 
