@@ -51,25 +51,25 @@
         </activity>
 
         <activity
-            android:name=".game.Difficulty"
+            android:name=".Game.Difficulty"
             android:label="Difficulty"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".game.CrankGame"
+            android:name=".Game.CrankGame"
             android:label="Crank Game"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".game.Score"
+            android:name=".Game.Score"
             android:label="Score"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".game.Scoreboard"
+            android:name=".Game.Scoreboard"
             android:label="Scoreboard"
             android:screenOrientation="landscape">
         </activity>

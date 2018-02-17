@@ -32,6 +32,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+    // Floor fields
+    private int[] floors = {1,2,3,4};
+    private int currentFloor = floors[0];
 
     // Google map API
     private GoogleMap mMap;
@@ -97,6 +100,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor3 = (Button) findViewById(R.id.floor3);
         Floor4 = (Button) findViewById(R.id.floor4);
 
+        // Default floor
+        if(this.currentFloor == this.floors[0]) {
+            Floor1.setTextColor(Color.RED);
+        }
+
         // Create home button with listener
         Home = (Button) findViewById(R.id.Home);
         Home.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +135,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //turn string into enum to be used
                     PlaceName thePlace = con.toEnum(place);
                     //need pop up message if user input place that does not exists
-                    drawPath(con.getPath(thePlace).toArray(new PlaceName[0]));
-                    showFloor(con.FLOORS.get(thePlace));
+                    drawPath(con.getPath(thePlace).toArray(new PlaceName[0]), currentFloor);
+                    showFloor(currentFloor);
                 }
 
                 // error case
@@ -203,7 +211,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }*/
 
     // Draw path from SRC to landmark
-    public void drawPath(PlaceName[] landmarks) {
+    public void drawPath(PlaceName[] landmarks, int currentFloor) {
         Constants con = new Constants();
         if (theLine == null) {
             PolylineOptions plo = new PolylineOptions();
@@ -240,38 +248,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Show floor 1
     public void clickFloor1(View view) {
+        this.currentFloor = floors[0];
         Floor1.setTextColor(Color.RED);
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
-        showFloor(1);
+        showFloor(this.currentFloor);
     }
 
     // Show floor 2
     public void clickFloor2(View view) {
+        this.currentFloor = floors[1];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.RED);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
-        showFloor(2);
+        showFloor(this.currentFloor);
     }
 
     // Show floor 3
     public void clickFloor3(View view) {
+        this.currentFloor = floors[2];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.RED);
         Floor4.setTextColor(Color.BLACK);
-        showFloor(3);
+        showFloor(this.currentFloor);
     }
 
     // Show floor 4
     public void clickFloor4(View view) {
+        this.currentFloor = floors[3];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.RED);
-        showFloor(4);
+        showFloor(this.currentFloor);
     }
 
     // Return home
