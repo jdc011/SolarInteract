@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.jeremy.pcmap.game.Difficulty;
+import com.example.jeremy.pcmap.Game.Difficulty;
 
 public class HomeActivity extends Activity {
     // Buttons

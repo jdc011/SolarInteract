@@ -1,4 +1,4 @@
-package com.example.jeremy.pcmap.game;
+package com.example.jeremy.pcmap.Game;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-import com.example.jeremy.pcmap.game.*;
+import com.example.jeremy.pcmap.Game.*;
 /**
  * Created by jeremy on 5/14/17.
  */
