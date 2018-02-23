@@ -166,6 +166,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Already cleared
+                if (dest == null) {
+                    autoCompleteTextView.setText("");
+                    return;
+                }
                 autoCompleteTextView.setText("");
                 dest.clear();
                 theLine.setVisible(false);
