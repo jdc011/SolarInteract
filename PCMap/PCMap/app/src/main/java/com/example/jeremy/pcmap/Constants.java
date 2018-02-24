@@ -54,7 +54,7 @@ public class Constants {
         LOCATIONS.put(PlaceName.ChaseBank, new LatLng(32.879778, -117.235922));
         LOCATIONS.put(PlaceName.Lemongrass, new LatLng(32.879772, -117.236474));
         LOCATIONS.put(PlaceName.PriceTheater, new LatLng(32.879909, -117.237113));
-        LOCATIONS.put(PlaceName.Outback, new LatLng(32.880071, -117.237384));
+        LOCATIONS.put(PlaceName.Arcade, new LatLng(32.880071, -117.237384));
         LOCATIONS.put(PlaceName.SunGodLounge, new LatLng(32.880030, -117.237138));
         LOCATIONS.put(PlaceName.PerksCoffee, new LatLng(32.879344, -117.237294));
         LOCATIONS.put(PlaceName.PostalCenter, new LatLng(32.879992, -117.235701));
@@ -84,7 +84,7 @@ public class Constants {
         FLOORS.put(PlaceName.ChaseBank, 1);
         FLOORS.put(PlaceName.Lemongrass, 1);
         FLOORS.put(PlaceName.PriceTheater, 1);
-        FLOORS.put(PlaceName.Outback, 2);
+        FLOORS.put(PlaceName.Arcade, 2);
         FLOORS.put(PlaceName.SunGodLounge, 1);
         FLOORS.put(PlaceName.PerksCoffee, 1);
         FLOORS.put(PlaceName.PostalCenter, 1);
@@ -113,7 +113,7 @@ public class Constants {
         PREVIOUS.put(PlaceName.ChaseBank, PlaceName.IntersectionEast);
         PREVIOUS.put(PlaceName.Lemongrass, PlaceName.IntersectionWest);
         PREVIOUS.put(PlaceName.PriceTheater, PlaceName.SRC);
-        PREVIOUS.put(PlaceName.Outback, PlaceName.SRC);
+        PREVIOUS.put(PlaceName.Arcade, PlaceName.SRC);
         PREVIOUS.put(PlaceName.SunGodLounge, PlaceName.SRC);
         PREVIOUS.put(PlaceName.PerksCoffee, PlaceName.SRC);
         PREVIOUS.put(PlaceName.PostalCenter, PlaceName.IntersectionEast);
@@ -148,7 +148,7 @@ public class Constants {
         enumHash.put("burger king", PlaceName.BurgerKing);
         enumHash.put("chase bank", PlaceName.ChaseBank);
         enumHash.put("cross cultural center", PlaceName.CrossCulturalCenter);
-        enumHash.put("outback adventures surf shop", PlaceName.Outback);
+        enumHash.put("arcade Room", PlaceName.Arcade);
         enumHash.put("panda express", PlaceName.PandaExpress);
         enumHash.put("perks coffee shop", PlaceName.PerksCoffee);
         enumHash.put("shogun", PlaceName.Shogun);
