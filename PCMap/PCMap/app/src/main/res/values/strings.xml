@@ -25,14 +25,21 @@
     <string name="si_diff_back">Back to Menu</string>
     <string name="si_diff_text">Select a difficulty setting:</string>
 
-    <string name="si_crank_pause">Pause</string>
+    <string name="si_crank_pause">Pause (TODO implement)</string>
     <string name="si_crank_diff">Difficulty Setting:</string>
+    <string name="si_crank_rating">Difficulty Rating:</string>
+    <string name="si_crank_playerScore">Player score:</string>
+    <string name="si_crank_solarScore">Solar score:</string>
+    <!-- TODO REMOVE BELOW LINE WHEN GAME IS IMPLEMENTED -->
+    <string name="si_crank_scoreREMOVE">DELETE ME Click me to increase the score!</string>
+    <!-- TODO REMOVE BELOW LINE WHEN GAME IS IMPLEMENTED -->
     <string name="si_crank_tempREMOVE">DELETE ME Go to Scores</string>
-    <!-- TODO REMOVE ABOVE LINE WHEN GAME IS IMPLEMENTED -->
 
-    <string name="si_scores_scoreboard">Scoreboard</string>
-    <string name="si_scores_tempDisplay">This is the player\'s current score</string>
+    <string name="si_scores_scoreboard">Go to scoreboard</string>
+    <string name="si_scores_playerScore">Your score:</string>
+    <string name="si_scores_solarScore">Solar Panel score:</string>
+    <string name="si_scores_result">win/lose</string>
 
     <string name="si_scoreboard_goBack">Back to Menu</string>
-    <string name="si_scoreboard_tempDisplay">This is a list of the top scores</string>
+    <string name="si_scoreboard_tempDisplay">Top scores</string>
 </resources>

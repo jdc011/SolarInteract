@@ -1,4 +1,4 @@
-package com.example.jeremy.pcmap.Game;
+package com.example.jeremy.pcmap.game;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,21 +20,20 @@ import java.util.HashMap;
 
 public class Difficulty extends Activity{
     // Programmer-changeable values corresponding to the number of solar panels to use
-    private final int EASY = 1;
-    private final int MEDIUM = 2;
-    private final int HARD = 4;
-    // Default setting
+    private static final int EASY = 1;
+    private static final int MEDIUM = 2;
+    private static final int HARD = 4;
+    /** Default setting (Medium) */
     private static final String defaultDifficulty = "Medium";
     // Buttons
     private Button Back, Easy, Medium, Hard, Play; // default setting is medium
-    // Difficulty setting
+    /** Difficulty setting: Easy, Medium, or Hard */
     private static String difficultySetting;
-    // Map that converts difficulty into a number
+    /** Map that converts difficulty into a number. Used only for this purpose during the game */
     private static HashMap<String, Integer> difficultyMultiplier;
 
     public void Init() {
-        initDifficultyMultiplier();
-        resetTextViews("Medium");
+        resetTextViews(difficultySetting);
 
         // Create back button with listener
         Back = (Button) findViewById(R.id.Back);
@@ -87,46 +86,47 @@ public class Difficulty extends Activity{
         });
     }
 
-    // Display the difficulty selections
+    /** Display the difficulty selections */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.difficulty);
         Init();
     }
 
-    // Return to game menu
+    /** Return to game menu */
     public void goBack(View view) {
         Intent homeActivity = new Intent(Difficulty.this, SolarInteract.class);
         startActivity(homeActivity);
     }
 
-    // Plays the game
+    /** Plays the game */
     public void play(View view) {
         Intent playGame = new Intent(Difficulty.this, CrankGame.class);
         startActivity(playGame);
     }
 
-    // Shows a dialog box when difficulty is selected
-    // Source: https://www.youtube.com/watch?v=IH3sWb1WacI
+    /** Shows a dialog box when difficulty is selected
+     *  Source: https://www.youtube.com/watch?v=IH3sWb1WacI
+     */
     public void dialog(String diff) {
         new AlertDialog.Builder(this)
-                .setTitle("Title")
+                //.setTitle("Title")
                 .setMessage("Difficulty set at " + diff + ".")
                 .setNeutralButton("Ok", null)
                 .create().show();
     }
 
-    // Initializes difficultyMultiplier
-    private void initDifficultyMultiplier() {
+    /** Initializes difficultyMultiplier */
+    private static void initDifficultyMultiplier() {
         difficultyMultiplier = new HashMap<String, Integer>();
         difficultyMultiplier.put("Easy", EASY);
         difficultyMultiplier.put("Medium", MEDIUM);
         difficultyMultiplier.put("Hard", HARD);
     }
 
-    // Resets other difficulty TextViews while setting the given one as the current diff setting
+    /** Resets other difficulty TextViews while setting the given one as the current diff setting */
     private void resetTextViews(String diff) {
-        TextView t = (TextView) findViewById(R.id.DiffSetting);;
+        TextView t; //= (TextView) findViewById(R.id.DiffSetting);
         String oldDiffSetting;
         switch(difficultyMultiplier.get(difficultySetting)) {
             default: // defaults to resetting easy setting
@@ -151,7 +151,7 @@ public class Difficulty extends Activity{
                 t = (TextView) findViewById(R.id.Easy);
                 newDiffSetting = "→" + getResources().getString(R.string.si_diff_easy) + "←";
                 break;
-            default: // defaults to changing medium setting
+            default: // defaults to changing to medium setting
             case 2:
                 t = (TextView) findViewById(R.id.Medium);
                 newDiffSetting = "→" + getResources().getString(R.string.si_diff_medium) + "←";
@@ -164,17 +164,19 @@ public class Difficulty extends Activity{
         t.setText(newDiffSetting);
     }
 
-    // Sets default difficultySetting
+    /** Sets default difficultySetting and initializes internal difficulty multiplier HashMap.
+     *  Used by HomeActivity only */
     public static void defaultDifficulty() {
         difficultySetting = defaultDifficulty;
+        initDifficultyMultiplier();
     }
 
-    // Getter for difficulty setting
+    /** Getter for difficulty setting */
     public static String getDifficultySetting() {
         return difficultySetting;
     }
 
-    // Getter for numeric value of difficulty setting (the difficulty rating)
+    /** Getter for numeric value of difficulty setting (the difficulty rating) */
     protected static int getDifficultyRating() { return difficultyMultiplier.get
             (difficultySetting); }
 }

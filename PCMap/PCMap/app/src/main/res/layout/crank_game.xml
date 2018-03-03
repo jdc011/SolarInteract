@@ -5,13 +5,13 @@
 
     <Button
         android:id="@+id/Pause"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onPause"
-        android:text="@string/si_crank_pause"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onPause"
+        android:text="@string/si_crank_pause"/>
 
     <Button
         android:id="@+id/REMOVETHISGoToScore"
@@ -37,7 +37,7 @@
         android:layout_toEndOf="@id/REMOVETHISGoToScore"/>
 
     <TextView
-        android:id="@+id/DiffSetting2"
+        android:id="@+id/DiffRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/si_crank_diff"
@@ -49,9 +49,45 @@
         android:layout_toRightOf="@id/DiffSetting"
         android:layout_toEndOf="@id/DiffSetting"/>
 
+    <TextView
+        android:id="@+id/PlayerScoreDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@+id/DiffRating"
+        android:layout_toRightOf="@+id/DiffRating"
+        android:gravity="center"
+        android:text="@string/si_crank_playerScore"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/SolarScoreDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@+id/PlayerScoreDisplay"
+        android:layout_toRightOf="@+id/PlayerScoreDisplay"
+        android:gravity="center"
+        android:text="@string/si_crank_solarScore"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/REMOVETHISIncreaseScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/DiffSetting"
+        android:text="@string/si_crank_scoreREMOVE"/>
+
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

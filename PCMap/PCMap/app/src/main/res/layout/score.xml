@@ -4,14 +4,39 @@
               android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/si_scores_tempDisplay"
+        android:text="@string/si_scores_result"
+        android:textSize="20sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/PlayerScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/si_scores_playerScore"
         android:textSize="20sp"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:gravity="center"
         android:layout_margin="10dp"
+        android:layout_below="@+id/Result"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/SolarScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/si_scores_solarScore"
+        android:textSize="20sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/PlayerScore"
         android:layout_centerHorizontal="true"/>
 
     <Button
@@ -19,7 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/si_scores_scoreboard"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/PlayerScore"
         android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

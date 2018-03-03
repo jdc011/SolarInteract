@@ -1,4 +1,4 @@
-package com.example.jeremy.pcmap.Game;
+package com.example.jeremy.pcmap.game;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,14 +29,14 @@ public class Scoreboard extends Activity{
         });
     }
 
-    // Display the scoreboard page
+    /** Display the scoreboard page */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scoreboard);
         Init();
     }
 
-    // Return to game menu
+    /** Return to game menu */
     public void goBack(View view) {
         Intent homeActivity = new Intent(Scoreboard.this, SolarInteract.class);
         startActivity(homeActivity);

@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.jeremy.pcmap.Game.Difficulty;
+import com.example.jeremy.pcmap.game.Difficulty;
 
 public class HomeActivity extends Activity {
     // Buttons
-    private Button Map;
-    private Button Game;
+    private Button Map, Game;
 
     public void Init() {
         Map = (Button) findViewById(R.id.Map);
@@ -31,7 +30,9 @@ public class HomeActivity extends Activity {
                 clickGame(view); // Click listener event
             }
         });
-        Difficulty.defaultDifficulty();
+
+        if(Difficulty.getDifficultySetting() == null)
+            Difficulty.defaultDifficulty();
     }
 
     // Display the app page

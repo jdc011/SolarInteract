@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-import com.example.jeremy.pcmap.Game.*;
+import com.example.jeremy.pcmap.game.*;
 /**
  * Created by jeremy on 5/14/17.
  */
@@ -41,26 +41,26 @@ public class SolarInteract extends Activity {
         });
     }
 
-    // Display the app page
+    /** Display the app page */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.solar_interact);
         Init();
     }
 
-    // Return home
+    /** Return home */
     public void goHome(View view) {
         Intent homeActivity = new Intent(SolarInteract.this, HomeActivity.class);
         startActivity(homeActivity);
     }
 
-    // Go to difficulty selection
+    /** Go to difficulty selection */
     public void selectDifficulty(View view) {
         Intent difficultySelection = new Intent(SolarInteract.this, Difficulty.class);
         startActivity(difficultySelection);
     }
 
-    // See the scoreboard
+    /** See the scoreboard */
     public void seeScoreboard(View view) {
         Intent scoreboard = new Intent(SolarInteract.this, Scoreboard.class);
         startActivity(scoreboard);
