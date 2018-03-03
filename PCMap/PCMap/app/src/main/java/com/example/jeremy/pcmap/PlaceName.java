@@ -61,6 +61,7 @@ public enum PlaceName {
     Communidad,
     DanceStudio,
     GameRoom,
+    SPACE,
 
     StudOrg3,
     WarrenRoom,

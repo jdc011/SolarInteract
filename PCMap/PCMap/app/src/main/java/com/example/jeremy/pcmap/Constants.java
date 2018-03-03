@@ -41,20 +41,19 @@ public class Constants {
                                                     "Shogun", "Arcade Room", "The Loft", "Roosevelt College Room",
                                                     "Zanzibar Cafe",  "Sun God Lounge", "Marshall College Room",
                                                     "Cross Cultural Center", "Revelle College Room",
-                                                    "Muir College Room", "Intertribal Resource Center",
+                                                    "Muir College Room", "Inter-tribal Resource Center",
                                                     "Student Organization Offices Flr 2", "Green Room",
                                                     "Lactation Room", "Ballroom West A", "Ballroom West B",
                                                     "Ballroom East", "Game Room", "Dance Studio",
-                                                    "Student Organization Offices Floor 2",
-                                                    "S.P.A.C.E.", "Red Shoe Room", "Bear Room", "Kaplan",
+                                                    "S.P.A.C.E.", "Red Shoe Room", "Bear Room", "Kaplan Test Prep",
                                                     "Green Table Room", "Saloon 101", "Art Space",
                                                     "Communidad",
 
                                                     "Student Organization Offices Floor 3", "Warren College Room",
-                                                    "University Center Administration", "One Stop", "Sixth Room",
-                                                    "AS Volunteer Connection", " AS Graphic Studio", "Alumni Affairs",
+                                                    "University Centers Administration", "One Stop", "Sixth Room",
+                                                    "A.S. Volunteer Connection", "A.S. Graphic Studio", "Alumni Affairs",
                                                     "Student Life Business Operations", "University Centers Event Services",
-                                                    "Center for Communication and Leadership", "Center for Student Involvement",
+                                                    "Center for Communication and Leadership Development", "Center for Student Involvement",
 
                                                     "The Forum", "Student Leadership Chambers", "Associated Students",
                                                     "University Events Office", "Senate Chambers", "AVC Student Life",
@@ -93,6 +92,7 @@ public class Constants {
         LOCATIONS.put(PlaceName.Lockers, new LatLng(32.88007, -117.23617));
         LOCATIONS.put(PlaceName.SeedSprout, new LatLng(32.87964, -117.23587));
 
+        LOCATIONS.put(PlaceName.SPACE, new LatLng(32.87998, -117.23645));
         LOCATIONS.put(PlaceName.Shogun, new LatLng(32.880007, -117.236906));
         LOCATIONS.put(PlaceName.Arcade, new LatLng(32.880071, -117.237384));
         LOCATIONS.put(PlaceName.SunGodLounge, new LatLng(32.880030, -117.237138));
@@ -242,6 +242,19 @@ public class Constants {
         enumHash.put("panda express", PlaceName.PandaExpress);
         enumHash.put("perks coffee shop", PlaceName.PerksCoffee);
         enumHash.put("price theater", PlaceName.PriceTheater);
+        enumHash.put("jamba juice", PlaceName.Jamba);
+        enumHash.put("the zone", PlaceName.Zone);
+        enumHash.put("box office", PlaceName.BoxOffice);
+        enumHash.put("round table pizza", PlaceName.RoundTablePizza);
+        enumHash.put("commuter kitchen", PlaceName.CommuterKitchen);
+        enumHash.put("ucsd police", PlaceName.UCSDPolice);
+        enumHash.put("accb", PlaceName.ACCB);
+        enumHash.put("acta", PlaceName.ACTA);
+        enumHash.put("lounge", PlaceName.Lounge);
+        enumHash.put("study rooms", PlaceName.StudyRooms);
+        enumHash.put("computer lab", PlaceName.ComputerLab);
+        enumHash.put("lockers", PlaceName.Lockers);
+        enumHash.put("seed + sprout", PlaceName.SeedSprout);
 
         enumHash.put("the loft", PlaceName.TheLoft);
         enumHash.put("zanzibar cafe", PlaceName.ZanzibarCafe);
@@ -249,6 +262,49 @@ public class Constants {
         enumHash.put("arcade Room", PlaceName.Arcade);
         enumHash.put("shogun", PlaceName.Shogun);
         enumHash.put("sun god lounge", PlaceName.SunGodLounge);
+        enumHash.put("roosevelt college room", PlaceName.ERCRoom);
+        enumHash.put("marshall college room", PlaceName.MarshalRoom);
+        enumHash.put("revelle college room", PlaceName.RevelleRoom);
+        enumHash.put("muir College Room", PlaceName.MuirRoom);
+        enumHash.put("inter-tribal resource center", PlaceName.InterTribalRC);
+        enumHash.put("student organization offices flr 2", PlaceName.StudOrg2);
+        enumHash.put("green room", PlaceName.GreenRoom);
+        enumHash.put("lactation room", PlaceName.LactationRoom);
+        enumHash.put("ballroom west a", PlaceName.BallroomWestA);
+        enumHash.put("ballroom west b", PlaceName.BallroomWestB);
+        enumHash.put("ballroom east", PlaceName.BallroomEast);
+        enumHash.put("game room", PlaceName.GameRoom);
+        enumHash.put("dance studio", PlaceName.DanceStudio);
+        enumHash.put("s.p.a.c.e.", PlaceName.SPACE);
+        enumHash.put("red shoe room", PlaceName.RedShoeRoom);
+        enumHash.put("bear room", PlaceName.BearRoom);
+        enumHash.put("kaplan test prep", PlaceName.Kaplan);
+        enumHash.put("green table room", PlaceName.GreenTableRoom);
+        enumHash.put("saloon 101", PlaceName.Saloon101);
+        enumHash.put("art space", PlaceName.ArtSpace);
+        enumHash.put("communidad", PlaceName.Communidad);
+
+        enumHash.put("student organization offices floor 3", PlaceName.StudOrg3);
+        enumHash.put("warren college room", PlaceName.WarrenRoom);
+        enumHash.put("university centers administration", PlaceName.UniCenAdmin);
+        enumHash.put("one stop", PlaceName.OneStop);
+        enumHash.put("sixth room", PlaceName.SixthRoom);
+        enumHash.put("a.s. volunteer connection", PlaceName.ASVolCon);
+        enumHash.put("a.s. graphic studio", PlaceName.ASGraphStudio);
+        enumHash.put("alumni affairs", PlaceName.AlumniAffairs);
+        enumHash.put("student life business operations", PlaceName.StudLifeBusiOps);
+        enumHash.put("university centers event services", PlaceName.UniCenEveSer);
+        enumHash.put("center for communication and leadership development", PlaceName.CenCommLead);
+        enumHash.put("center for student involvement", PlaceName.CenStudInvol);
+
+        enumHash.put("the forum", PlaceName.Forum);
+        enumHash.put("student leadership chambers", PlaceName.StudLeadCham);
+        enumHash.put("associated students", PlaceName.AssocStud);
+        enumHash.put("university events office", PlaceName.UniEveOff);
+        enumHash.put("senate chambers", PlaceName.SenateCham);
+        enumHash.put("avc student life", PlaceName.AVCStudLife);
+        enumHash.put("graduate student association", PlaceName.GradStudAssoc);
+        enumHash.put("governance chambers", PlaceName.GovCham);
     }
 
     // Return enumerated result
