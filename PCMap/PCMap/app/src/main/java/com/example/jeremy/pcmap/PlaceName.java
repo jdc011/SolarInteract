@@ -19,7 +19,6 @@ public enum PlaceName {
     BurgerKing,
     BombayCoast,
     TapiocaExpress,
-    PostalCenter,
     PerksCoffee,
     Bookstore,
     Jamba,
@@ -34,6 +33,7 @@ public enum PlaceName {
     StudyRooms,
     ComputerLab,
     Lockers,
+    SeedSprout,
 
     Shogun,
     SunGodLounge,
@@ -85,5 +85,25 @@ public enum PlaceName {
     StudLeadCham,
 
     IntersectionWest,
-    IntersectionEast
+    IntersectionEast,
+
+    StairFlr1W,
+    StairFlr2W,
+
+    StairFlr1SE,
+    StairFlr2SE,
+
+    StairFlr1E,
+    StairFlr2E,
+    StairFlr3E,
+
+    OutElev1,
+    OutElev2,
+    OutElev3,
+
+    InElev1,
+    InElev2,
+    InElev3,
+    InElev4,
+
 }
