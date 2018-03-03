@@ -188,7 +188,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     //turn string into enum to be used
                     PlaceName thePlace = con.toEnum(place);
-                    dest = con.getPath(thePlace);
+                    dest = con.getPath(thePlace, currentFloor);
                     drawPath(dest.toArray(new PlaceName[0]), currentFloor);
                     showFloor(currentFloor);
 
