@@ -1,8 +1,7 @@
 <component name="libraryTable">
-  <library name="graphview-4.2.1">
+  <library name="GraphView-4.2.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/01902f249f93314f19981a05c1db319507a5d233/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/01902f249f93314f19981a05c1db319507a5d233/output/res" />
+      <root url="jar://$PROJECT_DIR$/PCMap/PCMap/app/libs/GraphView-4.2.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
