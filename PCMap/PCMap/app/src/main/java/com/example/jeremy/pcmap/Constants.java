@@ -203,20 +203,14 @@ public class Constants {
         PREVIOUS1.put(PlaceName.Subway, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.Starbucks, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.Rubios, PlaceName.IntersectionWest);
-        PREVIOUS1.put(PlaceName.Shogun, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.PandaExpress, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.BombayCoast, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.BurgerKing, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.ChaseBank, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.Lemongrass, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.PriceTheater, PlaceName.SRC);
-        PREVIOUS1.put(PlaceName.Arcade, PlaceName.SRC);
-        PREVIOUS1.put(PlaceName.SunGodLounge, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.PerksCoffee, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.TapiocaExpress, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.TheLoft, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.ZanzibarCafe, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.CrossCulturalCenter, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.Bookstore, PlaceName.SRC);
 
         PREVIOUS1.put(PlaceName.IntersectionEast, PlaceName.IntersectionWest);
@@ -277,7 +271,7 @@ public class Constants {
         enumHash.put("the loft", PlaceName.TheLoft);
         enumHash.put("zanzibar cafe", PlaceName.ZanzibarCafe);
         enumHash.put("cross cultural center", PlaceName.CrossCulturalCenter);
-        enumHash.put("arcade Room", PlaceName.Arcade);
+        enumHash.put("arcade room", PlaceName.Arcade);
         enumHash.put("shogun", PlaceName.Shogun);
         enumHash.put("sun god lounge", PlaceName.SunGodLounge);
         enumHash.put("roosevelt college room", PlaceName.ERCRoom);

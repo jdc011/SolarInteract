@@ -313,6 +313,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         theLine.setPoints(pointsList);
+        theLine.setVisible(true);
     }
 
     public void showFloor(int theFloor) {
