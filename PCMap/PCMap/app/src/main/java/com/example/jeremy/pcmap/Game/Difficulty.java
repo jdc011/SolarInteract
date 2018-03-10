@@ -33,6 +33,8 @@ public class Difficulty extends Activity{
     private static HashMap<String, Integer> difficultyMultiplier;
 
     public void Init() {
+        if( difficultyMultiplier == null )
+            initDifficultyMultiplier();
         resetTextViews(difficultySetting);
 
         // Create back button with listener

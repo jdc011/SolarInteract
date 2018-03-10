@@ -13,15 +13,18 @@
         android:onClick="onPause"
         android:text="@string/si_crank_pause"/>
 
-    <Button
-        android:id="@+id/REMOVETHISGoToScore"
+    <TextView
+        android:id="@+id/Timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="REMOVETHISgoToScore"
-        android:text="@string/si_crank_tempREMOVE"
+        android:text="@string/si_crank_timer"
+        android:textSize="20sp"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:gravity="center"
+        android:layout_margin="10dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/Pause"
-        android:layout_toEndOf="@id/Pause"/>
+        android:layout_toEndOf="@+id/Pause"
+        android:layout_toRightOf="@+id/Pause"/>
 
     <TextView
         android:id="@+id/DiffSetting"
@@ -33,21 +36,21 @@
         android:gravity="center"
         android:layout_margin="10dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/REMOVETHISGoToScore"
-        android:layout_toEndOf="@id/REMOVETHISGoToScore"/>
+        android:layout_toRightOf="@id/Timer"
+        android:layout_toEndOf="@id/Timer"/>
 
     <TextView
         android:id="@+id/DiffRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/si_crank_diff"
-        android:textSize="20sp"
-        android:textColor="@color/cast_expanded_controller_background_color"
-        android:gravity="center"
-        android:layout_margin="10dp"
         android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:layout_toRightOf="@id/DiffSetting"
-        android:layout_toEndOf="@id/DiffSetting"/>
+        android:layout_toEndOf="@id/DiffSetting"
+        android:gravity="center"
+        android:text="@string/si_crank_diff"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/PlayerScoreDisplay"
@@ -83,6 +86,16 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/DiffSetting"
         android:text="@string/si_crank_scoreREMOVE"/>
+
+    <Button
+        android:id="@+id/REMOVETHISGoToScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="REMOVETHISgoToScore"
+        android:text="@string/si_crank_tempREMOVE"
+        android:layout_below="@+id/REMOVETHISIncreaseScore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
