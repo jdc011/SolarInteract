@@ -189,6 +189,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //turn string into enum to be used
                     PlaceName thePlace = con.toEnum(place);
                     dest = con.getPath(thePlace, currentFloor);
+                    System.out.println("DEBUG: " + dest);
                     drawPath(dest.toArray(new PlaceName[0]), currentFloor);
                     showFloor(currentFloor);
 
@@ -308,8 +309,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
         for (PlaceName landmark : landmarks) {
-            if (con.FLOORS.get(landmark) == currentFloor)
+            if(con.FLOORS.get(landmark) == null)
+            System.out.println("kill me");
+            else
+                System.out.println(currentFloor);
+            if (con.FLOORS.get(landmark) == currentFloor) {
                 pointsList.add(con.LOCATIONS.get(landmark));
+            }
         }
 
         theLine.setPoints(pointsList);
@@ -371,7 +377,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
-            drawPath(dest.toArray(new PlaceName[1]), currentFloor);
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
 
         // Show current floor plan
         showFloor(this.currentFloor);
@@ -395,7 +401,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
-            drawPath(dest.toArray(new PlaceName[2]), currentFloor);
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
 
         // Show current floor plan
         showFloor(this.currentFloor);
@@ -419,7 +425,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
-            drawPath(dest.toArray(new PlaceName[3]), currentFloor);
+            drawPath(dest.toArray(new PlaceName[0]), currentFloor);
 
         // Show current floor plan
         showFloor(this.currentFloor);

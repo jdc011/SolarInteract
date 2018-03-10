@@ -190,6 +190,8 @@ public class Constants {
         FLOORS.put(PlaceName.TheLoft, 2);
         FLOORS.put(PlaceName.ZanzibarCafe, 2);
         FLOORS.put(PlaceName.CrossCulturalCenter, 2);
+        FLOORS.put(PlaceName.StairFlr1W, 1);
+        FLOORS.put(PlaceName.StairFlr2W, 2);
 
         FLOORS.put(PlaceName.IntersectionEast, 1);
         FLOORS.put(PlaceName.IntersectionWest, 1);
@@ -217,24 +219,9 @@ public class Constants {
         PREVIOUS1.put(PlaceName.IntersectionWest, PlaceName.SRC);
 
         PREVIOUS1.put(PlaceName.SRC, null);
-    }
-
-    // Map of places and previous places for purposes of making more intelligent paths (Floor 2)
-    public final HashMap<PlaceName, PlaceName> PREVIOUS2 = new HashMap<PlaceName, PlaceName>();
-    {
-        PREVIOUS2.put(PlaceName.Arcade, PlaceName.SRC);
-    }
-
-    // Map of places and previous places for purposes of making more intelligent paths (Floor 3)
-    public final HashMap<PlaceName, PlaceName> PREVIOUS3 = new HashMap<PlaceName, PlaceName>();
-    {
-
-    }
-
-    // Map of places and previous places for purposes of making more intelligent paths (Floor 4)
-    public final HashMap<PlaceName, PlaceName> PREVIOUS4 = new HashMap<PlaceName, PlaceName>();
-    {
-
+        PREVIOUS1.put(PlaceName.Arcade, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.StairFlr2W, PlaceName.StairFlr1W);
+        PREVIOUS1.put(PlaceName.StairFlr1W, PlaceName.SRC);
     }
 
     // Map pd names for each place in PC
@@ -328,51 +315,12 @@ public class Constants {
     public ArrayList<PlaceName> getPath(PlaceName p, int floor) {
         ArrayList<PlaceName> a;
 
-        // Get path given floor
-        switch (floor) {
-            // Default to floor 1
-            default: {
-                if (PREVIOUS1.get(p) == null) {
-                    a = new ArrayList<PlaceName>();
-                } else {
-                    a = getPath(PREVIOUS1.get(p), floor);
-                }
-                a.add(p);
-                return a;
-            }
-
-            // Floor 2
-            case 2: {
-                if (PREVIOUS2.get(p) == null) {
-                    a = new ArrayList<PlaceName>();
-                } else {
-                    a = getPath(PREVIOUS2.get(p), floor);
-                }
-                a.add(p);
-                return a;
-            }
-
-            // Floor 3
-            case 3: {
-                if (PREVIOUS3.get(p) == null) {
-                    a = new ArrayList<PlaceName>();
-                } else {
-                    a = getPath(PREVIOUS3.get(p), floor);
-                }
-                a.add(p);
-                return a;
-            }
-
-            // Floor 4
-            case 4: {
-                if (PREVIOUS4.get(p) == null) {
-                    a = new ArrayList<PlaceName>();
-                } else {
-                    a = getPath(PREVIOUS4.get(p), floor);
-                }
-                a.add(p);
-                return a;
-            }
+        if (PREVIOUS1.get(p) == null) {
+            a = new ArrayList<PlaceName>();
+        } else {
+            a = getPath(PREVIOUS1.get(p), floor);
         }
+        a.add(p);
+        return a;
     }
 }
