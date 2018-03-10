@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ff24631beebb64fd268bc4881d514d5ed5c12e81">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_89b3765799d05ee90fa2958566f7e5fbf1031a94\classes.dex" />
+        sha1="2892b3c1db005efe347f0f6172186e45b406aa93">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fda714e6be33aa9928ad2287c45415c08f6f8175/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_2d3f3efae31842d0a68c54d053c8eb9ffc265223\classes.dex" />
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_57c79b53f08cd164edc1412b57b5ec24845fc9e0/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\libs\GraphView-4.2.1.jar"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/libs/GraphView-4.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3626a38455159707e355da96a61e598fbbc049e9">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\2\GraphView-4.2.1_e167ec6ad9dbdec2eebc04519383fedc4b557dba\classes.dex" />
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/GraphView-4.2.1_c80e16d2735c8097ad6e32ef1bc8a91fc2eca499/classes.dex" />
     </item>
 
 </items>
