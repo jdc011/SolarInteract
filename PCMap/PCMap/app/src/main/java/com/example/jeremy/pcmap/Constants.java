@@ -31,7 +31,7 @@ public class Constants {
     //public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Shogun", "Starbucks", "SRC"};
     //Edit by Connie: change strings to lowercase
     public final String[] LANDMARKS = new String[]{"Subway", "Santorini", "Sunshine Market", "Starbucks",
-                                                    "SRC", "Rubios", "Price Theater",
+                                                    "SRC", "Rubios", "Price Theater", "UCSD Bookstore",
                                                     "Panda Express", "Bombay Coast", "Burger King",
                                                     "Chase Bank", "Lemongrass", "Perks Coffee Shop",
                                                     "Jamba Juice", "The Zone", "Box Office",
@@ -180,21 +180,91 @@ public class Constants {
         FLOORS.put(PlaceName.ChaseBank, 1);
         FLOORS.put(PlaceName.Lemongrass, 1);
         FLOORS.put(PlaceName.PriceTheater, 1);
-        FLOORS.put(PlaceName.SunGodLounge, 1);
         FLOORS.put(PlaceName.PerksCoffee, 1);
         FLOORS.put(PlaceName.TapiocaExpress, 1);
         FLOORS.put(PlaceName.Bookstore, 1);
+        FLOORS.put(PlaceName.Jamba, 1);
+        FLOORS.put(PlaceName.Zone, 1);
+        FLOORS.put(PlaceName.BoxOffice, 1);
+        FLOORS.put(PlaceName.RoundTablePizza, 1);
+        FLOORS.put(PlaceName.CommuterKitchen, 1);
+        FLOORS.put(PlaceName.UCSDPolice, 1);
+        FLOORS.put(PlaceName.ACCB, 1);
+        FLOORS.put(PlaceName.ACTA, 1);
+        FLOORS.put(PlaceName.Lounge, 1);
+        FLOORS.put(PlaceName.StudyRooms, 1);
+        FLOORS.put(PlaceName.ComputerLab, 1);
+        FLOORS.put(PlaceName.Lockers, 1);
+        FLOORS.put(PlaceName.SeedSprout, 1);
 
+        FLOORS.put(PlaceName.SunGodLounge, 2);
         FLOORS.put(PlaceName.Shogun, 2);
         FLOORS.put(PlaceName.Arcade, 2);
         FLOORS.put(PlaceName.TheLoft, 2);
         FLOORS.put(PlaceName.ZanzibarCafe, 2);
         FLOORS.put(PlaceName.CrossCulturalCenter, 2);
-        FLOORS.put(PlaceName.StairFlr1W, 1);
-        FLOORS.put(PlaceName.StairFlr2W, 2);
+        FLOORS.put(PlaceName.ERCRoom, 2);
+        FLOORS.put(PlaceName.MarshalRoom, 2);
+        FLOORS.put(PlaceName.RevelleRoom, 2);
+        FLOORS.put(PlaceName.MuirRoom, 2);
+        FLOORS.put(PlaceName.InterTribalRC, 2);
+        FLOORS.put(PlaceName.StudOrg2, 2);
+        FLOORS.put(PlaceName.GreenRoom, 2);
+        FLOORS.put(PlaceName.LactationRoom, 2);
+        FLOORS.put(PlaceName.BallroomWestA, 2);
+        FLOORS.put(PlaceName.BallroomWestB, 2);
+        FLOORS.put(PlaceName.BallroomEast, 2);
+        FLOORS.put(PlaceName.RedShoeRoom, 2);
+        FLOORS.put(PlaceName.BearRoom, 2);
+        FLOORS.put(PlaceName.Kaplan, 2);
+        FLOORS.put(PlaceName.GreenTableRoom, 2);
+        FLOORS.put(PlaceName.Saloon101, 2);
+        FLOORS.put(PlaceName.ArtSpace, 2);
+        FLOORS.put(PlaceName.Communidad, 2);
+        FLOORS.put(PlaceName.DanceStudio, 2);
+        FLOORS.put(PlaceName.GameRoom, 2);
+        FLOORS.put(PlaceName.SPACE, 2);
+
+        FLOORS.put(PlaceName.StudOrg3, 3);
+        FLOORS.put(PlaceName.WarrenRoom, 3);
+        FLOORS.put(PlaceName.UniCenAdmin, 3);
+        FLOORS.put(PlaceName.OneStop, 3);
+        FLOORS.put(PlaceName.SixthRoom, 3);
+        FLOORS.put(PlaceName.ASVolCon, 3);
+        FLOORS.put(PlaceName.ASGraphStudio, 3);
+        FLOORS.put(PlaceName.AlumniAffairs, 3);
+        FLOORS.put(PlaceName.StudLifeBusiOps, 3);
+        FLOORS.put(PlaceName.UniCenEveSer, 3);
+        FLOORS.put(PlaceName.CenCommLead, 3);
+        FLOORS.put(PlaceName.CenStudInvol, 3);
+
+        FLOORS.put(PlaceName.Forum, 4);
+        FLOORS.put(PlaceName.GovCham, 4);
+        FLOORS.put(PlaceName.GradStudAssoc, 4);
+        FLOORS.put(PlaceName.UniEveOff, 4);
+        FLOORS.put(PlaceName.SenateCham, 4);
+        FLOORS.put(PlaceName.AVCStudLife, 4);
+        FLOORS.put(PlaceName.AssocStud, 4);
+        FLOORS.put(PlaceName.StudLeadCham, 4);
 
         FLOORS.put(PlaceName.IntersectionEast, 1);
         FLOORS.put(PlaceName.IntersectionWest, 1);
+        FLOORS.put(PlaceName.StairFlr1W, 1);
+        FLOORS.put(PlaceName.StairFlr2W, 2);
+        FLOORS.put(PlaceName.StairFlr1E, 1);
+        FLOORS.put(PlaceName.StairFlr2E, 2);
+        FLOORS.put(PlaceName.StairFlr3E, 3);
+        FLOORS.put(PlaceName.StairFlr1SE, 1);
+        FLOORS.put(PlaceName.StairFlr2SE, 2);
+        FLOORS.put(PlaceName.StairFlr3E, 3);
+        FLOORS.put(PlaceName.OutElev1, 1);
+        FLOORS.put(PlaceName.OutElev2, 2);
+        FLOORS.put(PlaceName.OutElev3, 3);
+        FLOORS.put(PlaceName.InElev1, 1);
+        FLOORS.put(PlaceName.InElev2, 2);
+        FLOORS.put(PlaceName.InElev3, 3);
+        FLOORS.put(PlaceName.InElev4, 4);
+
     }
 
     // Map of places and previous places for purposes of making more intelligent paths (Floor 1)
@@ -215,13 +285,35 @@ public class Constants {
         PREVIOUS1.put(PlaceName.TapiocaExpress, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.Bookstore, PlaceName.SRC);
 
+        PREVIOUS1.put(PlaceName.StairFlr1W, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Shogun, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.Kaplan, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.SunGodLounge, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.RedShoeRoom, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.GreenTableRoom, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.BearRoom, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.Arcade, PlaceName.StairFlr2W);
+        PREVIOUS1.put(PlaceName.GameRoom, PlaceName.StairFlr2W);
+
+        PREVIOUS1.put(PlaceName.CrossCulturalCenter, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.Communidad, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.BallroomEast, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.Saloon101, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.ArtSpace, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.TheLoft, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.ZanzibarCafe, PlaceName.InElev2);
+        PREVIOUS1.put(PlaceName.MuirRoom, PlaceName.InElev2);
+
+        PREVIOUS1.put(PlaceName.InElev1, PlaceName.IntersectionEast);
+        PREVIOUS1.put(PlaceName.InElev2, PlaceName.InElev1);
+        PREVIOUS1.put(PlaceName.InElev3, PlaceName.InElev1);
+        PREVIOUS1.put(PlaceName.InElev4, PlaceName.InElev1);
+
         PREVIOUS1.put(PlaceName.IntersectionEast, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.IntersectionWest, PlaceName.SRC);
 
         PREVIOUS1.put(PlaceName.SRC, null);
-        PREVIOUS1.put(PlaceName.Arcade, PlaceName.StairFlr2W);
         PREVIOUS1.put(PlaceName.StairFlr2W, PlaceName.StairFlr1W);
-        PREVIOUS1.put(PlaceName.StairFlr1W, PlaceName.SRC);
     }
 
     // Map pd names for each place in PC
@@ -241,6 +333,7 @@ public class Constants {
         enumHash.put("panda express", PlaceName.PandaExpress);
         enumHash.put("perks coffee shop", PlaceName.PerksCoffee);
         enumHash.put("price theater", PlaceName.PriceTheater);
+        enumHash.put("ucsd bookstore", PlaceName.Bookstore);
         enumHash.put("jamba juice", PlaceName.Jamba);
         enumHash.put("the zone", PlaceName.Zone);
         enumHash.put("box office", PlaceName.BoxOffice);
