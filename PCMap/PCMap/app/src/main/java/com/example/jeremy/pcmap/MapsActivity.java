@@ -1,5 +1,6 @@
 package com.example.jeremy.pcmap;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +48,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // Path to destination
     private Polyline theLine;
 
+    // Error message string declaration
+    private String errorMessage;
+
     // Buttons
     private Button Home;
     private Button Floor1;
@@ -57,40 +61,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Button highlights based on current path
     private boolean[] highlighted = {false, false, false, false};
-
-    // Get ready for other layout on click
-    //public void init() {
-        // Initialize button
-        //emergency = (Button) findViewById(R.id.emergency);
-        //emergency.setOnClickListener(new View.OnClickListener() {
-
-            //public void onClick(View view) {
-                //clickEmergency(view); // Click listener event
-            //}
-        //});
-
-        // TESTING LOCATION AND COORDINATE CLASS:
-        // --------------------------------------
-
-        // Note: Has multiple problems, causes program to crash without running
-
-        /*
-        Scanner LOCs = new Scanner("map_locations.txt");
-        String LOCstr = LOCs.nextLine();
-        while(LOCs.hasNext() || !LOCstr.equals("End")){
-            Location loc = new Location(LOCstr);
-            LOCstr = LOCs.nextLine();
-        }
-
-        ArrayList<Coordinate> LOCarr = Coordinate.getAllCoordinates();
-        System.out.println(LOCarr.get(2) + "; should expect \"x: 32.879901; y: -117.236197\"");
-
-        LOCs.close();
-        */
-
-        // --------------------------------------
-
-    //}
 
     @Override
     // Display the app page
@@ -195,31 +165,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     // Set button colors for available paths
                     for(int i = 0; i < floors.length; i++) {
+                        if(con.FLOORS.get(thePlace) == null) {
+                            errorMessage = "path to location does not exist yet";
+                            handleError(errorMessage);
+                            return;
+                        }
                         if(con.FLOORS.get(thePlace) == floors[i]) {
                             if(i+1 != currentFloor) {
                                 floorButtons[i].setTextColor(Color.GREEN);
                             }
-
                             highlighted[i] = true;
                         }
                     }
-                }
-
-                // error case
-                else {
+                } else { // error case
                     // didn't search
                     if (place.equals("")) {
-                        Toast.makeText(getApplicationContext(), "Enter a place to search.", Toast.LENGTH_SHORT).show();
-                    }
-
-                    // not found
-                    else {
-                        Toast.makeText(getApplicationContext(), autoCompleteTextView.getText().toString() + " is not found.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Enter a place to search.",
+                                Toast.LENGTH_SHORT).show();
+                    } else { // not found
+                        Toast.makeText(getApplicationContext(),
+                                autoCompleteTextView.getText().toString() + " is not found.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 }
                 /* need to differentiate places by floor and message to point user to
-                press the right floor button*/
-                                          //use drawPath(src ,string typed by user)
+                press the right floor button */
+                // use drawPath(src, string typed by user)
             }
         });
 
@@ -309,9 +280,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ArrayList<LatLng> pointsList = new ArrayList<LatLng>();
         for (PlaceName landmark : landmarks) {
-            if(con.FLOORS.get(landmark) == null)
-            System.out.println("kill me");
-            else
+            if(con.FLOORS.get(landmark) == null) {
+                errorMessage = "landmark \"" + landmark.name() + "\" not found";
+                handleError(errorMessage);
+                return;
+            } else
                 System.out.println(currentFloor);
             if (con.FLOORS.get(landmark) == currentFloor) {
                 pointsList.add(con.LOCATIONS.get(landmark));
@@ -322,6 +295,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         theLine.setVisible(true);
     }
 
+    /** Handles error messages, creates a textbox */
+    private void handleError(String err) {
+        System.err.println(err);
+        /*
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage("Error message: \n" + err)
+                .setNeutralButton("Close", null)
+                .create().show();
+        */
+        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_SHORT).show();
+    }
+
+    // Shows a certain floor
     public void showFloor(int theFloor) {
         // Create constants object
         Constants con = new Constants();
@@ -336,8 +323,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add PC floor plan to map
         if (theOverlay == null) {
             theOverlay = mMap.addGroundOverlay(PCOverlay);
-        }
-        else {
+        } else {
             theOverlay.setImage(theBitmap);
         }
     }
@@ -368,7 +354,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Show floor 2
     public void clickFloor2(View view) {
-// Set button colors
+        // Set button colors
         this.currentFloor = floors[1];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.RED);
@@ -392,7 +378,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Show floor 3
     public void clickFloor3(View view) {
-// Set button colors
+        // Set button colors
         this.currentFloor = floors[2];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.BLACK);
@@ -416,7 +402,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     // Show floor 4
     public void clickFloor4(View view) {
-// Set button colors
+        // Set button colors
         this.currentFloor = floors[3];
         Floor1.setTextColor(Color.BLACK);
         Floor2.setTextColor(Color.BLACK);

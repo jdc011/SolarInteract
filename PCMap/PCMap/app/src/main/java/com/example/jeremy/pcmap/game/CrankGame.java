@@ -81,6 +81,9 @@ public class CrankGame extends Activity {
                 // The following line is only there to demonstrate that mHandler received a message
                 // Otherwise handleMessage only exists to execute a task whenever it receives
                 // message, i.e. (as of commit #108) whenever the worker thread is interrupted.
+                //System.err.println(((Exception) inputMessage.obj).getMessage());
+                System.out.println("Worker thread interrupted via " + inputMessage.obj.toString()
+                    + "; game stopped, to the scores!");
 
                 //handleException((Exception) inputMessage.obj);
             }
@@ -153,7 +156,7 @@ public class CrankGame extends Activity {
                     // Sources:
                     //   https://developer.android.com/training/multiple-threads/communicate-ui.html
                     //   https://stackoverflow.com/questions/3875184/cant-create-handler-inside-thread-that-has-not-called-looper-prepare
-                    Message message = mHandler.obtainMessage(0, e);
+                    Message message = mHandler.obtainMessage(1, e);
                     message.sendToTarget();
 
                     // Old code:
