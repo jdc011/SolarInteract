@@ -31,7 +31,6 @@ import android.widget.Toast;
 import android.graphics.Color;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Floor fields
@@ -275,6 +274,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Constants con = new Constants();
         if (theLine == null) {
             PolylineOptions plo = new PolylineOptions();
+            plo.color(0x803399ff); // transparent blue color
+            plo.width(10.0f); // default thickness
+            plo.geodesic(true); // conforms to sphere topology instead of Mercator projection
             theLine = mMap.addPolyline(plo);
         }
 
@@ -284,18 +286,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 errorMessage = "landmark \"" + landmark.name() + "\" not found";
                 handleError(errorMessage);
                 return;
-            } else
-                System.out.println(currentFloor);
+            } //else
+                //System.out.println("Current floor: " + currentFloor);
             if (con.FLOORS.get(landmark) == currentFloor) {
                 pointsList.add(con.LOCATIONS.get(landmark));
             }
         }
+        System.out.println("Current floor: " + currentFloor);
 
         theLine.setPoints(pointsList);
         theLine.setVisible(true);
     }
 
-    /** Handles error messages, creates a textbox */
+    /** Handles error messages */
     private void handleError(String err) {
         System.err.println(err);
         /*
