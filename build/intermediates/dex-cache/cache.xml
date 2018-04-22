@@ -3,30 +3,39 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/libs/usbserial.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="50c54544a0d51c08637e8d436ea3dcde4fc9383c">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_89b3765799d05ee90fa2958566f7e5fbf1031a94\classes.dex" />
+        sha1="450a08132dff830581b2b82c380c5f32488159d3">
+        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/usbserial_9ccd627663223b27af1c5e099ce0f4b3f4856814/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_2d3f3efae31842d0a68c54d053c8eb9ffc265223\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\libs\GraphView-4.2.1.jar"
+        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/libs/GraphView-4.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3626a38455159707e355da96a61e598fbbc049e9">
-        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\2\GraphView-4.2.1_e167ec6ad9dbdec2eebc04519383fedc4b557dba\classes.dex" />
+        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/GraphView-4.2.1_f28c13b40cae36eda0d224d196872b9c17cca4d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d497e10f8172e8e5f31c83fa63885e16d4a41db2">
+        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ab59e09c595bcb8661382c689932ff66fb033b69/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1504605c1ce114506e6df804edfe56aea76203f1/classes.dex" />
     </item>
 
 </items>
