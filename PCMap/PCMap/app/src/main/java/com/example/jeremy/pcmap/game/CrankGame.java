@@ -1,17 +1,37 @@
 package com.example.jeremy.pcmap.game;
 
 import android.app.Activity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jeremy.pcmap.R;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+import java.util.UUID;
+
+import static com.example.jeremy.pcmap.game.Difficulty.getDifficultyRating;
+import static com.example.jeremy.pcmap.game.Difficulty.getDifficultySetting;
+
 
 /**
  * Created by jmich_000 on 11/11/2017.
@@ -109,11 +129,111 @@ public class CrankGame extends Activity {
 
     /** Display the difficulty selections */
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.print("DEBUG: IN");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crank_game);
         Init();
         update();
+
+        // TODO
+        //    private final String DEVICE_NAME="MyBTBee";
+        final String DEVICE_ADDRESS = "20:16:12:12:63:33";
+        final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");//Serial Port Service ID
+        BluetoothDevice device;
+        BluetoothSocket socket;
+        OutputStream outputStream;
+        InputStream inputStream;
+        Button startButton, sendButton, clearButton, stopButton;
+        TextView textView;
+        EditText editText;
+        boolean deviceConnected = false;
+        Thread thread;
+        byte buffer[];
+        int bufferPosition;
+        boolean stopThread;
+
+        boolean found=false;
+        BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null) {
+            Toast.makeText(getApplicationContext(),"Device doesnt Support Bluetooth",Toast.LENGTH_SHORT).show();
+        }
+        if(!bluetoothAdapter.isEnabled())
+        {
+            Intent enableAdapter = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableAdapter, 0);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        Set<BluetoothDevice> bondedDevices = bluetoothAdapter.getBondedDevices();
+        if(bondedDevices.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Please Pair the Device first",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            for (BluetoothDevice iterator : bondedDevices) {
+                if (iterator.getAddress().equals(DEVICE_ADDRESS)) {
+                    device = iterator;
+                    found = true;
+
+                    // TODO
+                    try {
+                        System.out.print("DEBUG: WIN");
+                        socket = device.createRfcommSocketToServiceRecord(PORT_UUID);
+                        socket.connect();
+                        outputStream = socket.getOutputStream();
+                        outputStream.write(100);
+                    }
+                    catch (IOException e) {
+
+                    }
+                    break;
+                }
+            }
+        }
     }
+
+    public void setUiEnabled(boolean bool)
+    {
+
+    }
+
+    public boolean BTinit()
+    {
+        return true;
+    }
+
+
+
+    public void onClickStart(View view) {
+        if(BTinit())
+        {
+            if(true)
+            {
+
+            }
+
+        }
+    }
+
+    void beginListenForData() {
+
+    }
+
+    public void onClickSend(View view) {
+
+    }
+
+    public void onClickStop(View view) throws IOException {
+
+    }
+
+    public void onClickClear(View view) {
+
+    }
+
 
     /** Pauses the game temporarily */
     public void onPause(View view) {

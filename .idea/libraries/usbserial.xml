@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="usbserial">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PCMap/PCMap/app/libs/usbserial.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
