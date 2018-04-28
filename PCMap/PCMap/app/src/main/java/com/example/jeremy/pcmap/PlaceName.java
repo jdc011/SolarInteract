@@ -85,6 +85,10 @@ public enum PlaceName {
     AssocStud,
     StudLeadCham,
 
+    Entr2,
+    Entr3,
+    BookEntr,
+
     IntersectionWest,
     IntersectionEast,
 

@@ -64,7 +64,7 @@ public class Constants {
     public final HashMap<PlaceName, LatLng> LOCATIONS = new HashMap<PlaceName, LatLng>();
 
     {
-        LOCATIONS.put(PlaceName.SRC, new LatLng(32.879899, -117.237257));
+        LOCATIONS.put(PlaceName.SRC, new LatLng(X_SRC, Y_SRC));
         LOCATIONS.put(PlaceName.Santorini, new LatLng(32.879766, -117.235767));
         LOCATIONS.put(PlaceName.SunshineMarket, new LatLng(32.879535, -117.236054));
         LOCATIONS.put(PlaceName.Subway, new LatLng(32.879926, -117.236527));
@@ -76,7 +76,7 @@ public class Constants {
         LOCATIONS.put(PlaceName.ChaseBank, new LatLng(32.879778, -117.235922));
         LOCATIONS.put(PlaceName.Lemongrass, new LatLng(32.879772, -117.236474));
         LOCATIONS.put(PlaceName.PriceTheater, new LatLng(32.879909, -117.237113));
-        LOCATIONS.put(PlaceName.PerksCoffee, new LatLng(32.879344, -117.237294));
+        LOCATIONS.put(PlaceName.PerksCoffee, new LatLng(32.87921, -117.23727));
         LOCATIONS.put(PlaceName.TapiocaExpress, new LatLng(32.879637, -117.235689));
         LOCATIONS.put(PlaceName.Bookstore, new LatLng(32.879441, -117.236938));
         LOCATIONS.put(PlaceName.Jamba, new LatLng(32.87993, -117.23683));
@@ -145,6 +145,10 @@ public class Constants {
         LOCATIONS.put(PlaceName.AssocStud, new LatLng(32.87978, -117.23561));
         LOCATIONS.put(PlaceName.StudLeadCham, new LatLng(32.87957, -117.23558));
 
+        LOCATIONS.put(PlaceName.Entr2, new LatLng(32.87992, -117.23666));
+        LOCATIONS.put(PlaceName.Entr3, new LatLng(32.88012, -117.2362));
+        LOCATIONS.put(PlaceName.BookEntr, new LatLng(32.879441, -117.23692));
+
         LOCATIONS.put(PlaceName.StairFlr1W, new LatLng(32.87976, -117.23716));
         LOCATIONS.put(PlaceName.StairFlr2W, new LatLng(32.87976, -117.23716));
 
@@ -196,6 +200,9 @@ public class Constants {
         FLOORS.put(PlaceName.ComputerLab, 1);
         FLOORS.put(PlaceName.Lockers, 1);
         FLOORS.put(PlaceName.SeedSprout, 1);
+        FLOORS.put(PlaceName.Entr2, 1);
+        FLOORS.put(PlaceName.Entr3, 1);
+        FLOORS.put(PlaceName.BookEntr, 1);
 
         FLOORS.put(PlaceName.SunGodLounge, 2);
         FLOORS.put(PlaceName.Shogun, 2);
@@ -273,7 +280,7 @@ public class Constants {
         PREVIOUS1.put(PlaceName.Santorini, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.SunshineMarket, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.Subway, PlaceName.IntersectionWest);
-        PREVIOUS1.put(PlaceName.Starbucks, PlaceName.IntersectionWest);
+        PREVIOUS1.put(PlaceName.Starbucks, PlaceName.Entr2);
         PREVIOUS1.put(PlaceName.Rubios, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.PandaExpress, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.BombayCoast, PlaceName.IntersectionEast);
@@ -281,16 +288,24 @@ public class Constants {
         PREVIOUS1.put(PlaceName.ChaseBank, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.Lemongrass, PlaceName.IntersectionWest);
         PREVIOUS1.put(PlaceName.PriceTheater, PlaceName.SRC);
-        PREVIOUS1.put(PlaceName.PerksCoffee, PlaceName.SRC);
+        PREVIOUS1.put(PlaceName.PerksCoffee, PlaceName.BookEntr);
         PREVIOUS1.put(PlaceName.TapiocaExpress, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.Bookstore, PlaceName.SRC);
-        PREVIOUS1.put(PlaceName.Lockers, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.ACCB, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.ACTA, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.CommuterKitchen, PlaceName.IntersectionEast);
-        PREVIOUS1.put(PlaceName.ComputerLab, PlaceName.IntersectionEast);
+        PREVIOUS1.put(PlaceName.Bookstore, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Lockers, PlaceName.Entr3);
+        PREVIOUS1.put(PlaceName.ACCB, PlaceName.Entr3);
+        PREVIOUS1.put(PlaceName.ACTA, PlaceName.Entr3);
+        PREVIOUS1.put(PlaceName.CommuterKitchen, PlaceName.Entr3);
+        PREVIOUS1.put(PlaceName.ComputerLab, PlaceName.Entr3);
         PREVIOUS1.put(PlaceName.UCSDPolice, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.StudyRooms, PlaceName.IntersectionEast);
+        PREVIOUS1.put(PlaceName.BoxOffice, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Zone, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Jamba, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Lounge, PlaceName.Entr3);
+
+        PREVIOUS1.put(PlaceName.Entr2, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.Entr3, PlaceName.PriceTheater);
+        PREVIOUS1.put(PlaceName.BookEntr, PlaceName.PriceTheater);
 
         PREVIOUS1.put(PlaceName.Shogun, PlaceName.StairFlr2W);
         PREVIOUS1.put(PlaceName.Kaplan, PlaceName.StairFlr2W);
@@ -337,8 +352,17 @@ public class Constants {
         PREVIOUS1.put(PlaceName.WarrenRoom, PlaceName.OutElev3);
         PREVIOUS1.put(PlaceName.UniCenAdmin, PlaceName.OutElev3);
 
+        PREVIOUS1.put(PlaceName.Forum, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.GovCham, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.GradStudAssoc, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.UniEveOff, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.SenateCham, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.AVCStudLife, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.AssocStud, PlaceName.InElev4);
+        PREVIOUS1.put(PlaceName.StudLeadCham, PlaceName.InElev4);
+
         PREVIOUS1.put(PlaceName.IntersectionEast, PlaceName.IntersectionWest);
-        PREVIOUS1.put(PlaceName.IntersectionWest, PlaceName.SRC);
+        PREVIOUS1.put(PlaceName.IntersectionWest, PlaceName.PriceTheater);
 
         PREVIOUS1.put(PlaceName.SRC, null);
         PREVIOUS1.put(PlaceName.StairFlr1SE, PlaceName.PriceTheater);
