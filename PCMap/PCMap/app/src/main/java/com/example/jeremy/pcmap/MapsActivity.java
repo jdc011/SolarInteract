@@ -243,9 +243,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Form SRC marker
         LatLng SRC = new LatLng(con.X_SRC, con.Y_SRC);
+        
+        // Hydration station
+        LatLng HYDS = new LatLng(32.87997, -117.23713);
 
+        // Restroom
+        LatLng REST = new LatLng(32.88000, -117.23705);
+        
         // Add a marker in SRC, UCSD, and move the camera.
         mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
+        // Add marker for hydration station and restroom near SRC
+        mMap.addMarker(new MarkerOptions().position(HYDS).title("Hydration Station"));
+        mMap.addMarker(new MarkerOptions().position(REST).title("Restroom"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
         mMap.setLatLngBoundsForCameraTarget(con.XY_POS);
