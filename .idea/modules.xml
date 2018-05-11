@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Solar.iml" filepath="$PROJECT_DIR$/Solar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SolarChill.iml" filepath="$PROJECT_DIR$/SolarChill.iml" />
       <module fileurl="file://$PROJECT_DIR$/PCMap/PCMap/app/app.iml" filepath="$PROJECT_DIR$/PCMap/PCMap/app/app.iml" />
     </modules>
   </component>

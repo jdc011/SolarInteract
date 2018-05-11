@@ -5,32 +5,39 @@
 
     <Button
         android:id="@+id/Difficulty"
-        android:layout_width="640dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="selectDifficulty"
         android:text="@string/si_play"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/Scoreboard" />
 
     <Button
         android:id="@+id/Scoreboard"
-        android:layout_width="640dp"
-        android:layout_height="390dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="seeScoreboard"
         android:text="@string/si_scoreboard"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/Home"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/Home"
-        android:layout_width="640dp"
-        android:layout_height="390dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="goHome"
         android:text="@string/si_back"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/Scoreboard"
+        android:layout_alignStart="@+id/Scoreboard"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

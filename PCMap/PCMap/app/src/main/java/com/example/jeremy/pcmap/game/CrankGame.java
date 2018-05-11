@@ -43,7 +43,7 @@ public class CrankGame extends Activity {
     /** Duration of the game in seconds */
     private final int NUM_SECONDS = 60;
     // Buttons for the game
-    private Button Pause, REMOVETHISGoToScore, REMOVETHISIncreaseScore, REMOVETHISthrowException;
+    private Button Pause, REMOVETHISGoToScore, REMOVETHISIncreaseScore;
     /** Difficulty rating for the game */
     private int difficultyRating;
     /** Keeps track of player score */
@@ -110,21 +110,21 @@ public class CrankGame extends Activity {
         };
 
         // TODO: delete the following 2 button blocks
-        REMOVETHISGoToScore = (Button) findViewById(R.id.REMOVETHISGoToScore);
-        REMOVETHISGoToScore.setOnClickListener(new View.OnClickListener() {
+        // REMOVETHISGoToScore = (Button) findViewById(R.id.REMOVETHISGoToScore);
+        /*REMOVETHISGoToScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 REMOVETHISgoToScore(view);
             }
         });
 
-        REMOVETHISIncreaseScore = (Button) findViewById(R.id.REMOVETHISIncreaseScore);
+        // REMOVETHISIncreaseScore = (Button) findViewById(R.id.REMOVETHISIncreaseScore);
         REMOVETHISIncreaseScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 REMOVETHISincreaseScore(view);
             }
-        });
+        });*/
     }
 
     /** Display the difficulty selections */
