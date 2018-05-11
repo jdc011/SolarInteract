@@ -3,39 +3,39 @@
 
     <item
         is-multidex="true"
-        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/libs/usbserial.jar"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="450a08132dff830581b2b82c380c5f32488159d3">
-        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/usbserial_9ccd627663223b27af1c5e099ce0f4b3f4856814/classes.dex" />
+        sha1="83bc224400cde0e7feb7455f4281bea0262e6ae0">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fda714e6be33aa9928ad2287c45415c08f6f8175/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/libs/GraphView-4.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3626a38455159707e355da96a61e598fbbc049e9">
-        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/GraphView-4.2.1_f28c13b40cae36eda0d224d196872b9c17cca4d0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d497e10f8172e8e5f31c83fa63885e16d4a41db2">
-        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ab59e09c595bcb8661382c689932ff66fb033b69/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/jeremy/Programming/Solar/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1504605c1ce114506e6df804edfe56aea76203f1/classes.dex" />
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_57c79b53f08cd164edc1412b57b5ec24845fc9e0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/libs/GraphView-4.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3626a38455159707e355da96a61e598fbbc049e9">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/GraphView-4.2.1_c80e16d2735c8097ad6e32ef1bc8a91fc2eca499/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/libs/usbserial.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="450a08132dff830581b2b82c380c5f32488159d3">
+        <dex dex="/home/jeremy/Programming/SolarChill/PCMap/PCMap/app/build/intermediates/transforms/dex/debug/folders/1000/2/usbserial_fbf76dc98af2cdf909d90d05edab94a590ce0b03/classes.dex" />
     </item>
 
 </items>

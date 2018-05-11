@@ -34,73 +34,56 @@
         android:textSize="20sp"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:gravity="center"
-        android:layout_margin="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/Timer"
-        android:layout_toEndOf="@id/Timer"/>
+        android:layout_above="@+id/graph"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/DiffRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:layout_toRightOf="@id/DiffSetting"
-        android:layout_toEndOf="@id/DiffSetting"
         android:gravity="center"
         android:text="@string/si_crank_diff"
         android:textColor="@color/cast_expanded_controller_background_color"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_below="@+id/Pause"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/PlayerScoreDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:layout_toEndOf="@+id/DiffRating"
-        android:layout_toRightOf="@+id/DiffRating"
         android:gravity="center"
         android:text="@string/si_crank_playerScore"
         android:textColor="@color/cast_expanded_controller_background_color"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/Timer"
+        android:layout_alignBottom="@+id/Timer"
+        android:layout_toRightOf="@+id/Timer"
+        android:layout_toEndOf="@+id/Timer"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp" />
 
     <TextView
         android:id="@+id/SolarScoreDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:layout_toEndOf="@+id/PlayerScoreDisplay"
-        android:layout_toRightOf="@+id/PlayerScoreDisplay"
         android:gravity="center"
         android:text="@string/si_crank_solarScore"
         android:textColor="@color/cast_expanded_controller_background_color"
-        android:textSize="20sp"/>
-
-    <Button
-        android:id="@+id/REMOVETHISIncreaseScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/DiffSetting"
-        android:text="@string/si_crank_scoreREMOVE"/>
-
-    <Button
-        android:id="@+id/REMOVETHISGoToScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="REMOVETHISgoToScore"
-        android:text="@string/si_crank_tempREMOVE"
-        android:layout_below="@+id/REMOVETHISIncreaseScore"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/PlayerScoreDisplay"
+        android:layout_alignBottom="@+id/PlayerScoreDisplay"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp" />
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/DiffRating" />
 
 </RelativeLayout>
