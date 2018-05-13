@@ -34,6 +34,8 @@ public enum PlaceName {
     ComputerLab,
     Lockers,
     SeedSprout,
+    Restrooms,
+    HydrationStations,
 
     Shogun,
     SunGodLounge,
@@ -88,6 +90,12 @@ public enum PlaceName {
     Entr2,
     Entr3,
     BookEntr,
+
+    SGLCorner,
+    SGLEast,
+    CCCCorner,
+    CCCWest,
+    OutStairCorner,
 
     IntersectionWest,
     IntersectionEast,

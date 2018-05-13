@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.GroundOverlay;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 import android.graphics.Color;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Floor fields
@@ -61,6 +63,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // Button highlights based on current path
     private boolean[] highlighted = {false, false, false, false};
 
+    // Restroom markers
+    private HashMap<Marker, Integer> restrooms =  new HashMap<>();
+
+    // Hydration station markers
+    private HashMap<Marker, Integer> hydStations =  new HashMap<>();
+
+    private Marker mSRC;
     @Override
     // Display the app page
     protected void onCreate(Bundle savedInstanceState) {
@@ -243,23 +252,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Form SRC marker
         LatLng SRC = new LatLng(con.X_SRC, con.Y_SRC);
-        
-        // Hydration station
-        LatLng HYDS = new LatLng(32.87997, -117.23713);
 
-        // Restroom
-        LatLng REST = new LatLng(32.88000, -117.23705);
         
         // Add a marker in SRC, UCSD, and move the camera.
-        mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
-        // Add marker for hydration station and restroom near SRC
-        mMap.addMarker(new MarkerOptions().position(HYDS).title("Hydration Station"));
-        mMap.addMarker(new MarkerOptions().position(REST).title("Restroom"));
+        mSRC = mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
         mMap.setLatLngBoundsForCameraTarget(con.XY_POS);
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(new LatLng(con.X_SRC,con.Y_SRC)).zoom(20.0f).bearing(0).tilt(0).build()));
-        //drawPath(new PlaceName[] {PlaceName.SRC, PlaceName.Santorini, PlaceName.SunshineMarket});
     }
 
    /* // Draw path from SRC to landmark
@@ -349,6 +350,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
 
+        // shows SRC marker
+        mSRC.setVisible(true);
+
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
             drawPath(dest.toArray(new PlaceName[0]), currentFloor);
@@ -372,6 +376,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.RED);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.BLACK);
+
+        // hides SRC marker
+        mSRC.setVisible(false);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
@@ -397,6 +404,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor3.setTextColor(Color.RED);
         Floor4.setTextColor(Color.BLACK);
 
+        // hides SRC marker
+        mSRC.setVisible(false);
+
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
             drawPath(dest.toArray(new PlaceName[0]), currentFloor);
@@ -420,6 +430,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Floor2.setTextColor(Color.BLACK);
         Floor3.setTextColor(Color.BLACK);
         Floor4.setTextColor(Color.RED);
+
+        // hides SRC marker
+        mSRC.setVisible(false);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
