@@ -70,6 +70,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private HashMap<Marker, Integer> hydStations =  new HashMap<>();
 
     private Marker mSRC;
+
+    private Marker mWestStairs;
+
     @Override
     // Display the app page
     protected void onCreate(Bundle savedInstanceState) {
@@ -256,6 +259,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         
         // Add a marker in SRC, UCSD, and move the camera.
         mSRC = mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
+        mWestStairs = mMap.addMarker(new MarkerOptions().position(new LatLng(32.87976, -117.23716))
+                                                        .title("Stairs")
+                                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
@@ -353,6 +359,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // shows SRC marker
         mSRC.setVisible(true);
 
+        // shows west stairs
+        mWestStairs.setVisible(true);
+
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
             drawPath(dest.toArray(new PlaceName[0]), currentFloor);
@@ -379,6 +388,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // hides SRC marker
         mSRC.setVisible(false);
+
+        // show west stairs
+        mWestStairs.setVisible(true);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
@@ -407,6 +419,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // hides SRC marker
         mSRC.setVisible(false);
 
+        // hides west stairs
+        mWestStairs.setVisible(false);
+
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
             drawPath(dest.toArray(new PlaceName[0]), currentFloor);
@@ -433,6 +448,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // hides SRC marker
         mSRC.setVisible(false);
+
+        // hides west stairs
+        mWestStairs.setVisible(false);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)

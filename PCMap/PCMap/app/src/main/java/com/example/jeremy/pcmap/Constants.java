@@ -34,7 +34,7 @@ public class Constants {
                                                     "SRC", "Rubios", "Price Theater", "UCSD Bookstore",
                                                     "Panda Express", "Bombay Coast", "Burger King",
                                                     "Chase Bank", "Lemongrass", "Perks Coffee Shop",
-                                                    "Jamba Juice", "The Zone", "Box Office",
+                                                    "Jamba Juice", "The Zone", "Box Office", "Tapioca Express",
                                                     "Round Table Pizza", "Commuter Kitchen", "UCSD Police",
                                                     "ACCB", "ACTA", "Lounge", "Study Rooms", "Computer Lab",
                                                     "Lockers", "Seed + Sprout", "Restrooms", "Hydration Stations",
@@ -436,6 +436,7 @@ public class Constants {
         enumHash.put("computer lab", PlaceName.ComputerLab);
         enumHash.put("lockers", PlaceName.Lockers);
         enumHash.put("seed + sprout", PlaceName.SeedSprout);
+        enumHash.put("tapioca express", PlaceName.TapiocaExpress);
         enumHash.put("restrooms", PlaceName.Restrooms);
         enumHash.put("hydration stations", PlaceName.HydrationStations);
 
