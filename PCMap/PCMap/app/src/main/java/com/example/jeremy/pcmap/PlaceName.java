@@ -37,6 +37,10 @@ public enum PlaceName {
     Restrooms,
     HydrationStations,
 
+    EsenciaDeSaborSuPan,
+    Y_Mas,
+    VivaPops,
+
     Shogun,
     SunGodLounge,
     Arcade,
@@ -96,6 +100,7 @@ public enum PlaceName {
     CCCCorner,
     CCCWest,
     OutStairCorner,
+    East2Entr,
 
     IntersectionWest,
     IntersectionEast,

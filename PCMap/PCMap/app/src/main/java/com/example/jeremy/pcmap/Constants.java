@@ -38,6 +38,7 @@ public class Constants {
                                                     "Round Table Pizza", "Commuter Kitchen", "UCSD Police",
                                                     "ACCB", "ACTA", "Lounge", "Study Rooms", "Computer Lab",
                                                     "Lockers", "Seed + Sprout", "Restrooms", "Hydration Stations",
+                                                    "Y Mas", "Viva Pops", "Esencia de Sabor: Su Pan",
 
                                                     "Shogun", "Arcade Room", "The Loft", "Roosevelt College Room",
                                                     "Zanzibar Cafe",  "Sun God Lounge", "Marshall College Room",
@@ -94,6 +95,9 @@ public class Constants {
         LOCATIONS.put(PlaceName.SeedSprout, new LatLng(32.87964, -117.23587));
         LOCATIONS.put(PlaceName.Restrooms, new LatLng(32.88000, -117.23705));
         LOCATIONS.put(PlaceName.HydrationStations, new LatLng(32.87997, -117.23713));
+        LOCATIONS.put(PlaceName.Y_Mas, new LatLng(32.880025, -117.235760));
+        LOCATIONS.put(PlaceName.VivaPops, new LatLng(32.880033, -117.235680));
+        LOCATIONS.put(PlaceName.EsenciaDeSaborSuPan, new LatLng(32.880013, -117.235736));
 
         LOCATIONS.put(PlaceName.SPACE, new LatLng(32.87998, -117.23645));
         LOCATIONS.put(PlaceName.Shogun, new LatLng(32.880007, -117.236906));
@@ -102,9 +106,10 @@ public class Constants {
         LOCATIONS.put(PlaceName.TheLoft, new LatLng(32.87944, -117.23579));
         LOCATIONS.put(PlaceName.ZanzibarCafe, new LatLng(32.87955, -117.23584));
         LOCATIONS.put(PlaceName.CrossCulturalCenter, new LatLng(32.87963, -117.23561));
-        LOCATIONS.put(PlaceName.ERCRoom, new LatLng(32.879915, -117.236392));
-        LOCATIONS.put(PlaceName.MarshalRoom, new LatLng(32.879857, -117.236389));
-        LOCATIONS.put(PlaceName.RevelleRoom, new LatLng(32.879792, -117.23638));
+        LOCATIONS.put(PlaceName.ERCRoom, new LatLng(32.879965, -117.236392));
+        LOCATIONS.put(PlaceName.MarshalRoom, new LatLng(32.879915, -117.236392));
+        LOCATIONS.put(PlaceName.RevelleRoom, new LatLng(32.879857, -117.236389));
+
         LOCATIONS.put(PlaceName.MuirRoom, new LatLng(32.87974, -117.2361));
         LOCATIONS.put(PlaceName.InterTribalRC, new LatLng(32.879843, -117.236486));
         LOCATIONS.put(PlaceName.StudOrg2, new LatLng(32.8798, -117.23651));
@@ -175,6 +180,7 @@ public class Constants {
         LOCATIONS.put(PlaceName.CCCCorner, new LatLng(32.87964, -117.23574));
         LOCATIONS.put(PlaceName.CCCWest, new LatLng(32.87965, -117.23598));
         LOCATIONS.put(PlaceName.OutStairCorner, new LatLng(32.87955, -117.23671));
+        LOCATIONS.put(PlaceName.East2Entr, new LatLng(32.87989, -117.23664));
     }
 
     // Map of floors for each place in PC
@@ -210,6 +216,9 @@ public class Constants {
         FLOORS.put(PlaceName.SeedSprout, 1);
         FLOORS.put(PlaceName.Restrooms, 1);
         FLOORS.put(PlaceName.HydrationStations, 1);
+        FLOORS.put(PlaceName.Y_Mas, 1);
+        FLOORS.put(PlaceName.VivaPops, 1);
+        FLOORS.put(PlaceName.EsenciaDeSaborSuPan, 1);
 
         FLOORS.put(PlaceName.Entr2, 1);
         FLOORS.put(PlaceName.Entr3, 1);
@@ -288,6 +297,7 @@ public class Constants {
         FLOORS.put(PlaceName.CCCCorner, 2);
         FLOORS.put(PlaceName.CCCWest, 2);
         FLOORS.put(PlaceName.OutStairCorner, 2);
+        FLOORS.put(PlaceName.East2Entr, 2);
     }
 
     // Map of places and previous places for purposes of making more intelligent paths (Floor 1)
@@ -321,6 +331,10 @@ public class Constants {
         PREVIOUS1.put(PlaceName.HydrationStations, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.Restrooms, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.SeedSprout, PlaceName.IntersectionEast);
+        PREVIOUS1.put(PlaceName.Y_Mas, PlaceName.IntersectionEast);
+        PREVIOUS1.put(PlaceName.VivaPops, PlaceName.Y_Mas);
+        PREVIOUS1.put(PlaceName.EsenciaDeSaborSuPan, PlaceName.Y_Mas);
+        PREVIOUS1.put(PlaceName.Y_Mas, PlaceName.IntersectionEast);
 
         PREVIOUS1.put(PlaceName.Entr2, PlaceName.PriceTheater);
         PREVIOUS1.put(PlaceName.Entr3, PlaceName.PriceTheater);
@@ -350,12 +364,12 @@ public class Constants {
         PREVIOUS1.put(PlaceName.BallroomWestA, PlaceName.OutStairCorner);
         PREVIOUS1.put(PlaceName.BallroomWestB, PlaceName.OutStairCorner);
 
-        PREVIOUS1.put(PlaceName.ERCRoom, PlaceName.OutElev2);
-        PREVIOUS1.put(PlaceName.MarshalRoom, PlaceName.OutElev2);
-        PREVIOUS1.put(PlaceName.RevelleRoom, PlaceName.OutElev2);
-        PREVIOUS1.put(PlaceName.InterTribalRC, PlaceName.OutElev2);
-        PREVIOUS1.put(PlaceName.SPACE, PlaceName.OutElev2);
-        PREVIOUS1.put(PlaceName.StudOrg2, PlaceName.OutElev2);
+        PREVIOUS1.put(PlaceName.ERCRoom, PlaceName.East2Entr);
+        PREVIOUS1.put(PlaceName.MarshalRoom, PlaceName.East2Entr);
+        PREVIOUS1.put(PlaceName.RevelleRoom, PlaceName.East2Entr);
+        PREVIOUS1.put(PlaceName.InterTribalRC, PlaceName.East2Entr);
+        PREVIOUS1.put(PlaceName.SPACE, PlaceName.East2Entr);
+        PREVIOUS1.put(PlaceName.StudOrg2, PlaceName.East2Entr);
 
         PREVIOUS1.put(PlaceName.OneStop, PlaceName.InElev3);
         PREVIOUS1.put(PlaceName.SixthRoom, PlaceName.InElev3);
@@ -403,6 +417,7 @@ public class Constants {
         PREVIOUS1.put(PlaceName.CCCCorner, PlaceName.InElev2);
         PREVIOUS1.put(PlaceName.CCCWest, PlaceName.CCCCorner);
         PREVIOUS1.put(PlaceName.OutStairCorner, PlaceName.StairFlr2SE);
+        PREVIOUS1.put(PlaceName.East2Entr, PlaceName.OutElev2);
     }
 
     // Map pd names for each place in PC
@@ -436,9 +451,11 @@ public class Constants {
         enumHash.put("computer lab", PlaceName.ComputerLab);
         enumHash.put("lockers", PlaceName.Lockers);
         enumHash.put("seed + sprout", PlaceName.SeedSprout);
-        enumHash.put("tapioca express", PlaceName.TapiocaExpress);
         enumHash.put("restrooms", PlaceName.Restrooms);
         enumHash.put("hydration stations", PlaceName.HydrationStations);
+        enumHash.put("y mas", PlaceName.Y_Mas);
+        enumHash.put("viva pops", PlaceName.VivaPops);
+        enumHash.put("esencia de sabor: su pan", PlaceName.EsenciaDeSaborSuPan);
 
         enumHash.put("the loft", PlaceName.TheLoft);
         enumHash.put("zanzibar cafe", PlaceName.ZanzibarCafe);
