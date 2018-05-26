@@ -33,6 +33,7 @@ import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     // Floor fields
@@ -69,9 +70,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // Hydration station markers
     private HashMap<Marker, Integer> hydStations =  new HashMap<>();
 
-    private Marker mSRC;
+    // stair/elev markers
+    private HashMap<Marker, int[]> stairs_elevs = new HashMap<>();
 
-    private Marker mWestStairs;
+    private boolean showRestrooms = false;
+
+    private Marker mSRC;
 
     @Override
     // Display the app page
@@ -153,12 +157,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Floor3.setTextColor(Color.BLACK);
                     Floor4.setTextColor(Color.BLACK);
 
+                    if (place.equals("restrooms"))
+                        showRestrooms = true;
+                    else
+                        showRestrooms = false;
+
                     // Draw current path if destination is searched
                     if (dest != null && dest.size() != 0)
                         drawPath(dest.toArray(new PlaceName[0]), currentFloor);
 
                     // Show current floor plan
                     showFloor(currentFloor);
+
+                    // show markers on current floor
+                    showMarkers(currentFloor);
 
                     // Set path highlight colors
                     for(int i = 0; i < floors.length; i++) {
@@ -259,9 +271,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         
         // Add a marker in SRC, UCSD, and move the camera.
         mSRC = mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
-        mWestStairs = mMap.addMarker(new MarkerOptions().position(new LatLng(32.87976, -117.23716))
-                                                        .title("Stairs")
-                                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+
+        //stairs and elevator
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1W))
+                                                           .title("Stairs")
+                                                           .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                         new int[] {1,2,0,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1SE))
+                                                           .title("Stairs")
+                                                           .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                        new int[] {1,2,0,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.OutElev1))
+                                                     .title("Elevator/Stairs")
+                                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                         new int[] {1,2,3,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InElev1))
+                                                    .title("Elevator")
+                                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                         new int[] {1,2,3,4});
+
+        // all restroom markers
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.PCTheaterRestroom))
+                        .title("Restroom in Price Theater")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                     1);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.PandaRestroom))
+                        .title("Restroom near Panda Express")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                1);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.PerksRestroom))
+                        .title("Restroom in Perks Coffee Shop")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                1);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.CommuterRestroom))
+                        .title("Restroom near Computer Lab/Lockers")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                1);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.RoundTablePizzaRestroom))
+                        .title("Restroom in Round Table")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                1);
+        showMarkers(0);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
 
@@ -347,6 +397,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void showMarkers(int floor) {
+        if (floor > 0 && floor <= 4) {
+            for (Map.Entry<Marker, int[]> entry : stairs_elevs.entrySet()) {
+                int[] floors = entry.getValue();
+                Marker m = entry.getKey();
+                switch (floor) {
+                    case 1:
+                        if (floors[0] == floor)
+                            m.setVisible(true);
+                        else
+                            m.setVisible(false);
+                        break;
+                    case 2:
+                        if (floors[1] == floor)
+                            m.setVisible(true);
+                        else
+                            m.setVisible(false);
+                        break;
+                    case 3:
+                        if (floors[2] == floor)
+                            m.setVisible(true);
+                        else
+                            m.setVisible(false);
+                        break;
+                    case 4:
+                        if (floors[3] == floor)
+                            m.setVisible(true);
+                        else
+                            m.setVisible(false);
+                        break;
+                }
+            }
+        }
+
+        for (Map.Entry<Marker, Integer> entry : restrooms.entrySet()) {
+            int setFloor = entry.getValue();
+            Marker restroom = entry.getKey();
+            if (setFloor == floor && showRestrooms)
+                restroom.setVisible(true);
+            else
+                restroom.setVisible(false);
+        }
+    }
+
     // Show floor 1
     public void clickFloor1(View view) {
         // Set button colors
@@ -359,8 +453,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // shows SRC marker
         mSRC.setVisible(true);
 
-        // shows west stairs
-        mWestStairs.setVisible(true);
+        showMarkers(1);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
@@ -389,8 +482,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // hides SRC marker
         mSRC.setVisible(false);
 
-        // show west stairs
-        mWestStairs.setVisible(true);
+        showMarkers(2);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
@@ -419,8 +511,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // hides SRC marker
         mSRC.setVisible(false);
 
-        // hides west stairs
-        mWestStairs.setVisible(false);
+        showMarkers(3);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)
@@ -449,8 +540,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // hides SRC marker
         mSRC.setVisible(false);
 
-        // hides west stairs
-        mWestStairs.setVisible(false);
+        showMarkers(4);
 
         // Draw current path if destination is searched
         if (dest != null && dest.size() != 0)

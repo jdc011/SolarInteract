@@ -34,7 +34,11 @@ public enum PlaceName {
     ComputerLab,
     Lockers,
     SeedSprout,
-    Restrooms,
+    PCTheaterRestroom,
+    PandaRestroom,
+    PerksRestroom,
+    CommuterRestroom,
+    RoundTablePizzaRestroom,
     HydrationStations,
 
     EsenciaDeSaborSuPan,
