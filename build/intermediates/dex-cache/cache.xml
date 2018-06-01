@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\jmich_000\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_8b04b7a91a6654a4e66748737d9cf7a5700c0a63\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\jmich_000\Desktop\CodingProjects\Github\SolarInteract\PCMap\PCMap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
