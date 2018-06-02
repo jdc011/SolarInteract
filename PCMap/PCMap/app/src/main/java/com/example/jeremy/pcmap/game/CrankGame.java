@@ -43,7 +43,7 @@ public class CrankGame extends Activity {
     /** Duration of the game in seconds */
     private final int NUM_SECONDS = 60;
     // Buttons for the game
-    private Button Pause, REMOVETHISGoToScore, REMOVETHISIncreaseScore;
+    private Button Pause;
     /** Difficulty rating for the game */
     private int difficultyRating;
     /** Keeps track of player score */
@@ -54,15 +54,42 @@ public class CrankGame extends Activity {
     private boolean isPaused;
     /** Timer for the game */
     private int timer;
-    /** Thread management */
-    private Thread thread;
+    /** Time thread management */
+    private Thread timerThread;
     /** Handler for sending messages between the worker thread and the main UI thread */
     private Handler mHandler;
+    /** Arduino mac address */
+    private final String DEVICE_ADDRESS = "20:16:12:12:63:33";
+    /** Arduino device */
+    private BluetoothDevice device;
+    /** Socket for Bluetooth data */
+    private BluetoothSocket socket;
+    /** Data stream for output */
+    private OutputStream outputStream;
+    /** Serial Port Service ID */
+    private final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+    /** Data stream for input */
+    private InputStream inputStream;
+    /** Flag variable for device connection */
+    private boolean deviceConnected = false;
+    /** View data as text */
+    private TextView textView;
+    /** Update text */
+    private EditText editText;
+    /** Bluetooth thread */
+    private Thread bluetoothThread;
+    /** Data comm buffer */
+    private byte buffer[];
+    /** Current buffer position */
+    private int bufferPosition;
+    /** Thread deactivation */
+    private boolean stopThread;
+
 
     public void Init(){
         difficultyRating = Difficulty.getDifficultyRating();
         playerScore = 0;
-        solarScore = Math.pow(2, difficultyRating + 2);
+        solarScore = 0;
         isPaused = false;
         timer = TICK * NUM_SECONDS;
 
@@ -72,11 +99,6 @@ public class CrankGame extends Activity {
                 + Difficulty.getDifficultySetting();
         t.setText(diffSetting);
 
-        // Modifies the middle TextView to dynamically show difficulty rating
-        t = (TextView) findViewById(R.id.DiffRating);
-        diffSetting = getResources().getString(R.string.si_crank_rating) + " "
-                + difficultyRating;
-        t.setText(diffSetting);
 
         // Modifies the right two TextViews to dynamically display scores
         updatePlayerScore();
@@ -108,50 +130,38 @@ public class CrankGame extends Activity {
                 //handleException((Exception) inputMessage.obj);
             }
         };
-
-        // TODO: delete the following 2 button blocks
-        // REMOVETHISGoToScore = (Button) findViewById(R.id.REMOVETHISGoToScore);
-        /*REMOVETHISGoToScore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                REMOVETHISgoToScore(view);
-            }
-        });
-
-        // REMOVETHISIncreaseScore = (Button) findViewById(R.id.REMOVETHISIncreaseScore);
-        REMOVETHISIncreaseScore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                REMOVETHISincreaseScore(view);
-            }
-        });*/
     }
 
     /** Display the difficulty selections */
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.print("DEBUG: IN");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crank_game);
         Init();
         update();
 
-        // TODO
-        //    private final String DEVICE_NAME="MyBTBee";
-        final String DEVICE_ADDRESS = "20:16:12:12:63:33";
-        final UUID PORT_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");//Serial Port Service ID
-        BluetoothDevice device;
-        BluetoothSocket socket;
-        OutputStream outputStream;
-        InputStream inputStream;
-        Button startButton, sendButton, clearButton, stopButton;
-        TextView textView;
-        EditText editText;
-        boolean deviceConnected = false;
-        Thread thread;
-        byte buffer[];
-        int bufferPosition;
-        boolean stopThread;
+        // Start Bluetooth connection
+        if(BTinit())
+        {
+            if(BTconnect())
+            {
+                deviceConnected=true;
+                beginListenForData();
+            }
 
+        }
+
+        // Send game start + difficulty to Arduino
+        try {
+            outputStream.write(100);
+            //outputStream.write(difficultyRating);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean BTinit()
+    {
         boolean found=false;
         BluetoothAdapter bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter == null) {
@@ -172,68 +182,101 @@ public class CrankGame extends Activity {
         {
             Toast.makeText(getApplicationContext(),"Please Pair the Device first",Toast.LENGTH_SHORT).show();
         }
-        else {
-            for (BluetoothDevice iterator : bondedDevices) {
-                if (iterator.getAddress().equals(DEVICE_ADDRESS)) {
-                    device = iterator;
-                    found = true;
-
-                    // TODO
-                    try {
-                        System.out.print("DEBUG: WIN");
-                        socket = device.createRfcommSocketToServiceRecord(PORT_UUID);
-                        socket.connect();
-                        outputStream = socket.getOutputStream();
-                        outputStream.write(100);
-                    }
-                    catch (IOException e) {
-
-                    }
+        else
+        {
+            for (BluetoothDevice iterator : bondedDevices)
+            {
+                if(iterator.getAddress().equals(DEVICE_ADDRESS))
+                {
+                    device=iterator;
+                    found=true;
                     break;
                 }
             }
         }
+        return found;
     }
 
-    public void setUiEnabled(boolean bool)
+
+    public boolean BTconnect()
     {
+        boolean connected=true;
+        try {
+            socket = device.createRfcommSocketToServiceRecord(PORT_UUID);
+            socket.connect();
+        } catch (IOException e) {
+            e.printStackTrace();
+            connected=false;
+        }
+        if(connected)
+        {
+            try {
+                outputStream=socket.getOutputStream();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                inputStream=socket.getInputStream();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
+        }
+
+        return connected;
     }
-
-    public boolean BTinit()
-    {
-        return true;
-    }
-
-
 
     public void onClickStart(View view) {
         if(BTinit())
         {
-            if(true)
+            if(BTconnect())
             {
-
+                deviceConnected=true;
+                beginListenForData();
+                textView.append("\nConnection Opened!\n");
             }
 
         }
     }
 
-    void beginListenForData() {
+    void beginListenForData()
+    {
+        final Handler handler = new Handler();
+        stopThread = false;
+        buffer = new byte[1024];
+        Thread runThread  = new Thread(new Runnable()
+        {
+            public void run()
+            {
+                while(!Thread.currentThread().isInterrupted() && !stopThread)
+                {
+                    try
+                    {
+                        int byteCount = inputStream.available();
+                        if(byteCount > 0)
+                        {
+                            byte[] rawBytes = new byte[byteCount];
+                            inputStream.read(rawBytes);
+                            final String string=new String(rawBytes,"UTF-8");
+                            handler.post(new Runnable() {
+                                public void run()
+                                {
 
+                                }
+                            });
+
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        stopThread = true;
+                    }
+                }
+            }
+        });
+
+        runThread.start();
     }
-
-    public void onClickSend(View view) {
-
-    }
-
-    public void onClickStop(View view) throws IOException {
-
-    }
-
-    public void onClickClear(View view) {
-
-    }
-
 
     /** Pauses the game temporarily */
     public void onPause(View view) {
@@ -251,7 +294,7 @@ public class CrankGame extends Activity {
      *  Code from: https://stackoverflow.com/questions/14814714/update-textview-every-second
      */
     private void update() {
-        thread = new Thread() {
+        timerThread = new Thread() {
             @Override
             public void run() {
                 try {
@@ -284,7 +327,7 @@ public class CrankGame extends Activity {
                 }
             }
         };
-        thread.start();
+        timerThread.start();
     }
 
     /** Handles exceptions thrown, creates a textbox */
@@ -320,20 +363,21 @@ public class CrankGame extends Activity {
 
     /** Handles end of game functions (goes to player score screen) */
     public void handleGameEnd() {
-        thread.interrupt();
+        timerThread.interrupt();
         Intent goToScore = new Intent(CrankGame.this, Score.class);
         startActivity(goToScore);
+
+        // Send end game signal to Arduino and close connection
+        try {
+            outputStream.write(255);
+            stopThread = true;
+            outputStream.close();
+            inputStream.close();
+            socket.close();
+            deviceConnected=false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    // TODO: remove this button when the game is implemented
-    /** Allows programmer to go to Score Activity */
-    public void REMOVETHISgoToScore(View view) {
-        handleGameEnd();
-    }
-
-    // TODO: remove this button when the game is implemented
-    /** Cookie Clicker */
-    public void REMOVETHISincreaseScore(View view) { playerScore += (isPaused)?0:1; }
-
-    // TODO: Run the game
 }

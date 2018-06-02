@@ -20,9 +20,9 @@ import java.util.HashMap;
 
 public class Difficulty extends Activity{
     // Programmer-changeable values corresponding to the number of solar panels to use
-    private static final int EASY = 1;
-    private static final int MEDIUM = 2;
-    private static final int HARD = 4;
+    private static final int EASY = 10;
+    private static final int MEDIUM = 20;
+    private static final int HARD = 30;
     /** Default setting (Medium) */
     private static final String defaultDifficulty = "Medium";
     // Buttons
@@ -132,15 +132,15 @@ public class Difficulty extends Activity{
         String oldDiffSetting;
         switch(difficultyMultiplier.get(difficultySetting)) {
             default: // defaults to resetting easy setting
-            case 1:
+            case 10:
                 t = (TextView) findViewById(R.id.Easy);
                 oldDiffSetting = getResources().getString(R.string.si_diff_easy);
                 break;
-            case 2:
+            case 20:
                 t = (TextView) findViewById(R.id.Medium);
                 oldDiffSetting = getResources().getString(R.string.si_diff_medium);
                 break;
-            case 4:
+            case 40:
                 t = (TextView) findViewById(R.id.Hard);
                 oldDiffSetting = getResources().getString(R.string.si_diff_hard);
                 break;
