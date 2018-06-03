@@ -274,20 +274,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //stairs and elevator
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1W))
-                                                           .title("Stairs")
-                                                           .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                           .title("Stairs")
+                           .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,0,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1SE))
-                                                           .title("Stairs")
-                                                           .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                            .title("Stairs")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                         new int[] {1,2,0,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.OutElev1))
                                                      .title("Elevator/Stairs")
-                                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,3,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InElev1))
                                                     .title("Elevator")
-                                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,3,4});
 
         // all restroom markers
@@ -311,6 +311,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .title("Restroom in Round Table")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
                 1);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.SGLRestroom))
+                        .title("Restroom in Sun God Lounge")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                2);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.SaloonRestroom))
+                        .title("Restroom near Saloon 101")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                2);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.WestBallroomRestroom))
+                        .title("Restroom near Ballroom West")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                2);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.OneStopRestroom))
+                        .title("Restroom near One Stop")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                3);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.WarrenRestroom))
+                        .title("Restroom near Warren College Room")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                3);
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.RecepRestroom))
+                        .title("Restroom near Reception Desk")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                4);
         showMarkers(0);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SRC, con.DEF_ZOOM));
