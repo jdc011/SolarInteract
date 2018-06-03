@@ -34,12 +34,8 @@ public enum PlaceName {
     ComputerLab,
     Lockers,
     SeedSprout,
-    PCTheaterRestroom,
-    PandaRestroom,
-    PerksRestroom,
-    CommuterRestroom,
-    RoundTablePizzaRestroom,
     HydrationStations,
+
 
     EsenciaDeSaborSuPan,
     Y_Mas,
@@ -94,6 +90,18 @@ public enum PlaceName {
     AVCStudLife,
     AssocStud,
     StudLeadCham,
+
+    PCTheaterRestroom,
+    PandaRestroom,
+    PerksRestroom,
+    CommuterRestroom,
+    RoundTablePizzaRestroom,
+    SaloonRestroom,
+    WestBallroomRestroom,
+    SGLRestroom,
+    WarrenRestroom,
+    OneStopRestroom,
+    RecepRestroom,
 
     Entr2,
     Entr3,
