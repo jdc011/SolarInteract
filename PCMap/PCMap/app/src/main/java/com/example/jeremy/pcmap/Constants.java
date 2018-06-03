@@ -186,6 +186,12 @@ public class Constants {
         LOCATIONS.put(PlaceName.CommuterRestroom, new LatLng(32.87997, -117.23622));
         LOCATIONS.put(PlaceName.PerksRestroom, new LatLng(32.87921, -117.23727));
         LOCATIONS.put(PlaceName.RoundTablePizzaRestroom, new LatLng(32.88002, -117.23695));
+        LOCATIONS.put(PlaceName.SaloonRestroom, new LatLng(32.879689, -117.236126));
+        LOCATIONS.put(PlaceName.WestBallroomRestroom, new LatLng(32.879523, -117.236790));
+        LOCATIONS.put(PlaceName.SGLRestroom, new LatLng(32.880031, -117.237138));
+        LOCATIONS.put(PlaceName.OneStopRestroom, new LatLng(32.879714, -117.235683));
+        LOCATIONS.put(PlaceName.WarrenRestroom, new LatLng(32.879742, -117.236472));
+        LOCATIONS.put(PlaceName.RecepRestroom, new LatLng(32.879928, -117.236597));
     }
 
     // Map of floors for each place in PC
@@ -308,6 +314,12 @@ public class Constants {
         FLOORS.put(PlaceName.CommuterRestroom, 1);
         FLOORS.put(PlaceName.PerksRestroom, 1);
         FLOORS.put(PlaceName.RoundTablePizzaRestroom, 1);
+        FLOORS.put(PlaceName.SGLRestroom, 2);
+        FLOORS.put(PlaceName.WestBallroomRestroom, 2);
+        FLOORS.put(PlaceName.SaloonRestroom, 2);
+        FLOORS.put(PlaceName.WarrenRestroom, 3);
+        FLOORS.put(PlaceName.OneStopRestroom, 3);
+        FLOORS.put(PlaceName.RecepRestroom, 4);
     }
 
     // Map of places and previous places for purposes of making more intelligent paths (Floor 1)
