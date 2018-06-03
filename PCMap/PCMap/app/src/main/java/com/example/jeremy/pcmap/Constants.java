@@ -48,7 +48,7 @@ public class Constants {
                                                     "Lactation Room", "Ballroom West A", "Ballroom West B",
                                                     "Ballroom East", "Game Room", "Dance Studio",
                                                     "S.P.A.C.E.", "Red Shoe Room", "Bear Room", "Kaplan Test Prep",
-                                                    "Green Table Room", "Saloon 101", "Art Space",
+                                                    "Green Table Room", "Salon 101", "Art Space",
                                                     "Communidad",
 
                                                     "Student Organization Offices Flr 3", "Warren College Room",
@@ -93,7 +93,6 @@ public class Constants {
         LOCATIONS.put(PlaceName.ComputerLab, new LatLng(32.88005, -117.23612));
         LOCATIONS.put(PlaceName.Lockers, new LatLng(32.88007, -117.23617));
         LOCATIONS.put(PlaceName.SeedSprout, new LatLng(32.87964, -117.23587));
-        LOCATIONS.put(PlaceName.HydrationStations, new LatLng(32.87997, -117.23713));
         LOCATIONS.put(PlaceName.Y_Mas, new LatLng(32.880025, -117.235760));
         LOCATIONS.put(PlaceName.VivaPops, new LatLng(32.880033, -117.235680));
         LOCATIONS.put(PlaceName.EsenciaDeSaborSuPan, new LatLng(32.880013, -117.235736));
@@ -123,7 +122,7 @@ public class Constants {
         LOCATIONS.put(PlaceName.BearRoom, new LatLng(32.88001, -117.23722));
         LOCATIONS.put(PlaceName.Kaplan, new LatLng(32.88, -117.2374));
         LOCATIONS.put(PlaceName.GreenTableRoom, new LatLng(32.88007, -117.23703));
-        LOCATIONS.put(PlaceName.Saloon101, new LatLng(32.87956, -117.23615));
+        LOCATIONS.put(PlaceName.Salon101, new LatLng(32.87956, -117.23615));
         LOCATIONS.put(PlaceName.ArtSpace, new LatLng(32.87977, -117.23564));
         LOCATIONS.put(PlaceName.Communidad, new LatLng(32.87997, -117.23571));
         LOCATIONS.put(PlaceName.DanceStudio, new LatLng(32.88007, -117.23599));
@@ -165,9 +164,22 @@ public class Constants {
         LOCATIONS.put(PlaceName.StairFlr2E, new LatLng(32.87989, -117.23668));
         LOCATIONS.put(PlaceName.StairFlr3E, new LatLng(32.87989, -117.23668));
 
+        LOCATIONS.put(PlaceName.InStairsPCE1, new LatLng(32.879755, -117.235953));
+        LOCATIONS.put(PlaceName.InStairsPCE2, new LatLng(32.879755, -117.235953));
+        LOCATIONS.put(PlaceName.InStairsSLBO2, new LatLng(32.879714, -117.235683));
+        LOCATIONS.put(PlaceName.InStairsSLBO3, new LatLng(32.879714, -117.235683));
+        LOCATIONS.put(PlaceName.InStairsDesk3, new LatLng(32.879928, -117.236597));
+        LOCATIONS.put(PlaceName.InStairsDesk4, new LatLng(32.879928, -117.236597));
+
         LOCATIONS.put(PlaceName.OutElev1, new LatLng(32.87989, -117.23668));
         LOCATIONS.put(PlaceName.OutElev2, new LatLng(32.87989, -117.23668));
         LOCATIONS.put(PlaceName.OutElev3, new LatLng(32.87989, -117.23668));
+
+        LOCATIONS.put(PlaceName.TritonStatueElev1, new LatLng(32.879316, -117.236258));
+        LOCATIONS.put(PlaceName.TritonStatueElev2, new LatLng(32.879316, -117.236258));
+        LOCATIONS.put(PlaceName.BookstoreElev1, new LatLng(32.879431, -117.236794));
+        LOCATIONS.put(PlaceName.BookstoreElev2, new LatLng(32.879431, -117.236794));
+        LOCATIONS.put(PlaceName.BookstoreElev3, new LatLng(32.879431, -117.236794));
 
         LOCATIONS.put(PlaceName.InElev1, new LatLng(32.87984, -117.23568));
         LOCATIONS.put(PlaceName.InElev2, new LatLng(32.87984, -117.23568));
@@ -186,12 +198,19 @@ public class Constants {
         LOCATIONS.put(PlaceName.CommuterRestroom, new LatLng(32.87997, -117.23622));
         LOCATIONS.put(PlaceName.PerksRestroom, new LatLng(32.87921, -117.23727));
         LOCATIONS.put(PlaceName.RoundTablePizzaRestroom, new LatLng(32.88002, -117.23695));
-        LOCATIONS.put(PlaceName.SaloonRestroom, new LatLng(32.879689, -117.236126));
+        LOCATIONS.put(PlaceName.SalonRestroom, new LatLng(32.879689, -117.236126));
         LOCATIONS.put(PlaceName.WestBallroomRestroom, new LatLng(32.879523, -117.236790));
         LOCATIONS.put(PlaceName.SGLRestroom, new LatLng(32.880031, -117.237138));
         LOCATIONS.put(PlaceName.OneStopRestroom, new LatLng(32.879714, -117.235683));
         LOCATIONS.put(PlaceName.WarrenRestroom, new LatLng(32.879742, -117.236472));
         LOCATIONS.put(PlaceName.RecepRestroom, new LatLng(32.879928, -117.236597));
+
+        LOCATIONS.put(PlaceName.PCTheaterHydro, new LatLng(32.879902, -117.237092));
+        LOCATIONS.put(PlaceName.BurgerKingHydro, new LatLng(32.879874, -117.235722));
+        LOCATIONS.put(PlaceName.YHWHydro, new LatLng(32.879686, -117.236669));
+        LOCATIONS.put(PlaceName.ArcadeHydro, new LatLng(32.880097, -117.237219));
+        LOCATIONS.put(PlaceName.OneStopHydro, new LatLng(32.879714, -117.235683));
+        LOCATIONS.put(PlaceName.RecepHydro, new LatLng(32.879928, -117.236597));
     }
 
     // Map of floors for each place in PC
@@ -225,7 +244,6 @@ public class Constants {
         FLOORS.put(PlaceName.ComputerLab, 1);
         FLOORS.put(PlaceName.Lockers, 1);
         FLOORS.put(PlaceName.SeedSprout, 1);
-        FLOORS.put(PlaceName.HydrationStations, 1);
         FLOORS.put(PlaceName.Y_Mas, 1);
         FLOORS.put(PlaceName.VivaPops, 1);
         FLOORS.put(PlaceName.EsenciaDeSaborSuPan, 1);
@@ -255,7 +273,7 @@ public class Constants {
         FLOORS.put(PlaceName.BearRoom, 2);
         FLOORS.put(PlaceName.Kaplan, 2);
         FLOORS.put(PlaceName.GreenTableRoom, 2);
-        FLOORS.put(PlaceName.Saloon101, 2);
+        FLOORS.put(PlaceName.Salon101, 2);
         FLOORS.put(PlaceName.ArtSpace, 2);
         FLOORS.put(PlaceName.Communidad, 2);
         FLOORS.put(PlaceName.DanceStudio, 2);
@@ -301,6 +319,17 @@ public class Constants {
         FLOORS.put(PlaceName.InElev2, 2);
         FLOORS.put(PlaceName.InElev3, 3);
         FLOORS.put(PlaceName.InElev4, 4);
+        FLOORS.put(PlaceName.TritonStatueElev1, 1);
+        FLOORS.put(PlaceName.TritonStatueElev2, 2);
+        FLOORS.put(PlaceName.BookstoreElev1, 1);
+        FLOORS.put(PlaceName.BookstoreElev2, 2);
+        FLOORS.put(PlaceName.BookstoreElev3, 3);
+        FLOORS.put(PlaceName.InStairsPCE1, 1);
+        FLOORS.put(PlaceName.InStairsPCE2, 2);
+        FLOORS.put(PlaceName.InStairsSLBO2, 2);
+        FLOORS.put(PlaceName.InStairsSLBO3, 3);
+        FLOORS.put(PlaceName.InStairsDesk3, 3);
+        FLOORS.put(PlaceName.InStairsDesk4, 4);
 
         FLOORS.put(PlaceName.SGLCorner, 2);
         FLOORS.put(PlaceName.SGLEast, 2);
@@ -316,10 +345,17 @@ public class Constants {
         FLOORS.put(PlaceName.RoundTablePizzaRestroom, 1);
         FLOORS.put(PlaceName.SGLRestroom, 2);
         FLOORS.put(PlaceName.WestBallroomRestroom, 2);
-        FLOORS.put(PlaceName.SaloonRestroom, 2);
+        FLOORS.put(PlaceName.SalonRestroom, 2);
         FLOORS.put(PlaceName.WarrenRestroom, 3);
         FLOORS.put(PlaceName.OneStopRestroom, 3);
         FLOORS.put(PlaceName.RecepRestroom, 4);
+
+        FLOORS.put(PlaceName.PCTheaterHydro, 1);
+        FLOORS.put(PlaceName.BurgerKingHydro, 1);
+        FLOORS.put(PlaceName.YHWHydro, 2);
+        FLOORS.put(PlaceName.ArcadeHydro, 2);
+        FLOORS.put(PlaceName.OneStopHydro, 3);
+        FLOORS.put(PlaceName.RecepHydro, 4);
     }
 
     // Map of places and previous places for purposes of making more intelligent paths (Floor 1)
@@ -350,7 +386,7 @@ public class Constants {
         PREVIOUS1.put(PlaceName.Zone, PlaceName.PriceTheater);
         PREVIOUS1.put(PlaceName.Jamba, PlaceName.PriceTheater);
         PREVIOUS1.put(PlaceName.Lounge, PlaceName.Entr3);
-        PREVIOUS1.put(PlaceName.HydrationStations, PlaceName.SRC);
+        PREVIOUS1.put(PlaceName.PCTheaterHydro, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.PCTheaterRestroom, PlaceName.SRC);
         PREVIOUS1.put(PlaceName.SeedSprout, PlaceName.IntersectionEast);
         PREVIOUS1.put(PlaceName.Y_Mas, PlaceName.IntersectionEast);
@@ -374,7 +410,7 @@ public class Constants {
         PREVIOUS1.put(PlaceName.CrossCulturalCenter, PlaceName.InElev2);
         PREVIOUS1.put(PlaceName.Communidad, PlaceName.InElev2);
         PREVIOUS1.put(PlaceName.BallroomEast, PlaceName.CCCWest);
-        PREVIOUS1.put(PlaceName.Saloon101, PlaceName.CCCWest);
+        PREVIOUS1.put(PlaceName.Salon101, PlaceName.CCCWest);
         PREVIOUS1.put(PlaceName.ArtSpace, PlaceName.InElev2);
         PREVIOUS1.put(PlaceName.TheLoft, PlaceName.InElev2);
         PREVIOUS1.put(PlaceName.ZanzibarCafe, PlaceName.CCCCorner);
@@ -475,7 +511,7 @@ public class Constants {
         enumHash.put("lockers", PlaceName.Lockers);
         enumHash.put("seed + sprout", PlaceName.SeedSprout);
         enumHash.put("restrooms", PlaceName.PCTheaterRestroom);
-        enumHash.put("hydration stations", PlaceName.HydrationStations);
+        enumHash.put("hydration stations", PlaceName.PCTheaterHydro);
         enumHash.put("y mas", PlaceName.Y_Mas);
         enumHash.put("viva pops", PlaceName.VivaPops);
         enumHash.put("esencia de sabor: su pan", PlaceName.EsenciaDeSaborSuPan);
@@ -504,7 +540,7 @@ public class Constants {
         enumHash.put("bear room", PlaceName.BearRoom);
         enumHash.put("kaplan test prep", PlaceName.Kaplan);
         enumHash.put("green table room", PlaceName.GreenTableRoom);
-        enumHash.put("saloon 101", PlaceName.Saloon101);
+        enumHash.put("salon 101", PlaceName.Salon101);
         enumHash.put("art space", PlaceName.ArtSpace);
         enumHash.put("communidad", PlaceName.Communidad);
 

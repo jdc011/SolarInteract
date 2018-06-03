@@ -34,8 +34,6 @@ public enum PlaceName {
     ComputerLab,
     Lockers,
     SeedSprout,
-    HydrationStations,
-
 
     EsenciaDeSaborSuPan,
     Y_Mas,
@@ -62,7 +60,7 @@ public enum PlaceName {
     BearRoom,
     Kaplan,
     GreenTableRoom,
-    Saloon101,
+    Salon101,
     ArtSpace,
     Communidad,
     DanceStudio,
@@ -96,12 +94,19 @@ public enum PlaceName {
     PerksRestroom,
     CommuterRestroom,
     RoundTablePizzaRestroom,
-    SaloonRestroom,
+    SalonRestroom,
     WestBallroomRestroom,
     SGLRestroom,
     WarrenRestroom,
     OneStopRestroom,
     RecepRestroom,
+
+    PCTheaterHydro,
+    BurgerKingHydro,
+    YHWHydro,
+    ArcadeHydro,
+    OneStopHydro,
+    RecepHydro,
 
     Entr2,
     Entr3,
@@ -127,13 +132,25 @@ public enum PlaceName {
     StairFlr2E,
     StairFlr3E,
 
+    InStairsPCE1,
+    InStairsPCE2,
+    InStairsSLBO2,
+    InStairsSLBO3,
+    InStairsDesk3,
+    InStairsDesk4,
+
     OutElev1,
     OutElev2,
     OutElev3,
+    TritonStatueElev1,
+    TritonStatueElev2,
 
     InElev1,
     InElev2,
     InElev3,
     InElev4,
+    BookstoreElev1,
+    BookstoreElev2,
+    BookstoreElev3
 
 }

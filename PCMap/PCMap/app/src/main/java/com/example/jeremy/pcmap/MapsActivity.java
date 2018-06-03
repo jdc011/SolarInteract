@@ -74,6 +74,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private HashMap<Marker, int[]> stairs_elevs = new HashMap<>();
 
     private boolean showRestrooms = false;
+    private boolean showHydro = false;
 
     private Marker mSRC;
 
@@ -161,6 +162,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         showRestrooms = true;
                     else
                         showRestrooms = false;
+
+                    if (place.equals("hydration stations"))
+                        showHydro = true;
+                    else
+                        showHydro = false;
 
                     // Draw current path if destination is searched
                     if (dest != null && dest.size() != 0)
@@ -273,22 +279,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mSRC = mMap.addMarker(new MarkerOptions().position(SRC).title("You are here!"));
 
         //stairs and elevator
+        // if stairs/elevator does not go to a specific floor, set to 0
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1W))
-                           .title("Stairs")
+                           .title("Stairs near Price Theater")
                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,0,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.StairFlr1SE))
-                            .title("Stairs")
+                            .title("Stairs near Bookstore")
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                         new int[] {1,2,0,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.OutElev1))
-                                                     .title("Elevator/Stairs")
+                                                     .title("Elevator/Stairs outside of Subway")
                                                      .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,3,0});
         stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InElev1))
-                                                    .title("Elevator")
+                                                    .title("Elevator near Burger King")
                                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
                          new int[] {1,2,3,4});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.TritonStatueElev1))
+                        .title("Elevator near Triton Statue")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
+                new int[] {1,2,0,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.BookstoreElev1))
+                        .title("Elevator in the Bookstore")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
+                new int[] {1,2,3,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InStairsPCE1))
+                        .title("Stairs in Price Center East (Atrium Food Court)")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
+                new int[] {1,2,0,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InStairsSLBO2))
+                        .title("Stairs near One Stop")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
+                new int[] {0,2,3,0});
+        stairs_elevs.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.InStairsDesk3))
+                        .title("Stairs near Reception Desk")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))),
+                new int[] {0,0,3,4});
 
         // all restroom markers
         restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.PCTheaterRestroom))
@@ -315,7 +342,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .title("Restroom in Sun God Lounge")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
                 2);
-        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.SaloonRestroom))
+        restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.SalonRestroom))
                         .title("Restroom near Saloon 101")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
                 2);
@@ -334,6 +361,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         restrooms.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.RecepRestroom))
                         .title("Restroom near Reception Desk")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))),
+                4);
+
+        // all hydration station markers
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.PCTheaterHydro))
+                        .title("Hydration Station in Price Theater Lobby")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                1);
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.BurgerKingHydro))
+                        .title("Hydration Station near Burger King")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                1);
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.YHWHydro))
+                        .title("Hydration Station near Yellow/Green Hallway and Ballroom West")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                2);
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.ArcadeHydro))
+                        .title("Hydration Station in Arcade Room")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                2);
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.OneStopHydro))
+                        .title("Hydration Station near One Stop")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
+                3);
+        hydStations.put(mMap.addMarker(new MarkerOptions().position(con.LOCATIONS.get(PlaceName.RecepHydro))
+                        .title("Hydration Station near Reception Desk")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))),
                 4);
         showMarkers(0);
 
@@ -462,6 +515,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 restroom.setVisible(true);
             else
                 restroom.setVisible(false);
+        }
+
+        for (Map.Entry<Marker, Integer> entry : hydStations.entrySet()) {
+            int setFloor = entry.getValue();
+            Marker hydro = entry.getKey();
+            if (setFloor == floor && showHydro)
+                hydro.setVisible(true);
+            else
+                hydro.setVisible(false);
         }
     }
 
