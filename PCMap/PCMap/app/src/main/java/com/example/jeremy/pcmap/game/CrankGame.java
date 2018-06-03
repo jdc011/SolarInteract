@@ -149,15 +149,17 @@ public class CrankGame extends Activity {
                 beginListenForData();
             }
 
+            // Send game start + difficulty to Arduino
+            try {
+                outputStream.write(difficultyRating + 100);
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-        // Send game start + difficulty to Arduino
-        try {
-            outputStream.write(100);
-            outputStream.write(difficultyRating);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        else {
+            Toast.makeText(getApplicationContext(),"Bluetooth failed to connect",Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 
@@ -344,12 +346,8 @@ public class CrankGame extends Activity {
     private void updatePlayerScore() {
         TextView t = (TextView) findViewById(R.id.PlayerScoreDisplay);
 
-        try {
-            playerScore = Integer.parseInt(getStringFromInputStream(socket.getInputStream()));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        //playerScore = Integer.parseInt(getStringFromInputStream(this.inputStream));
 
         String scoreToDisplay = getResources().getString(R.string.si_crank_playerScore) + " " + playerScore;
         t.setText(scoreToDisplay);
@@ -358,7 +356,7 @@ public class CrankGame extends Activity {
     }
 
     /** Convert InputStream data to a string (formatting purposes)*/
-    private String getStringFromInputStream(InputStream is) {
+    private static String getStringFromInputStream(InputStream is) {
 
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
