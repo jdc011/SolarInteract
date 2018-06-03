@@ -28,6 +28,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
+import java.io.*;
 
 import static com.example.jeremy.pcmap.game.Difficulty.getDifficultyRating;
 import static com.example.jeremy.pcmap.game.Difficulty.getDifficultySetting;
@@ -153,7 +154,7 @@ public class CrankGame extends Activity {
         // Send game start + difficulty to Arduino
         try {
             outputStream.write(100);
-            //outputStream.write(difficultyRating);
+            outputStream.write(difficultyRating);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -342,8 +343,47 @@ public class CrankGame extends Activity {
     /** Updates the player score */
     private void updatePlayerScore() {
         TextView t = (TextView) findViewById(R.id.PlayerScoreDisplay);
+
+        try {
+            playerScore = Integer.parseInt(getStringFromInputStream(socket.getInputStream()));
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
         String scoreToDisplay = getResources().getString(R.string.si_crank_playerScore) + " " + playerScore;
         t.setText(scoreToDisplay);
+
+
+    }
+
+    /** Convert InputStream data to a string (formatting purposes)*/
+    private String getStringFromInputStream(InputStream is) {
+
+        BufferedReader br = null;
+        StringBuilder sb = new StringBuilder();
+
+        String line;
+        try {
+
+            br = new BufferedReader(new InputStreamReader(is));
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return sb.toString();
     }
 
     /** Updates the solar panels score */
