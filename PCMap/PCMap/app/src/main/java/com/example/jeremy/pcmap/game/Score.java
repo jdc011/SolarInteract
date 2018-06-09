@@ -64,7 +64,9 @@ public class Score extends Activity {
 
     /** Modifies the result to show either win, lose, or draw */
     private void updateResult() {
-        double difference = CrankGame.getPlayerScore() - CrankGame.getSolarScore();
+        // getSum = score for user
+        // counter * solarScore = solar score
+        double difference = CrankGame.getSum() - (CrankGame.getCounter() * CrankGame.getSolarScore());
         String s = DRAW;
         if(difference > 0)
             s = WIN;

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -22,6 +23,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jeremy.pcmap.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,7 +52,7 @@ public class CrankGame extends Activity {
     /** Difficulty rating for the game */
     private int difficultyRating;
     /** Keeps track of player score */
-    private static double playerScore;
+    private static int playerScore;
     /** Keeps track of solar panel score */
     private static double solarScore;
     /** Keeps track of paused state */
@@ -85,14 +89,37 @@ public class CrankGame extends Activity {
     private int bufferPosition;
     /** Thread deactivation */
     private boolean stopThread;
-
+    /** Solar graph plot */
+    private LineGraphSeries solarPlot;
+    /** Player graph plot */
+    private LineGraphSeries playerPlot;
+    /** Graph interface */
+    private GraphView graph;
+    private static int counter;
+    private static int sum;
 
     public void Init(){
         difficultyRating = Difficulty.getDifficultyRating();
         playerScore = 0;
-        solarScore = 0;
+
+        switch(difficultyRating) {
+            case 10:
+                solarScore = 11;
+                break;
+            case 20:
+                solarScore = 15;
+                break;
+            default:
+                solarScore = 22;
+        }
+
         isPaused = false;
         timer = TICK * NUM_SECONDS;
+        solarPlot = new LineGraphSeries();
+        playerPlot = new LineGraphSeries();
+        graph = (GraphView) findViewById(R.id.graph);
+        counter = 0;
+        sum = 0;
 
         // Modifies the left TextView to dynamically show difficulty setting
         TextView t = (TextView) findViewById(R.id.DiffSetting);
@@ -264,7 +291,11 @@ public class CrankGame extends Activity {
                             handler.post(new Runnable() {
                                 public void run()
                                 {
-
+                                    if (string.matches("^[0-9]+$")) {
+                                        counter++;
+                                        playerScore = Integer.parseInt(string);
+                                        sum += playerScore;
+                                    }
                                 }
                             });
 
@@ -279,6 +310,14 @@ public class CrankGame extends Activity {
         });
 
         runThread.start();
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static int getSum() {
+        return sum;
     }
 
     /** Pauses the game temporarily */
@@ -303,13 +342,14 @@ public class CrankGame extends Activity {
                 try {
                     while (/*!isInterrupted()*/!isPaused) {
                         Thread.sleep(1000 / TICK);
-                        solarScore += Math.pow(2,-4);
+                        //solarScore += Math.pow(2,-4);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 updatePlayerScore();
                                 updateSolarScore();
                                 updateTimer();
+                                updatePlot(NUM_SECONDS - timer, solarScore, playerScore);
                             }
                         });
                         timer--;
@@ -342,19 +382,6 @@ public class CrankGame extends Activity {
                 .create().show();
     }
 
-    /** Updates the player score */
-    private void updatePlayerScore() {
-        TextView t = (TextView) findViewById(R.id.PlayerScoreDisplay);
-
-
-        //playerScore = Integer.parseInt(getStringFromInputStream(this.inputStream));
-
-        String scoreToDisplay = getResources().getString(R.string.si_crank_playerScore) + " " + playerScore;
-        t.setText(scoreToDisplay);
-
-
-    }
-
     /** Convert InputStream data to a string (formatting purposes)*/
     private static String getStringFromInputStream(InputStream is) {
 
@@ -384,6 +411,13 @@ public class CrankGame extends Activity {
         return sb.toString();
     }
 
+    /** Updates the player score */
+    private void updatePlayerScore() {
+        TextView t = (TextView) findViewById(R.id.PlayerScoreDisplay);
+        String scoreToDisplay = getResources().getString(R.string.si_crank_playerScore) + " " + playerScore;
+        t.setText(scoreToDisplay);
+    }
+
     /** Updates the solar panels score */
     private void updateSolarScore() {
         TextView t = (TextView) findViewById(R.id.SolarScoreDisplay);
@@ -397,6 +431,14 @@ public class CrankGame extends Activity {
         String timeToDisplay = getResources().getString(R.string.si_crank_timer) + " " +
                 (timer/20+1);
         t.setText(timeToDisplay);
+    }
+
+    /** Update graph line plot */
+    public void updatePlot(double time, double solarScore, int playerScore) {
+        solarPlot.appendData(new DataPoint(time, solarScore), true, 30, false);
+        playerPlot.appendData(new DataPoint(time, playerScore), true, 30, false);
+        graph.addSeries(solarPlot);
+        graph.addSeries(playerPlot);
     }
 
     /** Handles end of game functions (goes to player score screen) */
