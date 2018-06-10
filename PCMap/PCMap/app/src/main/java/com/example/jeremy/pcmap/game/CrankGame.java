@@ -324,6 +324,22 @@ public class CrankGame extends Activity {
     public void onPause(View view) {
         isPaused = !isPaused;
         update();
+        handlePaused(isPaused);
+    }
+
+    /** Handle between paused and unpaused state */
+    public void handlePaused(boolean flag) {
+        // paused
+        if(flag) {
+            Pause.setText("Play");
+            Toast.makeText(getApplicationContext(),"Game is paused.",Toast.LENGTH_SHORT).show();
+        }
+
+        // not paused
+        else {
+            Pause.setText("Pause");
+            Toast.makeText(getApplicationContext(),"Game is active.",Toast.LENGTH_SHORT).show();
+        }
     }
 
     /** Getter for player score */
@@ -340,16 +356,15 @@ public class CrankGame extends Activity {
             @Override
             public void run() {
                 try {
-                    while (/*!isInterrupted()*/!isPaused) {
+                    while (!isPaused) {
                         Thread.sleep(1000 / TICK);
-                        //solarScore += Math.pow(2,-4);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 updatePlayerScore();
                                 updateSolarScore();
                                 updateTimer();
-                                updatePlot(NUM_SECONDS - timer, solarScore, playerScore);
+                                updatePlot((double)((NUM_SECONDS * TICK) - timer)/TICK, solarScore, playerScore);
                             }
                         });
                         timer--;
@@ -364,9 +379,6 @@ public class CrankGame extends Activity {
                     //   https://stackoverflow.com/questions/3875184/cant-create-handler-inside-thread-that-has-not-called-looper-prepare
                     Message message = mHandler.obtainMessage(1, e);
                     message.sendToTarget();
-
-                    // Old code:
-                    //handleException(e);
                 }
             }
         };
