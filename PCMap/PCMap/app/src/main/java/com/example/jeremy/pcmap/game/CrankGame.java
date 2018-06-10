@@ -54,7 +54,7 @@ public class CrankGame extends Activity {
     /** Keeps track of player score */
     private static int playerScore;
     /** Keeps track of solar panel score */
-    private static double solarScore;
+    private static int solarScore;
     /** Keeps track of paused state */
     private boolean isPaused;
     /** Timer for the game */
@@ -119,6 +119,8 @@ public class CrankGame extends Activity {
         timer = TICK * NUM_SECONDS;
         solarPlot = new LineGraphSeries();
         playerPlot = new LineGraphSeries();
+        solarPlot.setColor(Color.GREEN);
+        playerPlot.setColor(Color.RED);
         graph = (GraphView) findViewById(R.id.graph);
         counter = 0;
         sum = 0;
@@ -342,10 +344,10 @@ public class CrankGame extends Activity {
     }
 
     /** Getter for player score */
-    public static double getPlayerScore() { return sum; }
+    public static int getPlayerScore() { return sum; }
 
     /** Getter for solar score */
-    public static double getSolarScore() { return solarScore; }
+    public static int getSolarScore() { return solarScore; }
 
     /** Starts a new thread that updates the screen every tick
      *  Code from: https://stackoverflow.com/questions/14814714/update-textview-every-second
@@ -427,6 +429,7 @@ public class CrankGame extends Activity {
         TextView t = (TextView) findViewById(R.id.PlayerScoreDisplay);
         String scoreToDisplay = getResources().getString(R.string.si_crank_playerScore) + " " + playerScore;
         t.setText(scoreToDisplay);
+        t.setTextColor(Color.RED);
     }
 
     /** Updates the solar panels score */
@@ -434,6 +437,7 @@ public class CrankGame extends Activity {
         TextView t = (TextView) findViewById(R.id.SolarScoreDisplay);
         String scoreToDisplay = getResources().getString(R.string.si_crank_solarScore) + " " + solarScore;
         t.setText(scoreToDisplay);
+        t.setTextColor(Color.GREEN);
     }
 
     /** Updates the timer to display the time left */
