@@ -19,7 +19,7 @@ public class Score extends Activity {
     // strings for win/lose conditions
     private final String WIN = "You won! You beat the solar panel!";
     private final String LOSE = "You lost! Better luck next time!";
-    private final String DRAW = "Wow! You and the solar panel(s) drew!";
+    private final String DRAW = "Wow! You and the solar panel drew!";
 
     public void Init(){
         updateScores();
@@ -56,17 +56,30 @@ public class Score extends Activity {
         t.setText(updateString);
 
         // solar panel score
-        score = CrankGame.getSolarScore();
+        score = CrankGame.getSolarScore() * CrankGame.getCounter();
         t = (TextView) findViewById(R.id.SolarScore);
         updateString = t.getText().toString() + " " + score;
+        t.setText(updateString);
+
+        // solar size
+        t = (TextView) findViewById(R.id.SolarSize);
+
+        switch(Difficulty.getDifficultyRating()) {
+            case 10:
+                updateString = t.getText().toString() + " .5 feet squared";
+                break;
+            case 20:
+                updateString = t.getText().toString() + " .7 feet squared";
+                break;
+            default:
+                updateString = t.getText().toString() + " 1 feet squared";
+        }
         t.setText(updateString);
     }
 
     /** Modifies the result to show either win, lose, or draw */
     private void updateResult() {
-        // getSum = score for user
-        // counter * solarScore = solar score
-        double difference = CrankGame.getSum() - (CrankGame.getCounter() * CrankGame.getSolarScore());
+        double difference = CrankGame.getPlayerScore() - (CrankGame.getCounter() * CrankGame.getSolarScore());
         String s = DRAW;
         if(difference > 0)
             s = WIN;

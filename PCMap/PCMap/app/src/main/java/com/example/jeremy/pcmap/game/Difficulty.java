@@ -132,15 +132,15 @@ public class Difficulty extends Activity{
         String oldDiffSetting;
         switch(difficultyMultiplier.get(difficultySetting)) {
             default: // defaults to resetting easy setting
-            case 10:
+            case EASY:
                 t = (TextView) findViewById(R.id.Easy);
                 oldDiffSetting = getResources().getString(R.string.si_diff_easy);
                 break;
-            case 20:
+            case MEDIUM:
                 t = (TextView) findViewById(R.id.Medium);
                 oldDiffSetting = getResources().getString(R.string.si_diff_medium);
                 break;
-            case 40:
+            case HARD:
                 t = (TextView) findViewById(R.id.Hard);
                 oldDiffSetting = getResources().getString(R.string.si_diff_hard);
                 break;

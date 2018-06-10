@@ -28,6 +28,18 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
+        android:id="@+id/SolarSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Solar Panel size:"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="20sp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/SolarScore"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
         android:id="@+id/SolarScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,8 +56,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/si_scores_scoreboard"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/PlayerScore"
-        android:layout_centerHorizontal="true"/>
+        android:gravity="center"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/SolarSize"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

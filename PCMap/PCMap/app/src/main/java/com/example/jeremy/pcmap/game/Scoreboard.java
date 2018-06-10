@@ -41,6 +41,4 @@ public class Scoreboard extends Activity{
         Intent homeActivity = new Intent(Scoreboard.this, SolarInteract.class);
         startActivity(homeActivity);
     }
-
-    // TODO: Implement a scoreboard display
 }

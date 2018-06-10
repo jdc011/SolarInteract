@@ -46,7 +46,7 @@ public class CrankGame extends Activity {
     /** Number of ticks per second */
     private final int TICK = 20;
     /** Duration of the game in seconds */
-    private final int NUM_SECONDS = 60;
+    private final int NUM_SECONDS = 30;
     // Buttons for the game
     private Button Pause;
     /** Difficulty rating for the game */
@@ -95,7 +95,9 @@ public class CrankGame extends Activity {
     private LineGraphSeries playerPlot;
     /** Graph interface */
     private GraphView graph;
+    /** In game iterations */
     private static int counter;
+    /** Player score sum */
     private static int sum;
 
     public void Init(){
@@ -312,12 +314,9 @@ public class CrankGame extends Activity {
         runThread.start();
     }
 
+    /** Return the amount of iterations in game */
     public static int getCounter() {
         return counter;
-    }
-
-    public static int getSum() {
-        return sum;
     }
 
     /** Pauses the game temporarily */
@@ -343,7 +342,7 @@ public class CrankGame extends Activity {
     }
 
     /** Getter for player score */
-    public static double getPlayerScore() { return playerScore; }
+    public static double getPlayerScore() { return sum; }
 
     /** Getter for solar score */
     public static double getSolarScore() { return solarScore; }
@@ -447,8 +446,8 @@ public class CrankGame extends Activity {
 
     /** Update graph line plot */
     public void updatePlot(double time, double solarScore, int playerScore) {
-        solarPlot.appendData(new DataPoint(time, solarScore), true, 30, false);
-        playerPlot.appendData(new DataPoint(time, playerScore), true, 30, false);
+        solarPlot.appendData(new DataPoint(time, solarScore), true, 10, false);
+        playerPlot.appendData(new DataPoint(time, playerScore), true, 10, false);
         graph.addSeries(solarPlot);
         graph.addSeries(playerPlot);
     }
