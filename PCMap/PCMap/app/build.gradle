@@ -16,6 +16,7 @@ android {
     defaultConfig {
         multiDexEnabled true
         applicationId "com.example.jeremy.pcmap"
+        project.archivesBaseName = "SolarInteract"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
