@@ -31,7 +31,7 @@
 
         <activity
             android:name=".HomeActivity"
-            android:label="Solar Interact: Home"
+            android:label="Solar Interact"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
