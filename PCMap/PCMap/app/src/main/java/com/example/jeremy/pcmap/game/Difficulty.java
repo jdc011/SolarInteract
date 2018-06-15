@@ -149,16 +149,16 @@ public class Difficulty extends Activity{
 
         String newDiffSetting;
         switch(difficultyMultiplier.get(diff)) {
-            case 1:
+            case EASY:
                 t = (TextView) findViewById(R.id.Easy);
                 newDiffSetting = "→" + getResources().getString(R.string.si_diff_easy) + "←";
                 break;
             default: // defaults to changing to medium setting
-            case 2:
+            case MEDIUM:
                 t = (TextView) findViewById(R.id.Medium);
                 newDiffSetting = "→" + getResources().getString(R.string.si_diff_medium) + "←";
                 break;
-            case 4:
+            case HARD:
                 t = (TextView) findViewById(R.id.Hard);
                 newDiffSetting = "→" + getResources().getString(R.string.si_diff_hard) + "←";
                 break;
