@@ -295,11 +295,9 @@ public class CrankGame extends Activity {
                             handler.post(new Runnable() {
                                 public void run()
                                 {
-                                    if (string.matches("^[0-9]+$")) {
-                                        counter++;
-                                        playerScore = Integer.parseInt(string);
-                                        sum += playerScore;
-                                    }
+                                    counter++;
+                                    playerScore = stoi(string);
+                                    sum += playerScore;
                                 }
                             });
 
@@ -314,6 +312,20 @@ public class CrankGame extends Activity {
         });
 
         runThread.start();
+    }
+
+    /** Efficient conversion of string to int to race with thread */
+    public int stoi (String string) {
+        int value;
+
+        if (string.length() == 3) {
+            value = ((string.charAt(0) - 48) * 10) + (string.charAt(1) - 48);
+        }
+        else {
+            value = string.charAt(0) + 48;
+        }
+
+        return value;
     }
 
     /** Return the amount of iterations in game */
