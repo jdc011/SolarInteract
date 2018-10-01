@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-auth-module-9.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/c8e746a978df08e8f3e741facf0dab241a4a6bca/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/c8e746a978df08e8f3e741facf0dab241a4a6bca/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

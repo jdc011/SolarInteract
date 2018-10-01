@@ -43,6 +43,7 @@ import static com.example.jeremy.pcmap.game.Difficulty.getDifficultySetting;
  */
 
 public class CrankGame extends Activity {
+    private static final int MULT = 3;
     /** Number of ticks per second */
     private final int TICK = 20;
     /** Duration of the game in seconds */
@@ -296,7 +297,7 @@ public class CrankGame extends Activity {
                                 public void run()
                                 {
                                     counter++;
-                                    playerScore = stoi(string);
+                                    playerScore = Integer.parseInt(string) * MULT;
                                     sum += playerScore;
                                 }
                             });
@@ -315,7 +316,7 @@ public class CrankGame extends Activity {
     }
 
     /** Efficient conversion of string to int to race with thread */
-    public int stoi (String string) {
+    /*public int stoi (String string) {
         int value;
 
         if (string.length() == 3) {
@@ -326,7 +327,7 @@ public class CrankGame extends Activity {
         }
 
         return value;
-    }
+    }*/
 
     /** Return the amount of iterations in game */
     public static int getCounter() {
